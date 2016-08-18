@@ -9,7 +9,7 @@ attributes:
 
 options:
   doctype: 'article'
-  header_footer: 'false'
-  to_dir: 'generated_content'
-  to_file: 'outputt.html'
+  header_footer: 'true'
+  to_dir: 'generated'
+  to_file: 'output.html'
   safe: 'unsafe' # Required to avoid that the file to process is not loaded
