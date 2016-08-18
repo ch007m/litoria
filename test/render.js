@@ -29,11 +29,11 @@ test('Convert adoc string to HTML using doctype : inline', function(assert) {
 });
 
 test('Convert adoc string to HTML using doctype : article, header_footer : true', function(assert) {
-    var content = getFile(path.join('test', 'fixtures', 'simple.adoc'));
-    const expected = getFile(path.join('test', 'fixtures', 'simple.html'));
+    var content = getFile(path.join('test', 'fixtures', 'simple.adoc')).contents.toString('utf8');
+    const expected = getFile(path.join('test', 'fixtures', 'simple.html')).contents.toString('utf8');
     var options = opal.hash({doctype: 'article', header_footer: 'true', attributes: ['nofooter']});
     var result = opal.Asciidoctor.$convert(content, options);
-
+    // console.log(result);
     assert.equal(result, expected,"Render to HTML");
     assert.end();
 });
