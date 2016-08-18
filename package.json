@@ -1,7 +1,9 @@
 {
   "dependencies": {
-    "yamljs": "0.2.8",
     "asciidoctor.js": "1.5.5-1",
-    "inline-css": "2.2.2"
+    "chai": "^3.5.0",
+    "inline-css": "2.2.2",
+    "mocha": "^3.0.2",
+    "yamljs": "0.2.8"
   }
 }
