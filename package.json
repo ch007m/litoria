@@ -1,9 +1,21 @@
 {
+  "license": "Apache License 2.0",
+  "maintainers": [
+    {
+      "name": "cmoulliard",
+      "email": "ch007m@gmail.com"
+    }
+  ],
   "dependencies": {
     "asciidoctor.js": "1.5.5-1",
     "chai": "^3.5.0",
     "inline-css": "2.2.2",
     "mocha": "^3.0.2",
-    "yamljs": "0.2.8"
+    "yamljs": "0.2.8",
+    "tape": "4.6.0",
+    "gul-util": "latest"
+  },
+  "scripts": {
+    "test": ""
   }
 }
