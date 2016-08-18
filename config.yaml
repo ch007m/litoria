@@ -1,4 +1,4 @@
-file_to_process: "/Users/chmoulli/Google-Drive/REDHAT/RH-GP/Reports/2016/report/test.adoc"
+file_to_process: "./minutes/test.adoc"
 
 attributes:
   showtitle: ''
