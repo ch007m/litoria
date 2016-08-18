@@ -1,6 +1,6 @@
-var asciidoctor = require('asciidoctor.js')();
-var fs = require('fs')
-var YAML = require('yamljs');
+var asciidoctor = require('asciidoctor.js')(),
+    fs = require('fs'),
+    YAML = require('yamljs');
 
 var opal = asciidoctor.Opal;
 var processor = null;
