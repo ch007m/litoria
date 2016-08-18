@@ -16,6 +16,11 @@ function getFile(filePath) {
     });
 }
 
+/*
+ * Convert an asciidoctor String using html5 as backend
+ * The doctype defined is inline
+ * The content is structured with just the content of paragraph. No HTML, body, header, content & paragraph tags are included
+ */
 test('Convert adoc string to HTML using doctype : inline', function(assert) {
 
     var content = "http://asciidoctor.org[*Asciidoctor*] " +
@@ -31,6 +36,12 @@ test('Convert adoc string to HTML using doctype : inline', function(assert) {
     assert.end();
 });
 
+/*
+ * Convert an asciidoctor String using html5 as backend
+ * The doctype : article
+ * header_footer: true # Asciidoctor will include to the HTML generated the header section containing the link to the style and font to be used
+ * The content is structured with a body, header, content & paragraph
+ */
 test('Convert adoc string to HTML using doctype: article, header_footer : true', function(assert) {
 
     var content = getFile(path.join('test', 'fixtures', 'simple.adoc')).contents.toString('utf8');
