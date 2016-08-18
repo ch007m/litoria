@@ -1,0 +1,23 @@
+file_to_process: "/Users/chmoulli/Google-Drive/REDHAT/RH-GP/Reports/2016/report/test.adoc"
+
+attributes:
+  showtitle: ''
+  stylesheet: 'foundation.css'
+  # stylesdir: '/Users/chmoulli/Code/github/asciidoctor/asciidoctor-stylesheet-factory/stylesheets'
+  stylesdir: 'css'
+  nofooter: 'yes'
+  linkcss: 'true'
+  # icons: 'font'
+  # iconfont-remote: 'true'
+  # iconfont-cdn: 'http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'
+  # icon-arrow-left: <i class="fa fa-arrow-right"></i>
+  # icon-arrow-right: <i class="fa fa-arrow-right"></i>
+  # icon-exclamation-mark: <i class="fa fa-exclamation"></i>
+  # icon-question-mark: <i class="fa fa-question"></i>
+
+options:
+  doctype: 'article'
+  header_footer: 'false'
+  #to_dir: '/Users/chmoulli/Google-Drive/REDHAT/RH-GP/Reports/2016/generated_content'
+  #to_file: 'output.html'
+  safe: 'unsafe' # Required to avoid that the file to process is not loaded

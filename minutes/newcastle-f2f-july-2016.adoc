@@ -1,0 +1,109 @@
+[cols="10,90",weight="80%"]
+|===
+|image:https://www.dropbox.com/s/6holgzml3fv4fbr/obsidian.jpg?raw=1[100,100]
+<s|Newcastle F2F Meeting : 12-14 July 2016
+|===
+
+== Minutes
+
+Author : Charles Moulliard
+
+Attendees :
+
+|===
+a| * Mark Little UK
+* Rob Davies - UK
+* James Strachan - UK
+* Mitch Harpur - US
+* Ken Finnigan - US
+* Claus Ibsen - EU
+* Heiko Braun - EU
+* Clement Escoffier  - EU a| * Ioannis - Greece
+* Marc Savy - UK
+* James Rawlings - UK
+* Steph Bacon - US
+* Gunnar Morling - EU
+* Antoine Sabot-Durand - EU
+* John Clingan - US
+* Charles Moulliard - EU
+|===
+
+Reference:
+
+* https://docs.google.com/document/d/1jyHyIwu1RU-A-nt8P5TQfiedXzuUFsYgfV1G-k5eKzE/[Microservices F2F Meeting Agenda]
+
+== General
+
+The objectives of the F2F meeting as defined within the Meeting agenda (see reference) are :
+
+* Define the aPaaS - the  platform that is going to compete head on with Spring Boot/Netflix OSS  and Cloud Foundry
+* Agreement on limited set of approaches to Microservices.
+* Common Architecture
+* Common Vocabulary when talking about Microservices
+
+== Decisions
+
+* All the attendees have agreed to design/develop the +Obsidian Platform+ as a +Cloud Native Platform+
+
+WARNING: We should measure the impacts/consequences about this decision for the existing customers which are not Cloud Ready or interested to move to the cloud (public, hybrid)
+
+* The mission of the +Microservices Platform+ will be to +++<i class="fa fa-arrow-right"></i>+++ +Continuous Improvement through Containerised Microservices+
+
+* During the face 2 face meetings, we have proposed to create +Working groups+
+
+ - Data - JDV and Event Sourcing - Gunnar
+ - Toolkits - Heiko Braun
+ - Instrumentation  - Clement Escoffier
+ - CI/CD   -  James Rawlings
+ - Visualisation - James Strachan
+ - Experience (Tooling) - TBD
+ - Security - Charles Moulliard
+
+NOTE: These may be collapsed into fewer groups
+
+* The goal of the +working groups+ will be to +investigate+ for the different topics listed hereafter:
+
+ - The components, libraries, frameworks that we will package within the Obsidian Platform
+ - How we could deliver / integrate them top of the OpenShift Platform
+ - Provide for each practice the infos required to design the platform (patterns, use cases supported, ...)
+
+* Creating a Microservice platform is not enough as we must +educate+ our customers, clients and also +promote+ the Architecture culture specific to Microservices application.
+  This is why the delivery of the product should include the following +Educational+ items:
+
+ - Reference Architecture - Patterns/Quickstarts
+ - Best Practices
+ - Products and product teams
+ - Contracts/relationships
+
+* The +product Manager+ has presented +its priorities+ for v1 which are to +productize+: EAP, Swarm & Vertx for Openshift.
+  It should also include +++<i class="fa fa-arrow-right"></i>+++ best practices, examples, etc - the type of content that we see during the microservices meetings.
+
+* Here is the +first draft+ of the +product+ definition/scope :
+
+** Need a project Template that:
+*** Need src control
+*** Build pipeline
+*** Test Infrastructure
+*** API Management
+*** Data
+*** Artifact Storage
+** The Environment:
+*** Release Management
+*** Dashboards - feedback loop
+*** Orchestration
+*** Communication
+*** Service Discovery
+*** Service Registry
+** Education:
+*** Toolkits
+*** Quickstarts
+*** Architectural Guidance
+
+== Next Steps
+
+* +Setup the Working Group+ to gather the required information
+* +Clarify+ the question about the +support of SpringBoot+
+* +Review the scope+ of the Product including also its project code name
+* +Setup the environment/infrastructure+ to communicate
+* +Define the stakeholders+ & +launch+ the steering committee
+
