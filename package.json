@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "yamljs": "0.2.8",
-    "asciidoctor.js": "1.5",
+    "asciidoctor.js": "1.5.5-1",
     "inline-css": "2.2.2"
   }
 }

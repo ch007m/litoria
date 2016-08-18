@@ -2,12 +2,9 @@
 
 ## Install package 
 
-```
-npm install asciidoctor.js -g
-npm link asciidoctor.js
-npm install inline-css
-npm install yamljs
-```
+Version of node required : 6.3
+
+    npm install
 
 ## Run
 
