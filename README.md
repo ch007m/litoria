@@ -3,7 +3,8 @@
 Install package 
 
 ```
-npm install asciidoctor.js
+npm install asciidoctor.js -g
+npm link asciidoctor.js
 npm install inline-css
 npm install yamljs
 ```
