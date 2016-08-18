@@ -10,6 +10,6 @@ attributes:
 options:
   doctype: 'article'
   header_footer: 'false'
-  #to_dir: './generated_content'
-  #to_file: 'outputt.html'
+  to_dir: '/Users/chmoulli/MyProjects/asciidoctor-nodejs/generated_content/'
+  to_file: 'outputt.html'
   safe: 'unsafe' # Required to avoid that the file to process is not loaded

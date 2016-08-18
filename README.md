@@ -10,4 +10,10 @@ Version of node required : 6.3
 
     node asciidoc.js
 
+## To debug
+
+    npm install -g node-debug
+    
+    node-debug asciidoc.js
+    
 
