@@ -66,7 +66,41 @@ test('Convert adoc string to HTML using doctype: article, header_footer : true',
     assert.end();
 });
 
-test('Convert adoc string to HTML using doctype: article, header_footer: true, to_dir and to_file', function(assert) {
+/*
+ * Convert an asciidoctor file using html5 as backend
+ * where the doctype is : article
+ * The stylesheet used is asciidoctor-default.css
+ * header_footer: true # Asciidoctor will include to the HTML generated the header section containing the link to the style and font to be used
+ * The content is structured with a body, header, content & paragraph
+ */
+test('Convert adoc file to HTML using doctype: article, header_footer : true', function(assert) {
+
+    var f = path.join('test', 'fixtures', 'simple2.adoc');
+    var expected = getFile(path.join('test', 'fixtures', 'simple2.html')).contents.toString('utf8');
+
+    var attrs = opal.hash({showtitle: '',
+        stylesheet: 'asciidoctor-default.css',
+        stylesdir: '../../test/css',
+        nofooter: 'yes'});
+
+    var options = opal.hash({doctype: 'article',
+        safe: 'unsafe',
+        attributes: attrs});
+
+    opal.Asciidoctor.$convert_file(f, options);
+
+    result = getFile(path.join('test', 'fixtures', 'simple2.adoc.html')).contents.toString('utf8');
+    assert.equal(result, expected,"Render to HTML");
+    assert.end();
+});
+
+/*
+ * Convert an asciidoctor String using html5 as backend
+ * The doctype : article
+ * header_footer: true # Asciidoctor will include to the HTML generated the header section containing the link to the style and font to be used
+ * The content is structured with a body, header, content & paragraph
+ */
+test('Convert adoc string to HTML using doctype: article, header_footer: true and Save file according to_dir and to_file options', function(assert) {
 
     var content = getFile(path.join('test', 'fixtures', 'simple.adoc')).contents.toString('utf8');
     var expected = getFile(path.join('test', 'fixtures', 'simple-foundation.html')).contents.toString('utf8');
