@@ -69,22 +69,23 @@ test('Convert adoc string to HTML using doctype: article, header_footer : true',
 test('Convert adoc string to HTML using doctype: article, header_footer: true, to_dir and to_file', function(assert) {
 
     var content = getFile(path.join('test', 'fixtures', 'simple.adoc')).contents.toString('utf8');
-    var expected = getFile(path.join('test', 'fixtures', 'simple.html')).contents.toString('utf8');
+    var expected = getFile(path.join('test', 'fixtures', 'simple-foundation.html')).contents.toString('utf8');
 
     var attrs = opal.hash({showtitle: '',
-                           stylesheet: 'foundation.css',
-                           stylesdir: 'test/css',
-                           nofooter: 'yes'});
+        stylesheet: 'foundation.css',
+        stylesdir: 'test/css',
+        nofooter: 'yes'});
 
     var options = opal.hash({doctype: 'article',
-                             safe: 'unsafe',
-                             header_footer: 'true',
-                             to_dir: 'generated',
-                             to_file: 'output.html',
-                             attributes: attrs});
+        safe: 'unsafe',
+        header_footer: 'true',
+        to_dir: 'test/generated',
+        to_file: 'output.html',
+        attributes: attrs});
 
-    var result = opal.Asciidoctor.$convert(content, options);
+    opal.Asciidoctor.$convert(content, options);
 
+    result = getFile(path.join('test', 'generated', 'output.html')).contents.toString('utf8');
     assert.equal(result, expected,"Render to HTML");
     assert.end();
 });
