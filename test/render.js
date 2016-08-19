@@ -7,6 +7,7 @@ var opal;
 
 function setup() {
     opal = asciidoctor.Opal;
+    opal.load("nodejs");
     processor = asciidoctor.Asciidoctor();
 }
 
@@ -70,12 +71,17 @@ test('Convert adoc string to HTML using doctype: article, header_footer: true, t
     var content = getFile(path.join('test', 'fixtures', 'simple.adoc')).contents.toString('utf8');
     var expected = getFile(path.join('test', 'fixtures', 'simple.html')).contents.toString('utf8');
 
+    var attrs = opal.hash({showtitle: '',
+                           stylesheet: 'foundation.css',
+                           stylesdir: 'test/css',
+                           nofooter: 'yes'});
+
     var options = opal.hash({doctype: 'article',
                              safe: 'unsafe',
                              header_footer: 'true',
                              to_dir: 'generated',
                              to_file: 'output.html',
-                             attributes: ['nofooter']});
+                             attributes: attrs});
 
     var result = opal.Asciidoctor.$convert(content, options);
 

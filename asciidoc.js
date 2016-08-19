@@ -2,10 +2,12 @@ var asciidoctor = require('asciidoctor.js')(),
     fs = require('fs'),
     YAML = require('yamljs');
 
+var processor = null,
+    useExtensions = true,
+    cfg = null;
+
 var opal = asciidoctor.Opal;
-var processor = null;
-var useExtensions = true;
-var cfg = null;
+opal.load("nodejs");
 
 if (useExtensions) {
     processor = asciidoctor.Asciidoctor(true);
