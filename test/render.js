@@ -20,13 +20,16 @@ function getFile(filePath) {
 }
 
 /*
+ * Init
+ */
+setup();
+
+/*
  * Convert an asciidoctor String using html5 as backend
  * The doctype defined is inline
  * The content is structured with just the content of paragraph. No HTML, body, header, content & paragraph tags are included
  */
 test('Convert adoc string to HTML using doctype : inline', function(assert) {
-
-    setup();
 
     var content = "http://asciidoctor.org[*Asciidoctor*] " +
         "running on http://opalrb.org[_Opal_] " +
@@ -49,8 +52,6 @@ test('Convert adoc string to HTML using doctype : inline', function(assert) {
  */
 test('Convert adoc string to HTML using doctype: article, header_footer : true', function(assert) {
 
-    setup();
-
     var content = getFile(path.join('test', 'fixtures', 'simple.adoc')).contents.toString('utf8');
     var expected = getFile(path.join('test', 'fixtures', 'simple.html')).contents.toString('utf8');
 
@@ -65,8 +66,6 @@ test('Convert adoc string to HTML using doctype: article, header_footer : true',
 });
 
 test('Convert adoc string to HTML using doctype: article, header_footer: true, to_dir and to_file', function(assert) {
-
-    setup();
 
     var content = getFile(path.join('test', 'fixtures', 'simple.adoc')).contents.toString('utf8');
     var expected = getFile(path.join('test', 'fixtures', 'simple.html')).contents.toString('utf8');
