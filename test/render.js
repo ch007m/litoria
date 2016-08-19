@@ -85,11 +85,12 @@ test('Convert adoc file to HTML using doctype: article, header_footer : true', f
 
     var options = opal.hash({doctype: 'article',
         safe: 'unsafe',
+        to_dir: 'test/generated',
         attributes: attrs});
 
     opal.Asciidoctor.$convert_file(f, options);
 
-    result = getFile(path.join('test', 'fixtures', 'simple2.adoc.html')).contents.toString('utf8');
+    result = getFile(path.join('test', 'generated', 'simple2.adoc.html')).contents.toString('utf8');
     assert.equal(result, expected,"Render to HTML");
     assert.end();
 });
