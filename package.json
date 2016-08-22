@@ -20,7 +20,7 @@
     "yamljs": "^0.2.8"
   },
   "scripts": {
-    "test": ""
+    "test": "tape test/render.js"
   },
   "bin": {
     "gp-tool": "bin/cmd.js"
