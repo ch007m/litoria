@@ -16,7 +16,6 @@
     "gulp-util": "^3.0.7",
     "inline-css": "^2.2.2",
     "mocha": "^3.0.2",
-    "tape": "^4.6.0",
     "yamljs": "^0.2.8"
   },
   "scripts": {
@@ -24,5 +23,8 @@
   },
   "bin": {
     "gp-tool": "bin/cmd.js"
+  },
+  "devDependencies": {
+    "tape": "^4.6.0"
   }
 }
