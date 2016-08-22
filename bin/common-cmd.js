@@ -4,7 +4,6 @@ var project = require('../common.js'),
 program
     .version(project.version)
     .description(project.description)
-    .option('-v, --verbose', 'be verbose')
-    .option('-q, --quiet', 'be quiet');
+    .option('-v, --verbose', 'be verbose');
 
 module.exports = program;
