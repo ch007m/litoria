@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-var program = require('./common-cmd.js')
+var program = require('./common-cmd.js'),
     $ = require('./functions.js');
 
 /*
@@ -12,6 +12,6 @@ program
 /*
  * Call listPackages function
  */
-$.listPackages(program.args);
-$.listDirectories(program.args);
+$.listPackages(program.args,program);
+$.listDirectories(program.args, program);
 
