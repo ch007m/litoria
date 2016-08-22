@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
-var program = require('commander');
-var config = require('../common.js');
+var program = require('commander'),
+    config = require('../common.js');
 
 program
     .version(config.version)
