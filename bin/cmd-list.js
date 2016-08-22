@@ -1,6 +1,5 @@
 #!/usr/bin/env node
-
-var program = require('commander');
+var program = require('./common-cmd.js');
 
 program
     .option('-f, --force', 'force installation')
