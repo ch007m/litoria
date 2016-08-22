@@ -1,12 +1,4 @@
-var fs = require('fs');
-var config = {};
-
 // Parse package.json file to read properties
-var json = JSON.parse(fs.readFileSync('./package.json', 'utf8'));
+var data = require('./package.json');
 
-// Set common properties
-config.version = json.version;
-config.name = json.name;
-config.description = json.description;
-
-module.exports = config;
+module.exports = data;
