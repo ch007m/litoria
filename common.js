@@ -1,10 +1,10 @@
 var fs = require('fs');
 var config = {};
 
-// Parse node.js package.json file
+// Parse package.json file to read properties
 json = JSON.parse(fs.readFileSync('./package.json', 'utf8'));
 
-// Project version
+// Set common properties
 config.version = json.version;
 config.name = json.name;
 config.description = json.description;
