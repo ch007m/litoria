@@ -13,4 +13,3 @@ program
  * Call function responsible to convert the Asciidoc file(s) to HTML
  */
 $.convertToHtml(program.args);
-

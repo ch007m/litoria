@@ -2,7 +2,7 @@
 var program = require('./common-cmd.js');
 
 /*
- * List of commands
+ * List of commands available
  */
 program
     .command('list', 'list packages installed')
