@@ -1,4 +1,7 @@
 {
+  "name": "gp-tool",
+  "version": "0.0.1",
+  "description": "Global Platform Tool to generate weekly reports, minutes, ...",
   "license": "Apache License 2.0",
   "maintainers": [
     {
@@ -9,13 +12,17 @@
   "dependencies": {
     "asciidoctor.js": "1.5.5-1",
     "chai": "^3.5.0",
-    "inline-css": "2.2.2",
+    "commander": "^2.9.0",
+    "gulp-util": "^3.0.7",
+    "inline-css": "^2.2.2",
     "mocha": "^3.0.2",
-    "yamljs": "0.2.8",
-    "tape": "4.6.0",
-    "gul-util": "latest"
+    "tape": "^4.6.0",
+    "yamljs": "^0.2.8"
   },
   "scripts": {
     "test": ""
+  },
+  "bin": {
+    "gp-tool": "bin/cmd.js"
   }
 }
