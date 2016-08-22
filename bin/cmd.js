@@ -1,6 +1,9 @@
 #!/usr/bin/env node
 var program = require('./common-cmd.js');
 
+/*
+ * List of commands
+ */
 program
     .command('list', 'list packages installed')
     .command('install [name]', 'install one or more packages').alias('i')

@@ -1,6 +1,9 @@
 var project = require('../common.js'),
     program = require('commander');
 
+/*
+ * Commander common features
+ */
 program
     .version(project.version)
     .description(project.description)
