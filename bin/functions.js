@@ -12,8 +12,13 @@ var cfg = null;
 
 module.exports = {
     convertToHtml: convertToHtml,
-    inline: inline
+    inline: inline,
+    isEmpty: isEmpty
 };
+
+function isEmpty(str) {
+    return (!str || 0 === str.length);
+}
 
 /*
  * Generate the HTML and create the output file based on out_dir and out_file attributes

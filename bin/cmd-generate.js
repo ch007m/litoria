@@ -12,4 +12,9 @@ program
 /*
  * Call function responsible to convert the Asciidoc file(s) to HTML
  */
-$.convertToHtml(program.args);
+if ($.isEmpty(program.args)) {
+    console.log("No arguments have been passed to the command.");
+    process.exit(0);
+} else {
+    $.convertToHtml(program.args);
+}
