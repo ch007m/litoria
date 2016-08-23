@@ -16,4 +16,9 @@ Version of node required : 6.3
     
     node-debug asciidoc.js
     
+## Doc
+
+Links to the projects used
+ 
+* Inline Css : https://github.com/zurb/inline-css
 

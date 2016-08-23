@@ -2,7 +2,8 @@
 
 var fs = require('fs'),
     asciidoctor = require('asciidoctor.js')(),
-    YAML = require('yamljs');
+    YAML = require('yamljs'),
+    inlineCss = require('inline-css');
 
 var opal = asciidoctor.Opal;
 opal.load("nodejs");
@@ -10,14 +11,14 @@ var processor = asciidoctor.Asciidoctor();
 var cfg = null;
 
 module.exports = {
-    convertToHtml: convertToHtml
+    convertToHtml: convertToHtml,
+    inline: inline
 };
 
 /*
  * Generate the HTML and create the output file based on out_dir and out_file attributes
  */
 function convertToHtml(cfg_file) {
-
     var cfg = getConfig(cfg_file);
     if (cfg) {
         var content = getContent(cfg.file_to_process);
@@ -33,6 +34,27 @@ function convertToHtml(cfg_file) {
             console.error(e.stack);
         }
 
+    }
+}
+
+/*
+ *
+ */
+function inline(cfg_file) {
+    var options = {};
+    var cfg = getConfig(cfg_file);
+    if (cfg) {
+        var html = readHtmlFile(cfg.file_to_inline);
+        options.url = 'file://' + cfg.file_to_inline.path;
+        options.extraCss = "http://cdnjs.cloudflare.com/ajax/libs/font-awesome/3.2.0/css/font-awesome.css"
+        inlineCss(html, options).then(function (html) {
+            fs.writeFile(cfg.file_inlined, html, function (err) {
+                if (err) {
+                    return console.log(err);
+                }
+                console.log("The file was saved!");
+            });
+        });
     }
 }
 
@@ -56,3 +78,11 @@ function getContent(path) {
 function readFile(path) {
     return fs.readFileSync(path, 'utf8')
 }
+
+/*
+ *
+ */
+function readHtmlFile(path) {
+    return fs.readFileSync(path, 'utf8');
+}
+
