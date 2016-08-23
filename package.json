@@ -15,10 +15,11 @@
     "colors": "^1.1.2",
     "commander": "^2.9.0",
     "inline-css": "^2.2.2",
+    "sinon": "^1.17.5",
     "yamljs": "^0.2.8"
   },
   "scripts": {
-    "test": "tape test/render.js"
+    "test": "tape test/*.js"
   },
   "bin": {
     "cmd": "bin/cmd.js"
