@@ -8,7 +8,6 @@ var fs = require('fs'),
 var opal = asciidoctor.Opal;
 opal.load("nodejs");
 var processor = asciidoctor.Asciidoctor();
-var cfg = null;
 
 var bunyan = require('bunyan');
 
@@ -67,7 +66,7 @@ function inline(cfg_file) {
     if (cfg) {
         var html = readHtmlFile(cfg.file_to_inline);
         options.url = 'file://' + cfg.file_to_inline.path;
-        options.extraCss = "http://cdnjs.cloudflare.com/ajax/libs/font-awesome/3.2.0/css/font-awesome.css"
+        options.extraCss = "font-awesome.min.css"
         inlineCss(html, options).then(function (html) {
             fs.writeFile(cfg.file_inlined, html, function (err) {
                 if (err) {
@@ -83,7 +82,7 @@ function inline(cfg_file) {
  *
  */
 function getConfig(file) {
-    return cfg = YAML.load('config.yaml');
+    return YAML.load('config.yaml');
 }
 
 /*

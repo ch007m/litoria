@@ -6,17 +6,19 @@
 
 == Highlight
 
-.Obsidian Platform
+.Platform
 * Blabla.
 * Blabla.
 ** Blabla.
 * Blabla.
 ** Blabla.
 
-.Vertx
+.Project
 * Blabla
 * Blabla.
 ** Blabla.
+
+NOTE: This is a note.
 
 == Asks
 
