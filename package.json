@@ -10,21 +10,19 @@
     }
   ],
   "dependencies": {
-    "asciidoctor.js": "1.5.5-1",
-    "chai": "^3.5.0",
+    "asciidoctor.js": "^1.5.5-1",
     "commander": "^2.9.0",
-    "gulp-util": "^3.0.7",
     "inline-css": "^2.2.2",
-    "mocha": "^3.0.2",
     "yamljs": "^0.2.8"
   },
   "scripts": {
     "test": "tape test/render.js"
   },
   "bin": {
-    "gp-tool": "bin/cmd.js"
+    "cmd": "bin/cmd.js"
   },
   "devDependencies": {
-    "tape": "^4.6.0"
+    "tape": "^4.6.0",
+    "gulp-util": "^3.0.7"
   }
 }
