@@ -1,6 +1,5 @@
-var project = require('../common.js');
+var $ = require('../common.js');
 var program = require('commander');
-var colors  = require('colors');
 
 module.exports = program;
 
@@ -8,14 +7,13 @@ module.exports = program;
  * Commander common features
  */
 program
-    .version(project.version)
-    .description(project.description);
+    .version($.data.version)
+    .usage("<command> [options]")
+    .arguments('<command> [options]')
+    .description($.data.description);
 
     if (!process.argv.slice(2).length) {
-        program.outputHelp(make_red);
-        process.exit(0);
+        console.log($.makeRed("  2 arguments are required : <command> [options] !"));
+        program.outputHelp($.makeRed);
+        process.exit(9);
     }
-
-function make_red(txt) {
-    return colors.red(txt); //display the help text in red on the console
-}
