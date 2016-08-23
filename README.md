@@ -1,5 +1,12 @@
 # asciidoctor-nodejs
 
+## TODO
+
+- Review this doc as we have started to move the code to commands
+- Find a project name and Rename it 
+- Setup test case for the commands
+- What is the best way to log (ERR, INFO, ...)
+
 ## Install package 
 
 Version of node required : 6.3
