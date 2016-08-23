@@ -6,6 +6,7 @@ var program = require('./common-cmd.js'),
  * Generate command
  */
 program
+    .description('generate html from the asciidoc file using html5 as backend')
     .option('-b, --backend', 'backend - html5, docbook')
     .parse(process.argv);
 
