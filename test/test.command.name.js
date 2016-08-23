@@ -17,8 +17,28 @@ test("Simple command test", function (t) {
     t.equals(program.commands[0].name(), 'mycommand');
     t.equals(program.commands[1].name(), 'help');
 
-/*    var output = process.stdout.write.args[0];
-    t.equals(output[0],'    mycommand [options]  this is my command');*/
+    /*
+     * tape test/test.command.name.js
+     TAP version 13
+     # Simple command test
+
+     error: unknown option `--help'
+
+     not ok 5 test exited without ending
+     ---
+     operator: fail
+     ...
+
+     1..5
+     # tests 5
+     # pass  4
+     # fail  1
+
+     */
+    /*  TODO
+    var output = process.stdout.write.args[0];
+    t.equals(output[0],'    mycommand [options]  this is my command');
+    */
 
     t.end;
 
