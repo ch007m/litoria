@@ -10,10 +10,26 @@ opal.load("nodejs");
 var processor = asciidoctor.Asciidoctor();
 var cfg = null;
 
+var bunyan = require('bunyan');
+
+var log = bunyan.createLogger({
+    name: 'cmd-line-tool',
+    streams: [{
+        level: "debug",
+        path: "cmdtool.log"
+    },
+    {
+        level: "info",
+        stream: process.stdout
+    }]
+});
+
+
 module.exports = {
     convertToHtml: convertToHtml,
     inline: inline,
-    isEmpty: isEmpty
+    isEmpty: isEmpty,
+    log: log
 };
 
 function isEmpty(str) {

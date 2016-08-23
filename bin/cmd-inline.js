@@ -16,6 +16,7 @@ program
             console.log("No arguments have been passed to the command.");
             process.exit(0);
         } else {
+            $.log.debug("File will be inlined");
             $.inline(program.args);
         }
     }).on('--help', function () {

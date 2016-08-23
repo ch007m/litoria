@@ -4,9 +4,8 @@ var colors = require('colors');
 
 module.exports = {
     data: data,
-    makeRed: makeRed
+    makeRed: makeRed,
 };
-
 
 function makeRed(txt) {
     return colors.red(txt); //display the help text in red on the console
