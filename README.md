@@ -9,6 +9,16 @@ Version of node required : 6.3
 ## Run
 
     node asciidoc.js
+    
+## Commands
+    
+1. Generate HTML content
+    
+    cmd generate config.yaml
+
+2. Inline css content (required for HTML email send to Gmail client)
+
+    cmd inline config.yaml
 
 ## To debug
 
