@@ -18,7 +18,8 @@ test("Simple command test", function (t) {
     t.equals(program.commands[1].name(), 'help');
 
     /*
-     * tape test/test.command.name.js
+
+     tape test/test.command.name.js
      TAP version 13
      # Simple command test
 
@@ -35,6 +36,7 @@ test("Simple command test", function (t) {
      # fail  1
 
      */
+
     /*  TODO
     var output = process.stdout.write.args[0];
     t.equals(output[0],'    mycommand [options]  this is my command');
