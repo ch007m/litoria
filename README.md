@@ -6,6 +6,7 @@
 - Find a project name and Rename it 
 - Setup test case for the commands
 - What is the best way to log (ERR, INFO, ...)
+- Review Node version required. Should be 4,5 & 6
 
 ## Install package 
 
