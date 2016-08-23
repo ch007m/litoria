@@ -3,13 +3,13 @@ file_to_process: "./minutes/test.adoc"
 attributes:
   showtitle: ''
   stylesheet: 'foundation.css'
-  stylesdir: 'css'
+  stylesdir: 'generated_content/css'
   nofooter: 'yes'
-  linkcss: 'true'
+  # linkcss: 'true' # Don't use this option if you want to embed the CSS
 
 options:
   doctype: 'article'
-  header_footer: 'true'
-  to_dir: 'generated'
+  # header_footer: ''
+  to_dir: 'generated_content'
   to_file: 'output.html'
   safe: 'unsafe' # Required to avoid that the file to process is not loaded
