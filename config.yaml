@@ -1,4 +1,4 @@
-file_to_process: "./minutes/test.adoc"
+file_to_process: "./examples/minute.adoc"
 file_to_inline: "./generated_content/output.html"
 file_inlined: "./generated_content/output-inlined.html"
 
