@@ -1,4 +1,4 @@
-# asciidoctor-nodejs
+# Litoria
 
 ## TODO
 
@@ -10,14 +10,11 @@
 - Merge common.js with functions.js
 
 ## Install package 
-
-Version of node required : 6.3
-
-    npm install
-
-## Run
-
-    node asciidoc.js
+    
+    git clone or download the project
+    Unzip or move to the directory 
+    run
+    npm install -g
     
 ## Commands
     
@@ -28,12 +25,6 @@ Version of node required : 6.3
 2. Inline css content (required for HTML email send to Gmail client)
 
     ```cmd inline config.yaml```
-
-## To debug
-
-    npm install -g node-debug
-    
-    node-debug asciidoc.js
     
 ## Doc
 
