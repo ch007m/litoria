@@ -1,8 +1,6 @@
-# Litoria Node.js Module
+# litoria
 
-## Description
-
-TODO
+A command line tool simplifying the generation of the content created using Asciidoctor syntax.
 
 ## Install package 
     
