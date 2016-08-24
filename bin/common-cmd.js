@@ -1,5 +1,6 @@
-var $ = require('../common.js');
+var $       = require('../common.js');
 var program = require('commander');
+var chalk   = require('chalk');
 
 module.exports = program;
 
@@ -8,12 +9,14 @@ module.exports = program;
  */
 program
     .version($.data.version)
-    .usage("<command> [options]")
-    .arguments('<command> [options]')
-    .description($.data.description);
+    .description($.data.description)
+    .usage("cmd <command> [options]")
+    .arguments('<command> [options]');
 
+    /*
+     * Exit the process if no command and options are passed
+     */
     if (!process.argv.slice(2).length) {
-        console.log($.makeRed("  2 arguments are required : <command> [options] !"));
-        program.outputHelp($.makeRed);
+        program.outputHelp(chalk.bold.red);
         process.exit(9);
     }
