@@ -1,5 +1,5 @@
 {
-  "name": "gp-tool",
+  "name": "litoria",
   "version": "0.0.1",
   "description": "Command Line Tool to convert asciidoc into HTML (or PDF) for the following artifacts: weekly report, minute report, revealjs slideshow, hands on lab & more.",
   "license": "Apache-2.0",
@@ -21,7 +21,7 @@
     "test": "tape test/*.js"
   },
   "bin": {
-    "cmd": "bin/cmd.js"
+    "litoria": "bin/litoria.js"
   },
   "devDependencies": {
     "gulp-util": "^3.0.7",

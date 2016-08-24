@@ -1,4 +1,8 @@
-# Litoria
+# Litoria Node.js Module
+
+## Description
+
+TODO
 
 ## TODO
 
@@ -20,11 +24,11 @@
     
 1. Generate HTML content
     
-    ```cmd generate config.yaml```
+    ```litoria generate config.yaml```
 
 2. Inline css content (required for HTML email send to Gmail client)
 
-    ```cmd inline config.yaml```
+    ```litoria inline config.yaml```
     
 ## Doc
 

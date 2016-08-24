@@ -7,7 +7,7 @@ var program = require('commander'),
  */
 program
     .description('generate html from the asciidoc file using html5 as backend')
-    .usage('cmd <generate> [options]')
+    .usage('litoria <generate> [options]')
     .option('-b, --backend', 'backend - html5, docbook')
     .parse(process.argv);
 

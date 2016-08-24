@@ -7,7 +7,7 @@ var program = require('commander'),
  */
 program
     .description('Inline the css')
-    .usage('cmd inline [options]')
+    .usage('litoria inline [options]')
     .option('-f, --file', 'path of the html file to inline')
     .action(function () {
         /*
@@ -23,7 +23,7 @@ program
     }).on('--help', function () {
        console.log('  Examples:');
        console.log();
-       console.log('    $ cmd inline config.yaml');
+       console.log('    $ litoria inline config.yaml');
        console.log();
     });
 

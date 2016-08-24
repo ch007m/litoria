@@ -16,7 +16,7 @@ program
  */
 if (!process.argv.slice(2).length) {
     program
-        .usage('cmd <command> [options]')
+        .usage('litoria <command> [options]')
         .outputHelp(chalk.bold.red);
     process.exit(1);
 }
