@@ -30,4 +30,5 @@ if (!process.argv.slice(2).length) {
 program
     .command('generate', 'Generate the HTML')
     .command('inline', 'Inline css of a HTML file')
+    .command('send', 'Send html content to a sender')
     .parse(process.argv);

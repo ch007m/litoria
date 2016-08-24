@@ -2,6 +2,14 @@ file_to_process: "./examples/minute.adoc"
 file_to_inline: "./generated_content/output.html"
 file_inlined: "./generated_content/output-inlined.html"
 
+userName: "First & Last Name"
+fromEmail: "user@domain"
+toEmail: "user@domain"
+
+# userName: "Charles Moulliard"
+# fromEmail: "Charles Moulliard <cmoulliard@redhat.com>"
+# toEmail: "cmoulliard@redhat.com"
+
 attributes:
   showtitle: ''
   stylesheet: 'foundation.css'
@@ -16,3 +24,4 @@ options:
   to_dir: 'generated_content'
   to_file: 'output.html'
   safe: 'unsafe' # Required to avoid that the file to process is not loaded
+
