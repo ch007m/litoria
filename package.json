@@ -2,7 +2,7 @@
   "name": "gp-tool",
   "version": "0.0.1",
   "description": "Command Line Tool to convert asciidoc into HTML (or PDF) for the following artifacts: weekly report, minute report, revealjs slideshow, hands on lab & more.",
-  "license": "Apache License 2.0",
+  "license": "Apache-2.0",
   "maintainers": [
     {
       "name": "cmoulliard",
