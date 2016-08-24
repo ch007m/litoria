@@ -7,7 +7,6 @@ TODO
 ## TODO
 
 - Review this doc as we have started to move the code to commands
-- Find a project name and rename the command line tool like also the functions.js file 
 - Setup test case for the commands
 - What is the best way to log (ERR, INFO, ...) - see bunyan (https://github.com/trentm/node-bunyan)
 - Review Node version required. Should be 4,5 & 6

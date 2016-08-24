@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 var program = require('commander'),
-    $       = require('../lib/functions.js');
+    $       = require('../lib/litoria.js');
 
 /*
  * Generate command
