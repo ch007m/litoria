@@ -7,16 +7,15 @@ var program = require('commander'),
  */
 program
     .description('generate html from the asciidoc file using html5 as backend')
-    .usage('cmd generate [options]')
+    .usage('cmd <generate> [options]')
     .option('-b, --backend', 'backend - html5, docbook')
-    .help()
     .parse(process.argv);
 
 /*
  * Call function responsible to convert the Asciidoc file(s) to HTML
  */
 if ($.isEmpty(program.args)) {
-    console.log("No arguments have been passed to the command.");
+    console.log("No config file has been passed to the command.");
     process.exit(0);
 } else {
     $.convertToHtml(program.args);

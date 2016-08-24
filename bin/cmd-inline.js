@@ -9,7 +9,6 @@ program
     .description('Inline the css')
     .usage('cmd inline [options]')
     .option('-f, --file', 'path of the html file to inline')
-    .help()
     .action(function () {
         /*
          * Call function responsible to convert the Asciidoc file(s) to HTML
