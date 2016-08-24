@@ -1,19 +1,21 @@
 #!/usr/bin/env node
-var program = require('./common-cmd.js'),
-    $ = require('./functions.js');
+var program = require('commander'),
+    $       = require('../lib/functions.js');
 
 /*
  * Generate command
  */
 program
     .description('Inline the css')
+    .usage('cmd inline [options]')
     .option('-f, --file', 'path of the html file to inline')
+    .help()
     .action(function () {
         /*
          * Call function responsible to convert the Asciidoc file(s) to HTML
          */
         if ($.isEmpty(program.args)) {
-            console.log("No arguments have been passed to the command.");
+            console.log(chalk.red("No arguments have been passed to the command."));
             process.exit(0);
         } else {
             $.log.debug("File will be inlined");

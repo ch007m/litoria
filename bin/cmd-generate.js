@@ -1,13 +1,15 @@
 #!/usr/bin/env node
-var program = require('./common-cmd.js'),
-    $ = require('./functions.js');
+var program = require('commander'),
+    $       = require('../lib/functions.js');
 
 /*
  * Generate command
  */
 program
     .description('generate html from the asciidoc file using html5 as backend')
+    .usage('cmd generate [options]')
     .option('-b, --backend', 'backend - html5, docbook')
+    .help()
     .parse(process.argv);
 
 /*
