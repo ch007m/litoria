@@ -14,7 +14,7 @@ program
             console.log(chalk.red("No arguments have been passed to the command."));
             process.exit(0);
         } else {
-            console.log("File will be inlined !");
+            console.trace("File will be inlined !");
             $.inline(program.args);
         }
     }).on('--help', function () {

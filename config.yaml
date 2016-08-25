@@ -6,6 +6,8 @@ userName: "First & Last Name"
 fromEmail: "user@domain"
 toEmail: "user@domain"
 
+git_repos: ['https://github.com/asciidoctor/asciidoctor-stylesheet-factory.git']
+
 # userName: "Charles Moulliard"
 # fromEmail: "Charles Moulliard <cmoulliard@redhat.com>"
 # toEmail: "cmoulliard@redhat.com"

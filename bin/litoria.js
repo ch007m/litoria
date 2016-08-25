@@ -28,6 +28,7 @@ if (!process.argv.slice(2).length) {
  * where $prefix corresponds to the name of the executable defined within the package.json file
  */
 program
+    .command('init', 'Create a new litoria asciidoctor project')
     .command('generate', 'Generate the HTML')
     .command('inline', 'Inline css of a HTML file')
     .command('send', 'Send html content to a sender')
