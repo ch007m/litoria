@@ -8,6 +8,7 @@ A command line tool simplifying the generation of the content created using Asci
     Unzip or move to the directory 
     run
     npm install -g
+    npm link
     
 ## Commands
     

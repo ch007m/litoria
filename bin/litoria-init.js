@@ -1,6 +1,7 @@
 #!/usr/bin/env node
-var program = require('commander'),
-    $       = require('../lib/litoria.js');
+var program = require('commander');
+var chalk   = require("chalk");
+var $       = require('../lib/litoria.js');
 
 /*
  * Generate command
@@ -15,7 +16,7 @@ program
  * Call function responsible to convert the Asciidoc file(s) to HTML
  */
 if ($.isEmpty(program.args)) {
-    console.log("No config file has been passed to the command.");
+    console.log(chalk.red("No project direcrory path has been provided."));
     process.exit(0);
 } else {
     $.initProject(program.force,program.args);
