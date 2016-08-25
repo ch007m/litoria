@@ -4,7 +4,7 @@
 <s|{author}'s weekly report : {date} {break} {email}
 |===
 
-== Highlight
+== Minutes
 
 .Topic
 * Blabla.
