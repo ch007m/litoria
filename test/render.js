@@ -26,6 +26,22 @@ function getFile(filePath) {
 setup();
 
 /*
+ * Convert files from a directory
+ */
+test('Convert files from a directory', function(assert) {
+    var attrs = opal.hash({showtitle: '',
+        nofooter: 'yes'});
+    var options = opal.hash({doctype: 'inline',
+        safe: 'unsafe',
+        to_dir: 'test/generated',
+        attributes: attrs});
+    opal.Asciidoctor.$convert('./test/fixtures/source/*.adoc', options);
+    var result = getFile(path.join('test', 'generated', '.html')).contents.toString('utf8');
+    assert.equal(result, "");
+    assert.end();
+});
+
+/*
  * Convert an asciidoctor String using html5 as backend
  * The doctype defined is inline
  * The content is structured with just the content of paragraph. No HTML, body, header, content & paragraph tags are included
