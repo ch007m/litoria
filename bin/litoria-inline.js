@@ -3,16 +3,13 @@ var program = require('commander'),
     $       = require('../lib/litoria.js');
 
 /*
- * Generate command
+ * Inline command
  */
 program
     .description('Inline the css')
     .usage('litoria inline [options]')
-    .option('-f, --file', 'path of the html file to inline')
+    //.option('-f, --file', 'path of the html file to inline')
     .action(function () {
-        /*
-         * Call function responsible to convert the Asciidoc file(s) to HTML
-         */
         if ($.isEmpty(program.args)) {
             console.log(chalk.red("No arguments have been passed to the command."));
             process.exit(0);
