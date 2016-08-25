@@ -8,10 +8,6 @@ toEmail: "user@domain"
 
 git_repos: ['https://github.com/asciidoctor/asciidoctor-stylesheet-factory.git']
 
-# userName: "Charles Moulliard"
-# fromEmail: "Charles Moulliard <cmoulliard@redhat.com>"
-# toEmail: "cmoulliard@redhat.com"
-
 attributes:
   showtitle: ''
   stylesheet: 'foundation.css'
@@ -22,7 +18,6 @@ attributes:
 
 options:
   doctype: 'article'
-  # header_footer: ''
   to_dir: 'generated_content'
   to_file: 'output.html'
   safe: 'unsafe' # Required to avoid that the file to process is not loaded
