@@ -1,4 +1,4 @@
-source: "./examples/minute.adoc"
+source: "./examples/minute.adoc" # or could be a directory eg. ./examples
 file_to_inline: "./generated_content/output.html"
 file_inlined: "./generated_content/output-inlined.html"
 
