@@ -4,11 +4,17 @@ var test = require('tape'),
     path = require('path'),
     gutil = require('gulp-util');
 var opal;
+var test_dir = 'test/generated';
 
 function setup() {
     opal = asciidoctor.Opal;
     opal.load("nodejs");
     processor = asciidoctor.Asciidoctor();
+
+    // Create local Directory
+    if (!fs.existsSync(test_dir)){
+        fs.mkdirSync(test_dir);
+    }
 }
 
 function getFile(filePath) {
@@ -102,6 +108,7 @@ test('Convert adoc file to HTML using doctype: article, header_footer : true', f
     var options = opal.hash({doctype: 'article',
         safe: 'unsafe',
         to_dir: 'test/generated',
+        to_file: 'simple2.adoc.html',
         attributes: attrs});
 
     opal.Asciidoctor.$convert_file(f, options);
