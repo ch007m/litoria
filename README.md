@@ -34,6 +34,10 @@ To debug the project init command, use the following information:
 
 * javascriptFile: `bin/litoria.js`
 * application parameters : `init /Temp/litoria/blank`
+
+## Build
+
+`nvm use default 6 && make`
     
 ## Doc
 
