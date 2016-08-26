@@ -1,5 +1,7 @@
 # litoria
 
+[![Build Status](https://travis-ci.org/bucharest-gold/litoria.svg?branch=master)](https://travis-ci.org/bucharest-gold/litoria)
+
 A command line tool simplifying the generation of the content created using Asciidoctor syntax.
 
 ## Install package 
