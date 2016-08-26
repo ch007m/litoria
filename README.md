@@ -22,10 +22,10 @@ A command line tool simplifying the generation of the content created using Asci
     
 ## Debug
 
-To debug a command, use the following informations
+To debug the project init command, use the following information:
 
-* javascriptFile: bin/litoria.js
-* application parameters : init /Temp/litoria/blank
+* javascriptFile: `bin/litoria.js`
+* application parameters : `init /Temp/litoria/blank`
     
 ## Doc
 
