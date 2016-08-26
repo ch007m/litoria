@@ -10,3 +10,5 @@ script:
 branches:
   only:
    - master
+notifications:
+  irc: "chat.freenode.net#brass-monkey"
