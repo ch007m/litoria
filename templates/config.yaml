@@ -11,7 +11,7 @@ git_repos: ['https://github.com/asciidoctor/asciidoctor-stylesheet-factory.git']
 attributes:
   showtitle: ''
   stylesheet: 'foundation.css'
-  stylesdir: 'generated_content/css'
+  stylesdir: 'css'
   nofooter: 'yes'
   icons: 'font'
   # linkcss: 'true' # Don't use this option if you want to embed the CSS
