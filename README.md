@@ -5,8 +5,8 @@
 A command line tool simplifying the generation of the content created using Asciidoctor syntax.
 
 > This project enhances what is not included within the asciidoctor command line tool. 
-> It is a refactoring of the ruby [hyla tool](https://github.com/cmoulliard/hyla) which is crrently used by 
-> GPTE to generate courses, hands on lab content, slideshows, ...
+> It is a refactoring of the ruby [hyla tool](https://github.com/cmoulliard/hyla) which is currently used
+> to create a project, add asciidoctor templates, generate courses, hands on lab content, slideshows for RevealJS presentations, ...
 
 ## Install package 
     
@@ -27,12 +27,24 @@ A command line tool simplifying the generation of the content created using Asci
     
 ## To Develop
     
-    git clone the project
-    Move to the cloned directory and execute in a terminal these commands
-    npm install -g
-    npm link
-    
-Then you can execute the `litoria` commands in a terminal and continue to develop the project in parallel.
+Git clone the project locally and move to the cloned directory. 
+
+To install globally the commands, use these instructions:
+
+```
+npm install -g
+npm link
+```
+        
+then you can execute the `litoria` commands in a terminal and continue to develop the project in parallel.
+
+Otherwise, you can run the different commands as such :
+
+Execute in a terminal these commands :
+
+```
+node bin/litoria.js init /Users/chmoulli/Temp/litoria/blank
+```
     
 ## Debug
 
