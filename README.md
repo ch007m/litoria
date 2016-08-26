@@ -20,6 +20,13 @@ A command line tool simplifying the generation of the content created using Asci
 
     ```litoria inline config.yaml```
     
+## Debug
+
+To debug a command, use the following informations
+
+* javascriptFile: bin/litoria.js
+* application parameters : init /Temp/litoria/blank
+    
 ## Doc
 
 Links to the projects used
