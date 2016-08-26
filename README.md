@@ -4,11 +4,10 @@ A command line tool simplifying the generation of the content created using Asci
 
 ## Install package 
     
-    git clone or download the project
-    Unzip or move to the directory 
-    run
-    npm install -g
-    npm link
+    git clone the project
+    Move to the cloned directory and execute in a terminal these commands
+
+    npm install
     
 ## Commands
     
@@ -19,6 +18,15 @@ A command line tool simplifying the generation of the content created using Asci
 2. Inline css content (required for HTML email send to Gmail client)
 
     ```litoria inline config.yaml```
+    
+## To Develop
+    
+    git clone the project
+    Move to the cloned directory and execute in a terminal these commands
+    npm install -g
+    npm link
+    
+then you can execute the `litoria` commands in a terminal and continue to develop the project in parallel.
     
 ## Debug
 
