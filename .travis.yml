@@ -26,7 +26,7 @@ install:
 before_script:
   - echo "Git clone the Asciidoctor Stylesheet Factory project and compile the css files using ruby compass"
   - git clone $GIT_REPO_ASCIIDOCTOR_STYLESHEET $GIT_STYLES_DIR
-  - cd $LITORIA_BUILD
+  - cd $GIT_STYLES_DIR
   - compass compile
   - mkdir -p $LITORIA_BUILD/assets/css
   - mv $GIT_STYLES_DIR/stylesheets/* $LITORIA_BUILD/assets/css
