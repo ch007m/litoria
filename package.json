@@ -1,6 +1,6 @@
 {
   "name": "litoria",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "Command Line Tool to convert asciidoc into HTML (or PDF) for the following artifacts: weekly report, minute report, revealjs slideshow, hands on lab & more.",
   "license": "Apache-2.0",
   "maintainers": [
@@ -9,6 +9,10 @@
       "email": "ch007m@gmail.com"
     }
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bucharest-gold/litoria.git"
+  },
   "dependencies": {
     "asciidoctor.js": "^1.5.5-2",
     "async": "^2.0.1",
