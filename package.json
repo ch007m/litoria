@@ -35,6 +35,7 @@
     "litoria": "bin/litoria.js"
   },
   "devDependencies": {
+    "ci-publish": "^1.3.0",
     "gulp-util": "^3.0.7",
     "proxyquire": "^1.7.10",
     "semistandard": "*",
