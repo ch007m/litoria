@@ -33,8 +33,9 @@ before_script:
 script:
   - cd $TRAVIS_BUILD_DIR && make
 after_success:
-  - cp -r bin examples lib templates test packages.json Makefile $LITORIA_BUILD/
+  - cp -r bin examples lib templates test node_modules packages.json Makefile $LITORIA_BUILD/
   - cd $LITORIA_BUILD
+  - rm *.log
   - git init
   - git config user.name "${GH_USER_NAME}"
   - git config user.email "{GH_USER_EMAIL}"
