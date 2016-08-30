@@ -1,6 +1,6 @@
-source: "./examples/minute.adoc" # or could be a directory eg. ./examples
-file_to_inline: "./generated_content/output.html"
-file_inlined: "./generated_content/output-inlined.html"
+source: "./source" # or could be a directory eg. ./examples
+file_to_inline: "./generated/output.html"
+file_inlined: "./generated/output-inlined.html"
 
 userName: "First & Last Name"
 fromEmail: "user@domain"
@@ -18,7 +18,7 @@ attributes:
 
 options:
   doctype: 'article'
-  to_dir: 'generated_content'
+  to_dir: 'generated'
   to_file: 'output.html'
   safe: 'unsafe' # Required to avoid that the file to process is not loaded
 
