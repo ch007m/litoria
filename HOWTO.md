@@ -4,8 +4,14 @@
 
     npm install -g litoria
     
-* Define the ENV var exporting to location of the node modules
+* Define the ENV var exporting the location of the node modules
     
     export NODE_PATH="'$(npm root -g)'"
     
-* Create a project    
+* Create a project  
+  
+  litoria init /path/of/project
+  
+* Move to the newly created project
+  
+  
