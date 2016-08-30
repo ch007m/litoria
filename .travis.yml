@@ -1,5 +1,5 @@
 #
-# These ENV variables are required to build the project
+# These ENV variables are required to build the project on Travis-ci
 # GH_TOKEN : Github Token
 # GH_USER_NAME : Github user
 # GH_USER_EMAIL : Github email (clear)
@@ -30,7 +30,7 @@ before_script:
   - mkdir -p $TRAVIS_BUILD_DIR/assets/css
   - mv $GIT_STYLES_DIR/stylesheets/* $TRAVIS_BUILD_DIR/assets/css
 script:
-  - make
+  - cd $TRAVIS_BUILD_DIR && make
 after_success:
   - git init
   - git config user.name "${GH_USER_NAME}"
