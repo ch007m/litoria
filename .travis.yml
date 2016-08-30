@@ -1,14 +1,48 @@
+#
+# These ENV variables are required to build the project
+# GH_TOKEN : Github Token
+# GH_USER_NAME : Github user
+# GH_USER_EMAIL : Github email (clear)
+# GH_REF : Github repo (e.g. -> github.com:bucharest-gold/litoria.git) (clear)
+# NPM_TOKEN : npmjs.org Token to access the npmjs.org server where we deploy this module
+#
 sudo: required
 dist: trusty
 language: node_js
 node_js:
-  - "4"
-  - "5"
+#  - "4"
+#  - "5"
   - "6"
+env:
+  global:
+  - GIT_REPO_ASCIIDOCTOR_STYLESHEET: "https://github.com/asciidoctor/asciidoctor-stylesheet-factory.git"
+  - GIT_STYLES_DIR: "$TRAVIS_BUILD_DIR/asciidoctor-styles"
+before_install:
+  - "npm install -g npm@latest"
+install:
+  - gem install --version '0.12.7' compass
+  - gem install --version '4.3.2' zurb-foundation
+before_script:
+  - echo "Git clone the Asciidoctor Stylesheet Factory project and compile the css files using ruby compass"
+  - git clone $GIT_REPO_ASCIIDOCTOR_STYLESHEET $GIT_STYLES_DIR
+  - cd $GIT_STYLES_DIR
+  - compass compile
+  - mkdir -p $TRAVIS_BUILD_DIR/assets/css
+  - mv $GIT_STYLES_DIR/stylesheets/* $TRAVIS_BUILD_DIR/assets/css
 script:
-   - make
-branches:
-  only:
-   - master
-notifications:
-  irc: "chat.freenode.net#brass-monkey"
+  - make
+after_success:
+  - git init
+  - git config user.name "${GH_USER_NAME}"
+  - git config user.email "{GH_USER_EMAIL}"
+  - echo "node_modules/" > .gitignore
+  - echo "Increment version of the module"
+  - npm version patch
+  - ls -la .
+  - echo "Commit and push the branch release"
+  - git add . ; git commit -m "Deploy the release branch"
+  - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:release > /dev/null 2>&1
+  - echo "Publish the module to npmjs.org repo"
+  - $(npm bin)/ci-publish || true
+# notifications:
+#  irc: "chat.freenode.net#brass-monkey"
