@@ -33,7 +33,8 @@ before_script:
 script:
   - cd $TRAVIS_BUILD_DIR && make
 after_success:
-  - cp -r bin examples lib templates test node_modules package.json Makefile $LITORIA_BUILD/
+  - npm install -g ci-publish
+  - cp -r bin examples lib templates test package.json Makefile $LITORIA_BUILD/
   - cd $LITORIA_BUILD
   - rm *.log
   - git init
@@ -49,6 +50,6 @@ after_success:
   - git add . ; git commit -m "Deploy the release branch"
   - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:release > /dev/null 2>&1
   - echo "Publish the module to npmjs.org repo"
-  - $(npm bin)/ci-publish || true
+  - ci-publish || true
 notifications:
   irc: "chat.freenode.net#brass-monkey"
