@@ -13,6 +13,9 @@
     "type": "git",
     "url": "https://github.com/bucharest-gold/litoria.git"
   },
+  "engines": {
+    "node": ">=4.0.0"
+  },
   "dependencies": {
     "asciidoctor.js": "^1.5.5-2",
     "async": "^2.0.1",
