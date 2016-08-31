@@ -1,5 +1,7 @@
 # litoria
 
+[![npm](https://img.shields.io/npm/v/litoria.svg?maxAge=2592000)](http://www.npmjs.com/package/litoria)
+[![License](http://img.shields.io/npm/l/litoria.svg?style=flat-square)](http://opensource.org/licenses/https://opensource.org/licenses/Apache-2.0)
 [![Build Status](https://travis-ci.org/bucharest-gold/litoria.svg?branch=master)](https://travis-ci.org/bucharest-gold/litoria)
 
 A command line tool simplifying the generation of the content created using Asciidoctor syntax.
