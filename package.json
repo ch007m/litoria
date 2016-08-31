@@ -1,6 +1,6 @@
 {
   "name": "litoria",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "Command Line Tool to convert asciidoc into HTML (or PDF) for the following artifacts: weekly report, minute report, revealjs slideshow, hands on lab & more.",
   "license": "Apache-2.0",
   "maintainers": [
@@ -32,9 +32,11 @@
     "colors": "^1.1.2",
     "commander": "^2.9.0",
     "glob": "^7.0.6",
+    "html-pdf": "^2.1.0",
     "inline-css": "^2.2.2",
     "nodemailer": "^2.5.0",
     "opal-runtime": "^0.10.1",
+    "phantomjs-prebuilt": "^2.1.12",
     "yamljs": "^0.2.8"
   },
   "scripts": {
