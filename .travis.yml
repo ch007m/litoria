@@ -37,12 +37,10 @@ after_success:
   - make clean
   - cp -r bin examples lib templates test package.json Makefile $LITORIA_BUILD/
   - cd $LITORIA_BUILD
-  - rm *.log
+  - rm -rf asciidoctor-styles
   - git init
   - git config user.name "${GH_USER_NAME}"
   - git config user.email "{GH_USER_EMAIL}"
-  - echo "node_modules/" > .gitignore
-  - echo "asciidoctor-styles/" >> .gitignore
   - echo "*.log" >> .gitignore
   - echo "Increment version of the module"
 #  - npm version patch
