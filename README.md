@@ -10,22 +10,65 @@ A command line tool simplifying the generation of the content created using Asci
 > It is a refactoring of the ruby [hyla tool](https://github.com/cmoulliard/hyla) which is currently used
 > to create a project, add asciidoctor templates, generate courses, hands on lab content, slideshows for RevealJS presentations, ...
 
-## Install package 
-    
-    git clone the project
-    Move to the cloned directory and execute in a terminal these commands
+## Installation
 
-    npm install
+Install the `litoria` command line tool via [npm](http://npmjs.org/):
+
+```
+$ npm install -g html-pdf
+```
+
+## Command-line
+
+```
+$ litoria <cmd> <option> <yaml_config_file>
+```    
+
+where `<cmd>` corresponds to one of the command available: init, generate, inline, pdf and the options to the rendering required; html, pdf, ... 
+
+The asciidoctor attributes and the options like the source and destination folders can be defined using a yaml config file
+
+```
+source: "./source" # or could be a directory eg. ./examples
+file_to_inline: "./generated/output.html"
+file_inlined: "./generated/output-inlined.html"
+
+attributes:  # Asciidoctor attributes
+  stylesheet: 'foundation.css' # asciidoctor, foundation
+  stylesdir: 'css' # directory defined within the source folder and containing the css styles
+  nofooter: 'yes'
+  icons: 'font'
+  # linkcss: 'true' # Don't use this option if you want to embed the CSS
+
+options:  # Asciidoctor options
+  doctype: 'article'
+  to_dir: 'generated'
+  # to_file: 'output.html'
+  safe: 'unsafe' # Required to avoid that the file to process is not loaded
+
+```
     
 ## Commands
-    
-1. Generate HTML content
-    
-    ```litoria generate config.yaml```
 
-2. Inline css content (required for HTML email send to Gmail client)
+1. Create a project
+    
+    ```litoria init /path/to/project```
+        
+2. Generate HTML content
+    
+    ```litoria generate html config.yaml```
+
+3. Inline css content (required for HTML email send to Gmail client)
 
     ```litoria inline config.yaml```
+    
+4. Convert the HTML file into a PDF file
+    
+    ```litoria generate pdf config.yaml``` 
+       
+4. Send email to a SMTP server & embed the HTML generated within the Mail 
+    
+    ```litoria send config.yaml```        
     
 ## To Develop
     
