@@ -9,7 +9,8 @@
       "email": "ch007m@gmail.com"
     }
   ],
-  "homepage": "http://github.com/bucharest-gold/litoria",
+  "homepage": "https://github.com/bucharest-gold/litoria#readme",
+  "bugs": "https://github.com/bucharest-gold/litoria/issues",
   "keywords": [
     "asciidoctor",
     "render",

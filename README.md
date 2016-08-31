@@ -15,7 +15,7 @@ A command line tool simplifying the generation of the content created using Asci
 Install the `litoria` command line tool via [npm](http://npmjs.org/):
 
 ```
-$ npm install -g html-pdf
+$ npm install -g litoria
 ```
 
 ## Command-line
