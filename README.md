@@ -56,7 +56,11 @@ options:  # Asciidoctor options
         
 2. Generate HTML content
     
-    ```litoria generate html config.yaml```
+    ```litoria generate -r html config.yaml```
+    
+    or 
+    
+    ```litoria generate config.yaml``` as the default rendering is `html`
 
 3. Inline css content (required for HTML email send to Gmail client)
 
@@ -64,7 +68,7 @@ options:  # Asciidoctor options
     
 4. Convert the HTML file into a PDF file
     
-    ```litoria generate pdf config.yaml``` 
+    ```litoria generate -r pdf config.yaml``` 
        
 4. Send email to a SMTP server & embed the HTML generated within the Mail 
     

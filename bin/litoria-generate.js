@@ -1,6 +1,9 @@
 #!/usr/bin/env node
-var program = require('commander'),
-    $       = require('../lib/litoria.js');
+var program = require('commander');
+var $       = require('../lib/litoria.js');
+var Log     = require("../lib/log");
+
+var log = new Log();
 
 /*
  * Generate command
@@ -8,7 +11,7 @@ var program = require('commander'),
 program
     .description('generate html from the asciidoc file using html5 as backend')
     .usage('litoria <generate> [options]')
-    .option('-b, --backend', 'backend - html5, docbook')
+    .option('-r, --rendering [type]','rendering type - could be [html], pdf','html')
     .parse(process.argv);
 
 /*
@@ -18,5 +21,15 @@ if ($.isEmpty(program.args)) {
     console.log("No config file has been passed to the command.");
     process.exit(0);
 } else {
-    $.convertToHtml(program.args);
+    log.debug("Rendering : " + program.rendering);
+    switch(program.rendering) {
+        case 'html':
+            $.convertToHtml(program.args);
+            break;
+        case 'pdf':
+            $.convertToPdf(program.args);
+            break;
+        default:
+            console.error("Unknow rendering option : %s", program.rendering);
+    }
 }

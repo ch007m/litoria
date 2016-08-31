@@ -29,7 +29,7 @@ if (!process.argv.slice(2).length) {
  */
 program
     .command('init', 'Create a new litoria asciidoctor project')
-    .command('generate', 'Generate the HTML')
+    .command('generate <rendering>', 'Generate HTML, PDF content')
     .command('inline', 'Inline css of a HTML file')
     .command('send', 'Send html content to a sender')
     .parse(process.argv);

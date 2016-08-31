@@ -1,4 +1,5 @@
 source: "./source" # or could be a directory eg. ./examples
+destination: "./generated"
 file_to_inline: "./generated/output.html"
 file_inlined: "./generated/output-inlined.html"
 
