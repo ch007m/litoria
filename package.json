@@ -10,6 +10,13 @@
     }
   ],
   "homepage": "http://github.com/bucharest-gold/litoria",
+  "keywords": [
+    "asciidoctor",
+    "render",
+    "pdf",
+    "html",
+    "revealjs"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/bucharest-gold/litoria.git"
