@@ -34,6 +34,8 @@ script:
   - cd $TRAVIS_BUILD_DIR && make
 after_success:
   - npm install -g ci-publish
+  - echo "Increment version of the module"
+  - npm version patch
   - make clean
   - cp -r bin examples lib templates test package.json Makefile $LITORIA_BUILD/
   - cd $LITORIA_BUILD
@@ -42,14 +44,11 @@ after_success:
   - git config user.name "${GH_USER_NAME}"
   - git config user.email "{GH_USER_EMAIL}"
   - echo "*.log" >> .gitignore
-  - echo "Increment version of the module"
-#  - npm version patch
-  - ls -la .
   - echo "Commit and push the branch release"
   - git add .
   - git commit -m "Deploy the release branch"
   - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:release > /dev/null 2>&1
   - echo "Publish the module to npmjs.org repo"
-#  - ci-publish || true
+  - ci-publish || true
 notifications:
   irc: "chat.freenode.net#brass-monkey"
