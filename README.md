@@ -4,11 +4,15 @@
 [![License](http://img.shields.io/npm/l/litoria.svg?style=flat-square)](http://opensource.org/licenses/https://opensource.org/licenses/Apache-2.0)
 [![Build Status](https://travis-ci.org/bucharest-gold/litoria.svg?branch=master)](https://travis-ci.org/bucharest-gold/litoria)
 
-A command line tool simplifying the generation of the content created using Asciidoctor syntax.
+A command line tool simplifying the generation of the content created using Asciidoctor markdown.
 
 > This project enhances what is not included within the asciidoctor command line tool. 
 > It is a refactoring of the ruby [hyla tool](https://github.com/cmoulliard/hyla) which is currently used
 > to create a project, add asciidoctor templates, generate courses, hands on lab content, slideshows for RevealJS presentations, ...
+
+The project name corresponds to a frog genus names `Litoria` which contain many species like the Red Eya Tree Frog `Litoria Chloris` which is very valuable for the 
+human due to his [medical capacities](http://www.kaieteurnewsonline.com/2012/06/03/the-red-eyed-tree-frog-litoria-chloris-2/)
+![Image of Litoria Chloris](https://github.com/bucharest-gold/litoria/blob/master/templates/image/litoria-chloris.jpg)
 
 ## Installation
 
