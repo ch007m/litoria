@@ -21,39 +21,32 @@ human due to his [medical capacities](http://www.kaieteurnewsonline.com/2012/06/
 
 Install the `litoria` command line tool via [npm](http://npmjs.org/):
 
-```
-$ npm install -g litoria
-```
+    $ npm install -g litoria
 
 ## Command-line
 
-```
-$ litoria <cmd> <option> <yaml_config_file>
-```    
+    $ litoria <cmd> <option> <yaml_config_file>
 
 where `<cmd>` corresponds to one of the command available: init, generate, inline, pdf and the options to the rendering required; html, pdf, ... 
 
 The asciidoctor attributes and the options like the source and destination folders can be defined using a yaml config file
 
-```
-source: "./source" # or could be a directory eg. ./examples
-file_to_inline: "./generated/output.html"
-file_inlined: "./generated/output-inlined.html"
-
-attributes:  # Asciidoctor attributes
-  stylesheet: 'foundation.css' # asciidoctor, foundation
-  stylesdir: 'css' # directory defined within the source folder and containing the css styles
-  nofooter: 'yes'
-  icons: 'font'
-  # linkcss: 'true' # Don't use this option if you want to embed the CSS
-
-options:  # Asciidoctor options
-  doctype: 'article'
-  to_dir: 'generated'
-  # to_file: 'output.html'
-  safe: 'unsafe' # Required to avoid that the file to process is not loaded
-
-```
+    source: "./source" # or could be a directory eg. ./examples
+    file_to_inline: "./generated/output.html"
+    file_inlined: "./generated/output-inlined.html"
+    
+    attributes:  # Asciidoctor attributes
+      stylesheet: 'foundation.css' # asciidoctor, foundation
+      stylesdir: 'css' # directory defined within the source folder and containing the css styles
+      nofooter: 'yes'
+      icons: 'font'
+      # linkcss: 'true' # Don't use this option if you want to embed the CSS
+    
+    options:  # Asciidoctor options
+      doctype: 'article'
+      to_dir: 'generated'
+      # to_file: 'output.html'
+      safe: 'unsafe' # Required to avoid that the file to process is not loaded
     
 ## Commands
 
@@ -61,7 +54,7 @@ options:  # Asciidoctor options
 
 Create a project containing a default config file and a **simple** adoc file
     
-    ```litoria init /path/to/project```
+    litoria init /path/to/project
     
 Many project type or category are supported as described here after :
     
