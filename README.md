@@ -115,22 +115,21 @@ then you can execute the `litoria` commands in a terminal and continue to develo
 
 Otherwise, you can run the different commands as such :
 
-Execute in a terminal these commands :
+Execute in a terminal theis command by example to create a new project :
 
-    node bin/litoria.js init /Users/chmoulli/Temp/litoria/blank
+    node bin/litoria.js init /path/to/project
     
 ## Debug
 
-To debug the project init command, use the following information:
+To debug the project and the different commands, use the following information to configure the debugger (Eclipse, IntelliJ, ...) :
 
 * javascriptFile: `bin/litoria.js`
 * application parameters : `init /Temp/litoria/blank`
 
-> The command init means that a new project will be created within the directory passed as parameter, 
-> next a yaml.config file is added, a github repo containing scss files is downloaded, unzipped and finally 
-> node-sass is called.
+> The litoria.js script file contains all the commands which are defined within their corresponding file `litoria-<cmd>.js` under the `bin` directory. 
+> Each command, as described previously, is configured differently. Please refer to the Command section to see which parameters you can use.
 
-## Build
+## Build & test
 
     nvm use default 6 && make
     
