@@ -63,7 +63,7 @@ Many project type or category are supported as described here after :
 * Lab : project containing a **Hands on Lab** adoc example
 * Slideshow: not yet implemented
     
-To use such type, pass the option +-c or --category+ with the keywords +simple+,+management+,+project+ or +slideshow+. The default category is +simple+
+To use such type, pass the option `-c` or `--category` with the keywords `simple`,`management`,`project` or `slideshow`. The default category is `simple`
     
     litoria init /path/to/project
     litoria init -c management /path/to/project
