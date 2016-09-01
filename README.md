@@ -78,13 +78,15 @@ Create a project containing a default config file and a **simple** adoc file
         
 ### generate
 
-Generate from the asciidoctor(s) file(s) a HTML file contained within the input directory **source**. The generated content will be available within the **generated** folder
+Render the asciidoctor(s) file(s) part of the input directory **source** into a HTML file. The generated content is available within the **generated** folder.
     
     ```litoria generate -r html config.yaml```
     
     or 
     
     ```litoria generate config.yaml``` as the default rendering is `html`
+    
+The source and destination folders can be changed within the yaml config file.    
 
 ### inline
  
