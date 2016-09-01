@@ -57,7 +57,9 @@ options:  # Asciidoctor options
     
 ## Commands
 
-1. Create a project containing a default config file and a **simple** adoc file
+### init
+
+Create a project containing a default config file and a **simple** adoc file
     
     ```litoria init /path/to/project```
     
@@ -74,7 +76,9 @@ options:  # Asciidoctor options
     ```litoria init -c management /path/to/project``` 
     ```litoria init -c lab /path/to/project```
         
-2. Generate HTML content
+### generate
+
+Generate from the asciidoctor(s) file(s) a HTML file contained within the input directory **source**. The generated content will be available within the **generated** folder
     
     ```litoria generate -r html config.yaml```
     
@@ -82,17 +86,26 @@ options:  # Asciidoctor options
     
     ```litoria generate config.yaml``` as the default rendering is `html`
 
-3. Inline css content (required for HTML email send to Gmail client)
+### inline
+ 
+ The purpose of this command is to move the css styles from the css files or style tag and to inline them within the HTML tag of the document. This is required when you would like to send
+ an email to by example the Gmail client as Google will escape the styles & css file before to display your mail and it HTML content within the browser.
 
     ```litoria inline config.yaml```
     
-4. Convert the HTML file into a PDF file
+### pdf
+ 
+Convert a HTML file into a PDF file
     
     ```litoria generate -r pdf config.yaml``` 
        
-4. Send email to a SMTP server & embed the HTML generated within the Mail 
+### send
+
+Send an email to a SMTP server & embed the HTML generated within the Mail created
     
     ```litoria send config.yaml```        
+    
+The parameters as the subject, sender, recipient, SMTP Server, port number, security mode are defined within the config.yaml file.    
     
 ## To Develop
     
