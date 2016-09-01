@@ -13,7 +13,7 @@ A command line tool simplifying the generation of the content created using Asci
 The project name corresponds to the frog genus name **Litoria** which contain many species like the Red Eye Tree Frog **Litoria Chloris** which is very valuable for the 
 human due to his [medical capacities](http://www.kaieteurnewsonline.com/2012/06/03/the-red-eyed-tree-frog-litoria-chloris-2/)
 
-![Image of Litoria Chloris](https://github.com/bucharest-gold/litoria/blob/master/templates/image/litoria-chloris.jpg =250x250)
+<a href="url"><img src="http://github.com/bucharest-gold/litoria/blob/master/templates/image/litoria-chloris.jpg" align="left" height="48" width="48" ></a>
 
 ## Installation
 
