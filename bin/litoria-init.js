@@ -10,6 +10,7 @@ program
     .description('create a new litoria asciidoctor project')
     .usage('litoria <init> [options]')
     .option('-f, --force', 'force to use an existing folder')
+    .option('-c, --category [type]','category of project to be created [default], management, lab, slideshow', 'default')
     .parse(process.argv);
 
 /*
@@ -19,5 +20,5 @@ if ($.isEmpty(program.args)) {
     console.log(chalk.red("No project direcrory path has been provided."));
     process.exit(0);
 } else {
-    $.initProject(program.force,program.args);
+    $.initProject(program.type,program.force,program.args);
 }
