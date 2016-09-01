@@ -1,0 +1,58 @@
+{
+  "name": "litoria",
+  "version": "0.0.28",
+  "description": "Command Line Tool to convert asciidoc into HTML (or PDF) for the following artifacts: weekly report, minute report, revealjs slideshow, hands on lab &amp; more.",
+  "license": "Apache-2.0",
+  "author": "Charles Moulliard",
+  "maintainers": [
+    {
+      "name": "cmoulliard",
+      "email": "ch007m@gmail.com"
+    }
+  ],
+  "homepage": "https://github.com/bucharest-gold/litoria#README.md",
+  "bugs": "https://github.com/bucharest-gold/litoria/issues",
+  "keywords": [
+    "asciidoctor",
+    "render",
+    "pdf",
+    "html",
+    "revealjs"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bucharest-gold/litoria.git"
+  },
+  "engines": {
+    "node": ">=4.0.0"
+  },
+  "dependencies": {
+    "asciidoctor.js": "^1.5.5-2",
+    "async": "^2.0.1",
+    "chalk": "^1.1.3",
+    "cheerio": "^0.22.0",
+    "colors": "^1.1.2",
+    "commander": "^2.9.0",
+    "glob": "^7.0.6",
+    "html-pdf": "^2.1.0",
+    "inline-css": "^2.2.2",
+    "nodemailer": "^2.5.0",
+    "opal-runtime": "^0.10.1",
+    "phantomjs-prebuilt": "^2.1.12",
+    "yamljs": "^0.2.8"
+  },
+  "scripts": {
+    "test": "tape test/*.js"
+  },
+  "bin": {
+    "litoria": "bin/litoria.js"
+  },
+  "devDependencies": {
+    "gulp-util": "^3.0.7",
+    "proxyquire": "^1.7.10",
+    "semistandard": "*",
+    "should": "^11.1.0",
+    "sinon": "^1.17.5",
+    "tape": "^4.6.0"
+  }
+}

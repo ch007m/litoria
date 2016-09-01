@@ -1,0 +1,25 @@
+source: "./source" # or could be a directory eg. ./examples
+destination: "./generated"
+file_to_inline: "./generated/output.html"
+file_inlined: "./generated/output-inlined.html"
+
+userName: "First & Last Name"
+fromEmail: "user@domain"
+toEmail: "user@domain"
+
+git_repos: ['https://github.com/asciidoctor/asciidoctor-stylesheet-factory.git']
+
+attributes:
+  showtitle: ''
+  stylesheet: 'foundation.css'
+  stylesdir: 'css'
+  nofooter: 'yes'
+  icons: 'font'
+  # linkcss: 'true' # Don't use this option if you want to embed the CSS
+
+options:
+  doctype: 'article'
+  to_dir: 'generated'
+  to_file: 'output.html'
+  safe: 'unsafe' # Required to avoid that the file to process is not loaded
+
