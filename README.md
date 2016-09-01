@@ -13,7 +13,7 @@ A command line tool simplifying the generation of the content created using Asci
 The project name corresponds to the frog genus name **Litoria** <img src="https://raw.githubusercontent.com/bucharest-gold/litoria/master/templates/image/litoria-chloris.jpg" align="left" width="150"> which contain many species like the Red Eye Tree Frog **Litoria Chloris** which is very valuable for the 
 human due to his [medical capacities](http://www.kaieteurnewsonline.com/2012/06/03/the-red-eyed-tree-frog-litoria-chloris-2/)
 
-## Installation
+# Installation
 
 Install the `litoria` command line tool via [npm](http://npmjs.org/):
 
@@ -21,7 +21,7 @@ Install the `litoria` command line tool via [npm](http://npmjs.org/):
 $ npm install -g litoria
 ```
 
-## Command-line
+# Command-line
 
 ```
 $ litoria <cmd> <option> <yaml_config_file>
@@ -51,7 +51,7 @@ options:  # Asciidoctor options
 
 ```
     
-## Commands
+# Commands
 
 1. Create a project
     
@@ -77,7 +77,7 @@ options:  # Asciidoctor options
     
     ```litoria send config.yaml```        
     
-## To Develop
+# To Develop
     
 Git clone the project locally and move to the cloned directory. 
 
@@ -98,7 +98,7 @@ Execute in a terminal these commands :
 node bin/litoria.js init /Users/chmoulli/Temp/litoria/blank
 ```
     
-## Debug
+# Debug
 
 To debug the project init command, use the following information:
 
@@ -109,11 +109,11 @@ To debug the project init command, use the following information:
 > next a yaml.config file is added, a github repo containing scss files is downloaded, unzipped and finally 
 > node-sass is called.
 
-## Build
+# Build
 
 `nvm use default 6 && make`
     
-## Doc
+# Doc
 
 Links to the projects used
  
