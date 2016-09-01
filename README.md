@@ -63,28 +63,28 @@ Create a project containing a default config file and a **simple** adoc file
     
     ```litoria init /path/to/project```
     
-    Many project type or category are supported as described here after :
+Many project type or category are supported as described here after :
     
-    * Simple: project containing a simple adoc example
-    * Management : project containing a **minute** and **report** adoc example
-    * Lab : project containing a **Hands on Lab** adoc example
-    * Slideshow: not yet implemented
+* Simple: project containing a simple adoc example
+* Management : project containing a **minute** and **report** adoc example
+* Lab : project containing a **Hands on Lab** adoc example
+* Slideshow: not yet implemented
     
-    To use such type, pass the option +-c or --category+ with the keywords +simple+,+management+,+project+ or +slideshow+. The default category is +simple+
+To use such type, pass the option +-c or --category+ with the keywords +simple+,+management+,+project+ or +slideshow+. The default category is +simple+
     
-    ```litoria init /path/to/project```
-    ```litoria init -c management /path/to/project``` 
-    ```litoria init -c lab /path/to/project```
+    litoria init /path/to/project
+    litoria init -c management /path/to/project
+    litoria init -c lab /path/to/project
         
 ### generate
 
 Render the asciidoctor(s) file(s) part of the input directory **source** into a HTML file. The generated content is available within the **generated** folder.
     
-    ```litoria generate -r html config.yaml```
+    litoria generate -r html config.yaml
     
-    or 
+or 
     
-    ```litoria generate config.yaml``` as the default rendering is `html`
+    litoria generate config.yaml as the default rendering is `html`
     
 The source and destination folders can be changed within the yaml config file.    
 
@@ -93,19 +93,19 @@ The source and destination folders can be changed within the yaml config file.
  The purpose of this command is to move the css styles from the css files or style tag and to inline them within the HTML tag of the document. This is required when you would like to send
  an email to by example the Gmail client as Google will escape the styles & css file before to display your mail and it HTML content within the browser.
 
-    ```litoria inline config.yaml```
+    litoria inline config.yaml
     
 ### pdf
  
 Convert a HTML file into a PDF file
     
-    ```litoria generate -r pdf config.yaml``` 
+    litoria generate -r pdf config.yaml 
        
 ### send
 
 Send an email to a SMTP server & embed the HTML generated within the Mail created
     
-    ```litoria send config.yaml```        
+    litoria send config.yaml        
     
 The parameters as the subject, sender, recipient, SMTP Server, port number, security mode are defined within the config.yaml file.    
     
@@ -115,20 +115,16 @@ Git clone the project locally and move to the cloned directory.
 
 To install globally the commands, use these instructions:
 
-```
-npm install -g
-npm link
-```
-        
+    npm install -g
+    npm link
+    
 then you can execute the `litoria` commands in a terminal and continue to develop the project in parallel.
 
 Otherwise, you can run the different commands as such :
 
 Execute in a terminal these commands :
 
-```
-node bin/litoria.js init /Users/chmoulli/Temp/litoria/blank
-```
+    node bin/litoria.js init /Users/chmoulli/Temp/litoria/blank
     
 ## Debug
 
@@ -143,7 +139,7 @@ To debug the project init command, use the following information:
 
 ## Build
 
-`nvm use default 6 && make`
+    nvm use default 6 && make
     
 ## Doc
 
