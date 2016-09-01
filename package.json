@@ -1,7 +1,7 @@
 {
   "name": "litoria",
-  "version": "0.0.24",
-  "description": "Command Line Tool to convert asciidoc into HTML (or PDF) for the following artifacts: weekly report, minute report, revealjs slideshow, hands on lab & more.",
+  "version": "0.0.25",
+  "description": "Command Line Tool to convert asciidoc into HTML (or PDF) for the following artifacts: weekly report, minute report, revealjs slideshow, hands on lab &amp; more.",
   "license": "Apache-2.0",
   "author": "Charles Moulliard",
   "maintainers": [
