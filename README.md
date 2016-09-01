@@ -10,10 +10,8 @@ A command line tool simplifying the generation of the content created using Asci
 > It is a refactoring of the ruby [hyla tool](https://github.com/cmoulliard/hyla) which is currently used
 > to create a project, add asciidoctor templates, generate courses, hands on lab content, slideshows for RevealJS presentations, ...
 
-The project name corresponds to the frog genus name **Litoria** which contain many species like the Red Eye Tree Frog **Litoria Chloris** which is very valuable for the 
+The project name corresponds to the frog genus name **Litoria** <img src="https://raw.githubusercontent.com/bucharest-gold/litoria/master/templates/image/litoria-chloris.jpg" align="left" width="150"> which contain many species like the Red Eye Tree Frog **Litoria Chloris** which is very valuable for the 
 human due to his [medical capacities](http://www.kaieteurnewsonline.com/2012/06/03/the-red-eyed-tree-frog-litoria-chloris-2/)
-
-<p><img src="https://raw.githubusercontent.com/bucharest-gold/litoria/master/templates/image/litoria-chloris.jpg" align="left" width="150"></p>
 
 ## Installation
 
