@@ -57,9 +57,22 @@ options:  # Asciidoctor options
     
 ## Commands
 
-1. Create a project
+1. Create a project containing a default config file and a **simple** adoc file
     
     ```litoria init /path/to/project```
+    
+    Many project type or category are supported as described here after :
+    
+    * Simple: project containing a simple adoc example
+    * Management : project containing a **minute** and **report** adoc example
+    * Lab : project containing a **Hands on Lab** adoc example
+    * Slideshow: not yet implemented
+    
+    To use such type, pass the option +-c or --category+ with the keywords +simple+,+management+,+project+ or +slideshow+. The default category is +simple+
+    
+    ```litoria init /path/to/project```
+    ```litoria init -c management /path/to/project``` 
+    ```litoria init -c lab /path/to/project```
         
 2. Generate HTML content
     
