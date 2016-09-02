@@ -4,7 +4,7 @@
 [![License](http://img.shields.io/npm/l/litoria.svg?style=flat-square)](http://opensource.org/licenses/https://opensource.org/licenses/Apache-2.0)
 [![Build Status](https://travis-ci.org/bucharest-gold/litoria.svg?branch=master)](https://travis-ci.org/bucharest-gold/litoria)
 
-A command line tool simplifying the generation of the content created using Asciidoctor markdown.
+A Command Line Tool to manage asciidoctor projet; create, add content, watch content and convert it into html, pdf & epub3 files for documents, reports, revealjs slideshow, hands on lab & more
 
 > This project enhances what is not included within the asciidoctor command line tool. 
 > It is a refactoring of the ruby [hyla tool](https://github.com/cmoulliard/hyla) which is currently used
