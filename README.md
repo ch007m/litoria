@@ -123,12 +123,12 @@ Execute in a terminal theis command by example to create a new project :
 
 To debug the project and the different commands, use the following information to configure the debugger (Eclipse, IntelliJ, ...) :
 
-* javascriptFile: `bin/litoria.js`
-* application parameters : `init /Temp/litoria/blank`
+* javascriptFile: `bin/litoria-init.js`
+* application parameters : `/Temp/litoria/blank`
 
 > The litoria.js script file contains all the commands which are defined within their corresponding file `litoria-<cmd>.js` under the `bin` directory. 
 > Each command, as described previously, is configured differently. Please refer to the Command section to see which parameters you can use.
-
+> Don't try to debug the `litoria.js` script as it spawns another child process and your Debugger will report a Network Address Port error as it can't access the port !
 ## Build & test
 
     nvm use default 6 && make
