@@ -63,7 +63,7 @@ Many project type or category are supported as described here after :
 * Lab : project containing a **Hands on Lab** adoc example
 * Slideshow: not yet implemented
     
-To use such type, pass the option `-c` or `--category` with the keywords `simple`,`management`,`project` or `slideshow`. The default category is `simple`
+To use such type, pass the option `-c` or `--category` with the keywords `simple`, `management`, `project` or `slideshow`. The default category is `simple`
     
     litoria init /path/to/project
     litoria init -c management /path/to/project
@@ -84,7 +84,7 @@ The source and destination folders can be changed within the yaml config file.
 ### inline
  
  The purpose of this command is to move the css styles from the css files or style tag and to inline them within the HTML tag of the document. This is required when you would like to send
- an email to by example the Gmail client as Google will escape the styles & css file before to display your mail and it HTML content within the browser.
+ an email to by example the Gmail client as Google will escape the styles & css file before to display your mail and its HTML content within the browser.
 
     litoria inline config.yaml
     
@@ -102,7 +102,7 @@ Send an email to a SMTP server & embed the HTML generated within the Mail create
     
 The parameters as the subject, sender, recipient, SMTP Server, port number, security mode are defined within the config.yaml file.    
     
-## To Develop
+## For the developer only
     
 Git clone the project locally and move to the cloned directory. 
 
@@ -119,7 +119,7 @@ Execute in a terminal theis command by example to create a new project :
 
     node bin/litoria.js init /path/to/project
     
-## Debug
+### Debug
 
 To debug the project and the different commands, use the following information to configure the debugger (Eclipse, IntelliJ, ...) :
 
@@ -129,13 +129,18 @@ To debug the project and the different commands, use the following information t
 > The litoria.js script file contains all the commands which are defined within their corresponding file `litoria-<cmd>.js` under the `bin` directory. 
 > Each command, as described previously, is configured differently. Please refer to the Command section to see which parameters you can use.
 > Don't try to debug the `litoria.js` script as it spawns another child process and your Debugger will report a Network Address Port error as it can't access the port !
-## Build & test
+
+### Build & test
 
     nvm use default 6 && make
     
-## Doc
+### References of interesting projects used
 
-Links to the projects used
+Links to the projects
  
-* Inline Css : https://github.com/zurb/inline-css
+* Inline Css                  : https://github.com/zurb/inline-css
+* Send Email                  : https://github.com/nodemailer/nodemailer
+* Generate pdf                : https://github.com/marcbachmann/node-html-pdf
+* Headless webkit with JS API : https://github.com/Medium/phantomjs
+* Command Line Tool           : https://github.com/tj/commander.js
 
