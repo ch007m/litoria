@@ -34,7 +34,7 @@ script:
   - cd $TRAVIS_BUILD_DIR && make
 after_success:
   - make clean
-  - cp -r bin examples lib templates test package.json Makefile $LITORIA_BUILD/
+  - cp -r bin examples lib templates test package.json Makefile README.md $LITORIA_BUILD/
   - cd $LITORIA_BUILD
   - rm -rf asciidoctor-styles
   - git init
