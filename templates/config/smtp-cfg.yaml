@@ -1,0 +1,7 @@
+file_inlined: "./generated/output-inlined.html"
+
+userName: "First & Last Name"
+fromEmail: "user@domain"
+toEmail: "user@domain"
+
+# TODO EXTERNALIZE THE SMTP PARAMETERS
