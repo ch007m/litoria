@@ -1,0 +1,41 @@
+:sectanchors:
+:toc: macro
+:toclevels: 2
+:toc-title: Table of Content
+:numbered:
+
+= Hands On Lab - Title
+
+toc::[]
+
+== Goals
+
+* Concept 1
+* Concept 2
+
+.Prerequisites
+* Experience with Java, Spring & Apache Maven
+* ...
+
+.Lab Assets
+The lab exercise and solution are available in the following zip archives:
+
+* link:lab_assets.zip[]
+* link:lab_assets_solution.zip[]
+
+:numbered:
+== Install Lab assets
+
+=== Tools, SDK and IDEs
+You will need to install the following on your machine:
+
+- [x] http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html[JDK 1.8]
+- [x] https://maven.apache.org/download.cgi[Maven 3.3.6 or higher]
+
+[[usecase1]]
+== Use case 1
+
+* Create a bookstore app with Forge that contains :
+** A Book/Author model (title / author name)
+** A SellingPoint Object containing location info (latitude / longitude)
+

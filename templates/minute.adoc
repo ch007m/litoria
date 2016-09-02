@@ -1,0 +1,43 @@
+[cols="10,90",weight="80%"]
+|===
+|image:https://www.dropbox.com/s/ciax5q0wq3q5n0s/camel-redhat.jpg?raw=1[100,100]
+<s|{author}'s weekly report : {date} {break} {email}
+|===
+
+== Minutes
+
+.Topic
+* Blabla.
+** Blabla.
+* Blabla.
+** Blabla.
+
+.Another Topic
+* Blabla
+** Blabla.
+
+NOTE: This is a note.
+
+== Asks
+
+* Added new expenses to be approved
+* PTO request : 18th of aug to 20 of Aug
+
+== Next week
+
+* Blabla.
+** Blabla.
+* Blabla.
+
+== Tasks list
+
+Description : List of items that needs to be addressed by the Project
+
+[cols="^5,<65,^5,^10,^15"]
+|===
+| ID     | Task description                                                | Priority | Assign To | Due Date
+| COD001 | Identify stakeholder(s)                                         | S        | CHM       | 16-Aug-2016
+| COD002 | Approve Project/Product Code Name                               | S        | CHM       | 22-Aug-2016
+| COD003 | Tools to be used to discuss/communicate                         | S        | CHM       | 22-Aug-2016
+| COD004 | Review scope of the platform with Product Owner                 | S        | BGE       | 26-Aug-2016
+|===

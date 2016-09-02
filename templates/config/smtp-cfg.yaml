@@ -1,0 +1,17 @@
+file_inlined: "./generated/output-inlined.html"
+
+smtp:
+  host: "smtp.server.com" # Host SMTP Server
+  port: 25 # SMTP port
+  secure: false
+  requireTLS: true
+  tls:
+   rejectUnauthorized: false
+  logger: true
+  debug: false
+
+mail:
+  userName: "First & Last Name"
+  from: "user@domain"
+  to: "user@domain"
+  subject: "Title of the Subject"
