@@ -1,6 +1,10 @@
 source: "./source" # or could be a directory eg. ./examples
 destination: "./generated"
 
+#repos:
+#  revealjs: 'https://github.com/hakimel/reveal.js/archive/3.3.0.tar.gz'
+#  revealjs-backend: 'https://github.com/asciidoctor/asciidoctor-reveal.js/archive/master.zip'
+
 attributes:
   backend: 'revealjs'
   nofooter: 'yes'

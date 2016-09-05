@@ -11,3 +11,7 @@ lr ~/Temp/litoria/t2/
 rm -rf ~/Temp/litoria/t3/
 node bin/litoria.js init -c lab ~/Temp/litoria/t3
 lr ~/Temp/litoria/t3/
+
+rm -rf ~/Temp/litoria/t4/
+node bin/litoria.js init -c slideshow ~/Temp/litoria/t4
+lr ~/Temp/litoria/t4/
