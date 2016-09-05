@@ -1,0 +1,4 @@
+source: "./generated/"
+
+http:
+  port: 3001

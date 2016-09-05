@@ -35,6 +35,7 @@
     "commander": "^2.9.0",
     "glob": "^7.0.6",
     "html-pdf": "^2.1.0",
+    "inert": "^4.0.2",
     "inline-css": "^2.2.2",
     "nodemailer": "^2.5.0",
     "opal-runtime": "^0.10.1",

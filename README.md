@@ -100,7 +100,13 @@ Send an email to a SMTP server & embed the HTML generated within the Mail create
     
     litoria send config.yaml        
     
-The parameters as the subject, sender, recipient, SMTP Server, port number, security mode are defined within the config.yaml file.    
+The parameters as the subject, sender, recipient, SMTP Server, port number, security mode are defined within the config.yaml file.   
+ 
+### server
+
+Start a local HTTP Server hosting the content generated & passed as parameter within the yaml config file. The default port of the server is `3000`
+    
+    litoria server config.yaml  
     
 ## For the developer only
     
