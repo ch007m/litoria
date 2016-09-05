@@ -12,6 +12,5 @@ rm -rf ~/Temp/litoria/t3/
 node bin/litoria.js init -c lab ~/Temp/litoria/t3
 lr ~/Temp/litoria/t3/
 
-rm -rf ~/Temp/litoria/t4/
-node bin/litoria.js init -c slideshow ~/Temp/litoria/t4
-lr ~/Temp/litoria/t4/
+cd ~/Temp/litoria/t4/
+node /Users/chmoulli/MyProjects/litoria/bin/litoria.js serve httpserver-cfg.yaml
