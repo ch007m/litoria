@@ -32,5 +32,5 @@ program
     .command('generate <rendering>', 'Generate HTML, PDF content')
     .command('inline', 'Inline css of a HTML file')
     .command('send', 'Send html content to a sender')
-    .command('server', 'Start a local HTTP Server hosting the content')
+    .command('serve', 'Start a local HTTP Server hosting the content')
     .parse(process.argv);

@@ -106,7 +106,7 @@ The parameters as the subject, sender, recipient, SMTP Server, port number, secu
 
 Start a local HTTP Server hosting the content generated & passed as parameter within the yaml config file. The default port of the server is `3000`
     
-    litoria server config.yaml  
+    litoria serve config.yaml  
     
 ## For the developer only
     
