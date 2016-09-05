@@ -2,13 +2,10 @@ source: "./source" # or could be a directory eg. ./examples
 destination: "./generated"
 
 attributes:
-  showtitle: ''
   backend: 'revealjs'
-  stylesheet: 'foundation.css'
-  stylesdir: 'css'
   nofooter: 'yes'
   icons: 'font'
-  # linkcss: 'true' # Don't use this option if you want to embed the CSS
+  source-highlighter: 'highlight.js' # Attribute required to avoid Revealjs js issue when the syntax higlighter plugin is loaded
 
 options:
   doctype: 'article'
