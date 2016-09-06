@@ -39,6 +39,7 @@
     "inert": "^4.0.2",
     "inline-css": "^2.2.2",
     "nodemailer": "^2.5.0",
+    "opener": "^1.4.1",
     "opal-runtime": "^0.10.1",
     "phantomjs-prebuilt": "^2.1.12",
     "yamljs": "^0.2.8"
