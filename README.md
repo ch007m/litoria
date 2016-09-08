@@ -12,10 +12,10 @@ Command Line Tool to manage asciidoc projet (create, watch content), convert ado
 
 |                 | Project Info  |
 | --------------- | ------------- |
-| License:        | MIT  |
+| License:        | Apache-2.0  |
 | Build:          | make  |
-| Documentation:  | http://bucharest-gold.github.io/fidelity/  |
-| Issue tracker:  | https://github.com/bucharest-gold/fidelity/issues  |
+| Documentation:  | N/A  |
+| Issue tracker:  | https://github.com/bucharest-gold/litoria/issues  |
 | Engines:        | Node.js 4.x, 5.x, 6.x
 
 ## Installation
