@@ -57,7 +57,7 @@ test('1. Convert a Book to HTML using default stylesheet & Google Font', functio
     });
     var options = opal.hash({
         safe: 'unsafe',
-        header_footer: 'true',
+        header_footer: true,
         to_dir: 'test/generated',
         to_file: 'book.html',
         attributes: attrs
@@ -125,7 +125,7 @@ test('4. Convert adoc file to HTML using doctype: article, header_footer : true'
     var attrs = opal.hash({showtitle: '',
         stylesheet: 'asciidoctor-default.css',
         stylesdir: '../../test/css',
-        nofooter: 'yes'});
+        nofooter: ''});
 
     var options = opal.hash({doctype: 'article',
         safe: 'unsafe',
@@ -158,7 +158,7 @@ test('5. Convert adoc string to HTML using doctype: article, header_footer: true
 
     var options = opal.hash({doctype: 'article',
         safe: 'unsafe',
-        header_footer: 'true',
+        header_footer: true,
         to_dir: 'test/generated',
         to_file: 'output.html',
         attributes: attrs});
