@@ -1,4 +1,4 @@
-# ![litoria](https://raw.githubusercontent.com/bucharest-gold/litoria/master/templates/image/litoria-chloris.jpg) litoria
+# <img src="https://raw.githubusercontent.com/bucharest-gold/litoria/master/templates/image/litoria-chloris.jpg"> litoria
 
 [![Coverage Status](https://coveralls.io/repos/github/bucharest-gold/litoria/badge.svg?branch=master)](https://coveralls.io/github/bucharest-gold/litoria?branch=master)
 [![Build Status](https://travis-ci.org/bucharest-gold/litoria.svg?branch=master)](https://travis-ci.org/bucharest-gold/litoria) 
