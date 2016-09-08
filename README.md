@@ -1,29 +1,28 @@
-# litoria
+# ![litoria](https://raw.githubusercontent.com/bucharest-gold/litoria/master/templates/image/litoria-chloris.jpg) litoria
 
-[![npm](https://img.shields.io/npm/v/litoria.svg?maxAge=2592000)](http://www.npmjs.com/package/litoria)
-[![License](http://img.shields.io/npm/l/litoria.svg?style=flat-square)](http://opensource.org/licenses/https://opensource.org/licenses/Apache-2.0)
-[![Build Status](https://travis-ci.org/bucharest-gold/litoria.svg?branch=master)](https://travis-ci.org/bucharest-gold/litoria)
+[![Coverage Status](https://coveralls.io/repos/github/bucharest-gold/litoria/badge.svg?branch=master)](https://coveralls.io/github/bucharest-gold/litoria?branch=master)
+[![Build Status](https://travis-ci.org/bucharest-gold/litoria.svg?branch=master)](https://travis-ci.org/bucharest-gold/litoria) 
+[![Known Vulnerabilities](https://snyk.io/test/npm/litoria/badge.svg)](https://snyk.io/test/npm/litoria) 
+[![dependencies Status](https://david-dm.org/bucharest-gold/litoria/status.svg)](https://david-dm.org/bucharest-gold/litoria)
 
-A Command Line Tool to manage asciidoctor projet; create, add content, watch content and convert it into html, pdf & epub3 files for documents, reports, revealjs slideshow, hands on lab & more
+[![NPM](https://nodei.co/npm/litoria.png)](https://npmjs.org/package/litoria)
 
-> This project enhances what is not included within the asciidoctor command line tool. 
-> It is a refactoring of the ruby [hyla tool](https://github.com/cmoulliard/hyla) which is currently used
-> to create a project, add asciidoctor templates, generate courses, hands on lab content, slideshows for RevealJS presentations, ...
 
-The project name corresponds to the frog genus name **Litoria** which contain many species like the Red Eye Tree Frog **Litoria Chloris** which is very valuable for the 
-human due to his [medical capacities](http://www.kaieteurnewsonline.com/2012/06/03/the-red-eyed-tree-frog-litoria-chloris-2/)
+Command Line Tool to manage asciidoc projet (create, watch content), convert adoc into html, pdf & epub3 for doc, reports, revealjs slideshow, hands on lab & more
 
-<img src="https://raw.githubusercontent.com/bucharest-gold/litoria/master/templates/image/litoria-chloris.jpg" width="150" style="vertical-align: top;"> 
-
-</br>
+|                 | Project Info  |
+| --------------- | ------------- |
+| License:        | MIT  |
+| Build:          | make  |
+| Documentation:  | http://bucharest-gold.github.io/fidelity/  |
+| Issue tracker:  | https://github.com/bucharest-gold/fidelity/issues  |
+| Engines:        | Node.js 4.x, 5.x, 6.x
 
 ## Installation
 
-Install the `litoria` command line tool via [npm](http://npmjs.org/):
+    $ npm install litoria -g
 
-    $ npm install -g litoria
-
-## Command-line
+## Usage
 
     $ litoria <cmd> <option> <yaml_config_file>
 
@@ -125,8 +124,8 @@ Otherwise, you can run the different commands as such :
 Execute in a terminal theis command by example to create a new project :
 
     node bin/litoria.js init /path/to/project
-    
-### Debug
+
+## Debug
 
 To debug the project and the different commands, use the following information to configure the debugger (Eclipse, IntelliJ, ...) :
 
@@ -137,11 +136,16 @@ To debug the project and the different commands, use the following information t
 > Each command, as described previously, is configured differently. Please refer to the Command section to see which parameters you can use.
 > Don't try to debug the `litoria.js` script as it spawns another child process and your Debugger will report a Network Address Port error as it can't access the port !
 
-### Build & test
+## Extra information
 
-    nvm use default 6 && make
-    
-### References of interesting projects used
+> This project enhances what is not included within the asciidoctor command line tool. 
+> It is a refactoring of the ruby [hyla tool](https://github.com/cmoulliard/hyla) which is currently used
+> to create a project, add asciidoctor templates, generate courses, hands on lab content, slideshows for RevealJS presentations, ...
+
+The project name corresponds to the frog genus name **Litoria** which contain many species like the Red Eye Tree Frog **Litoria Chloris** which is very valuable for the 
+human due to his [medical capacities](http://www.kaieteurnewsonline.com/2012/06/03/the-red-eyed-tree-frog-litoria-chloris-2/)
+
+## References of interesting projects used
 
 Links to the projects
  
@@ -151,3 +155,6 @@ Links to the projects
 * Headless webkit with JS API : https://github.com/Medium/phantomjs
 * Command Line Tool           : https://github.com/tj/commander.js
 
+## Contributing
+
+Please read the [contributing guide](./CONTRIBUTING.md)
