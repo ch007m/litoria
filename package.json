@@ -42,6 +42,7 @@
     "opener": "^1.4.1",
     "opal-runtime": "^0.10.1",
     "phantomjs-prebuilt": "^2.1.12",
+    "tar-fs": "^.13.2",
     "yamljs": "^0.2.8"
   },
   "scripts": {
