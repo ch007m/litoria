@@ -31,20 +31,42 @@ function getFile(filePath) {
  */
 setup();
 
+function fileExists(path) {
+    try {
+        fs.statSync(path);
+        return true;
+    } catch(err) {
+        return !(err && err.code === 'ENOENT');
+    }
+}
+
+function removeFile(path) {
+    if (fileExists(path)) {
+        fs.unlinkSync(path)
+    }
+}
+
 /*
  * Convert files from a directory
  */
-test('Convert files from a directory', function(assert) {
-    var attrs = opal.hash({showtitle: '',
-        nofooter: 'yes'});
-    var options = opal.hash({doctype: 'inline',
+test('1. Convert a Book to HTML using default stylesheet & Google Font', function(assert) {
+    var expectFilePath = __dirname + '/generated/book.html';
+    removeFile(expectFilePath);
+    var attrs = opal.hash({
+        nofooter: 'yes'
+    });
+    var options = opal.hash({
         safe: 'unsafe',
+        header_footer: true,
         to_dir: 'test/generated',
-        attributes: attrs});
-    opal.Asciidoctor.$convert('./test/fixtures/source/*.adoc', options);
-    var result = getFile(path.join('test', 'generated', '.html')).contents.toString('utf8');
-    assert.equal(result, "");
-    assert.end();
+        to_file: 'book.html',
+        attributes: attrs
+    });
+    opal.Asciidoctor.$convert_file(__dirname + '/fixtures/book.adoc', options);
+    assert.ok(fileExists(expectFilePath));
+    var content = fs.readFileSync(expectFilePath, 'utf8');
+    assert.equal(content.includes('fonts\.googleapis\.com'), true);
+    assert.end()
 });
 
 /*
@@ -52,7 +74,7 @@ test('Convert files from a directory', function(assert) {
  * The doctype defined is inline
  * The content is structured with just the content of paragraph. No HTML, body, header, content & paragraph tags are included
  */
-test('Convert adoc string to HTML using doctype : inline', function(assert) {
+test('2. Convert adoc string to HTML using doctype : inline', function(assert) {
 
     var content = "http://asciidoctor.org[*Asciidoctor*] " +
         "running on http://opalrb.org[_Opal_] " +
@@ -73,7 +95,7 @@ test('Convert adoc string to HTML using doctype : inline', function(assert) {
  * header_footer: true # Asciidoctor will include to the HTML generated the header section containing the link to the style and font to be used
  * The content is structured with a body, header, content & paragraph
  */
-test('Convert adoc string to HTML using doctype: article, header_footer : true', function(assert) {
+test('3. Convert adoc string to HTML using doctype: article, header_footer : true', function(assert) {
 
     var content = getFile(path.join('test', 'fixtures', 'simple.adoc')).contents.toString('utf8');
     var expected = getFile(path.join('test', 'fixtures', 'simple.html')).contents.toString('utf8');
@@ -95,7 +117,7 @@ test('Convert adoc string to HTML using doctype: article, header_footer : true',
  * header_footer: true # Asciidoctor will include to the HTML generated the header section containing the link to the style and font to be used
  * The content is structured with a body, header, content & paragraph
  */
-test('Convert adoc file to HTML using doctype: article, header_footer : true', function(assert) {
+test('4. Convert adoc file to HTML using doctype: article, header_footer : true', function(assert) {
 
     var f = path.join('test', 'fixtures', 'simple2.adoc');
     var expected = getFile(path.join('test', 'fixtures', 'simple2.html')).contents.toString('utf8');
@@ -103,7 +125,7 @@ test('Convert adoc file to HTML using doctype: article, header_footer : true', f
     var attrs = opal.hash({showtitle: '',
         stylesheet: 'asciidoctor-default.css',
         stylesdir: '../../test/css',
-        nofooter: 'yes'});
+        nofooter: ''});
 
     var options = opal.hash({doctype: 'article',
         safe: 'unsafe',
@@ -124,7 +146,7 @@ test('Convert adoc file to HTML using doctype: article, header_footer : true', f
  * header_footer: true # Asciidoctor will include to the HTML generated the header section containing the link to the style and font to be used
  * The content is structured with a body, header, content & paragraph
  */
-test('Convert adoc string to HTML using doctype: article, header_footer: true and Save file according to_dir and to_file options', function(assert) {
+test('5. Convert adoc string to HTML using doctype: article, header_footer: true and Save file according to_dir and to_file options', function(assert) {
 
     var content = getFile(path.join('test', 'fixtures', 'simple.adoc')).contents.toString('utf8');
     var expected = getFile(path.join('test', 'fixtures', 'simple-foundation.html')).contents.toString('utf8');
@@ -136,7 +158,7 @@ test('Convert adoc string to HTML using doctype: article, header_footer: true an
 
     var options = opal.hash({doctype: 'article',
         safe: 'unsafe',
-        header_footer: 'true',
+        header_footer: true,
         to_dir: 'test/generated',
         to_file: 'output.html',
         attributes: attrs});
