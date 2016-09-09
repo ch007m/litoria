@@ -46,13 +46,15 @@
     "yamljs": "^0.2.8"
   },
   "scripts": {
-    "test": "tape test/*.js | tap-spec"
+    "test": "tape test/*.js | tap-spec",
+    "coverage": "istanbul cover tape test/log-test.js tape test/render.js"
   },
   "bin": {
     "litoria": "bin/litoria.js"
   },
   "devDependencies": {
     "gulp-util": "^3.0.7",
+    "istanbul": "^0.4.5",
     "proxyquire": "^1.7.10",
     "semistandard": "*",
     "should": "^11.1.0",
