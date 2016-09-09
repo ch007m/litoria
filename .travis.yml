@@ -18,8 +18,6 @@ env:
   - GIT_REPO_ASCIIDOCTOR_STYLESHEET: "https://github.com/asciidoctor/asciidoctor-stylesheet-factory.git"
   - LITORIA_BUILD: "$TRAVIS_BUILD_DIR/build"
   - GIT_STYLES_DIR: "$LITORIA_BUILD/asciidoctor-styles"
-before_install:
-  - "npm install -g npm@latest"
 install:
   - gem install --version '0.12.7' compass
   - gem install --version '4.3.2' zurb-foundation
