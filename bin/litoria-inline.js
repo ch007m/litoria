@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 var program = require('commander');
 var $ = require('../lib/litoria.js');
-var Log = require("../lib/log");
+var Log = require('../lib/log');
 
 var log = new Log();
 
@@ -12,17 +12,17 @@ program
     .description('Inline the css content of a file')
     .usage('litoria inline')
     .on('--help', function () {
-        log.info('  Examples:');
-        log.info();
-        log.info('    $ litoria inline config.yaml');
-        log.info();
+      log.info('  Examples:');
+      log.info();
+      log.info('    $ litoria inline config.yaml');
+      log.info();
     })
     .parse(process.argv);
 
 if ($.isEmpty(program.args)) {
-    log.error("No arguments have been passed to the command.");
-    process.exit(0);
+  log.error('No arguments have been passed to the command.');
+  process.exit(0);
 } else {
-    log.info("File will be inlined !");
-    $.inline(program.args);
+  log.info('File will be inlined !');
+  $.inline(program.args);
 }
