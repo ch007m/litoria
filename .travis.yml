@@ -11,6 +11,8 @@ dist: trusty
 language: node_js
 node_js:
   - "4"
+  - "5"
+  - "6"
 env:
   global:
   - GIT_REPO_ASCIIDOCTOR_STYLESHEET: "https://github.com/asciidoctor/asciidoctor-stylesheet-factory.git"
