@@ -58,7 +58,7 @@ function removeFile (path) {
  * Convert files from a directory
  */
 test('1. Convert a Book to HTML using default stylesheet & Google Font', function (assert) {
-  var expectFilePath = __dirname + '/generated/book.html';
+  var expectFilePath = path.join(__dirname, '/generated/book.html');
   removeFile(expectFilePath);
   var attrs = opal.hash({
     nofooter: 'yes'
@@ -70,10 +70,10 @@ test('1. Convert a Book to HTML using default stylesheet & Google Font', functio
     to_file: 'book.html',
     attributes: attrs
   });
-  opal.Asciidoctor.$convert_file(__dirname + '/fixtures/book.adoc', options);
+  opal.Asciidoctor.$convert_file(path.join(__dirname, '/fixtures/book.adoc', options));
   assert.ok(fileExists(expectFilePath));
   var content = fs.readFileSync(expectFilePath, 'utf8');
-  assert.equal(content.includes('fonts\.googleapis\.com'), true);
+  assert.equal(content.includes('fonts.googleapis.com'), true);
   assert.end();
 });
 
