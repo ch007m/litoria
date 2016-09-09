@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 var program = require('commander');
-var chalk   = require('chalk');
-var $       = require('../lib/litoria');
+var chalk = require('chalk');
+var $ = require('../lib/litoria');
 
 /*
  * Common features
@@ -15,10 +15,10 @@ program
  * Exit the process if no command and options are passed
  */
 if (!process.argv.slice(2).length) {
-    program
+  program
         .usage('litoria <command> [options]')
         .outputHelp(chalk.bold.red);
-    process.exit(1);
+  process.exit(1);
 }
 
 /*
