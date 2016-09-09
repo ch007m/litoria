@@ -6,10 +6,10 @@ const fs = require('fs');
 const path = require('path');
 const gutil = require('gulp-util');
 
-var opal;
-var processor;
+let opal;
+let processor;
 
-var testDir = 'test/generated';
+const testDir = 'test/generated';
 
 function setup () {
   opal = asciidoctor.Opal;
@@ -84,14 +84,13 @@ setup();
  * The content is structured with just the content of paragraph. No HTML, body, header, content & paragraph tags are included
  */
 test('2. Convert adoc string to HTML using doctype : inline', function (assert) {
-  var content = 'http://asciidoctor.org[*Asciidoctor*] ' +
+  let content = 'http://asciidoctor.org[*Asciidoctor*] ' +
       'running on http://opalrb.org[_Opal_] ' +
       'brings AsciiDoc to the browser!';
-  var expected = '<a href="http://asciidoctor.org"><strong>Asciidoctor</strong></a> running on <a href="http://opalrb.org"><em>Opal</em></a> brings AsciiDoc to the browser!';
+  let expected = '<a href="http://asciidoctor.org"><strong>Asciidoctor</strong></a> running on <a href="http://opalrb.org"><em>Opal</em></a> brings AsciiDoc to the browser!';
 
-  var options = opal.hash({doctype: 'inline', attributes: ['showtitle']});
-
-  var result = processor.$convert(content, options);
+  let options = opal.hash({doctype: 'inline', attributes: ['showtitle']});
+  let result = processor.$convert(content, options);
 
   assert.equal(result, expected, 'Render to HTML');
   assert.end();
@@ -104,14 +103,14 @@ test('2. Convert adoc string to HTML using doctype : inline', function (assert) 
  * The content is structured with a body, header, content & paragraph
  */
 test('3. Convert adoc string to HTML using doctype: article, header_footer : true', function (assert) {
-  var content = getFile(path.join('test', 'fixtures', 'simple.adoc')).contents.toString('utf8');
-  var expected = getFile(path.join('test', 'fixtures', 'simple.html')).contents.toString('utf8');
+  let content = getFile(path.join('test', 'fixtures', 'simple.adoc')).contents.toString('utf8');
+  let expected = getFile(path.join('test', 'fixtures', 'simple.html')).contents.toString('utf8');
 
-  var options = opal.hash({doctype: 'article',
+  let options = opal.hash({doctype: 'article',
     header_footer: 'true',
     attributes: ['nofooter']});
 
-  var result = processor.$convert(content, options);
+  let result = processor.$convert(content, options);
 
   assert.equal(result, expected, 'Render to HTML');
   assert.end();
@@ -125,15 +124,15 @@ test('3. Convert adoc string to HTML using doctype: article, header_footer : tru
  * The content is structured with a body, header, content & paragraph
  */
 test('4. Convert adoc file to HTML using doctype: article, header_footer : true', function (assert) {
-  var f = path.join('test', 'fixtures', 'simple2.adoc');
-  var expected = getFile(path.join('test', 'fixtures', 'simple2.html')).contents.toString('utf8');
+  let f = path.join('test', 'fixtures', 'simple2.adoc');
+  let expected = getFile(path.join('test', 'fixtures', 'simple2.html')).contents.toString('utf8');
 
-  var attrs = opal.hash({showtitle: '',
+  let attrs = opal.hash({showtitle: '',
     stylesheet: 'asciidoctor-default.css',
     stylesdir: '../../test/css',
     nofooter: ''});
 
-  var options = opal.hash({doctype: 'article',
+  let options = opal.hash({doctype: 'article',
     safe: 'unsafe',
     to_dir: 'test/generated',
     to_file: 'simple2.adoc.html',
@@ -153,15 +152,15 @@ test('4. Convert adoc file to HTML using doctype: article, header_footer : true'
  * The content is structured with a body, header, content & paragraph
  */
 test('5. Convert adoc string to HTML using doctype: article, header_footer: true and Save file according to_dir and to_file options', function (assert) {
-  var content = getFile(path.join('test', 'fixtures', 'simple.adoc')).contents.toString('utf8');
-  var expected = getFile(path.join('test', 'fixtures', 'simple-foundation.html')).contents.toString('utf8');
+  let content = getFile(path.join('test', 'fixtures', 'simple.adoc')).contents.toString('utf8');
+  let expected = getFile(path.join('test', 'fixtures', 'simple-foundation.html')).contents.toString('utf8');
 
-  var attrs = opal.hash({showtitle: '',
+  let attrs = opal.hash({showtitle: '',
     stylesheet: 'foundation.css',
     stylesdir: 'test/css',
     nofooter: 'yes'});
 
-  var options = opal.hash({doctype: 'article',
+  let options = opal.hash({doctype: 'article',
     safe: 'unsafe',
     header_footer: true,
     to_dir: 'test/generated',
