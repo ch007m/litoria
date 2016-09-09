@@ -1,6 +1,11 @@
-test: node_modules
-	npm run test
+ci: test
 	npm run coverage
+
+test: lint
+	npm test
+
+lint: node_modules
+	npm run lint
 
 clean:
 	rm -rf node_modules
