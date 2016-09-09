@@ -1,7 +1,7 @@
 #!/usr/bin/env node
-var program = require('commander');
-var chalk = require('chalk');
-var $ = require('../lib/litoria');
+let program = require('commander');
+let chalk = require('chalk');
+let $ = require('../lib/litoria');
 
 /*
  * Common features

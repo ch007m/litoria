@@ -1,9 +1,9 @@
 #!/usr/bin/env node
-var program = require('commander');
-var $ = require('../lib/litoria.js');
-var Log = require('../lib/log');
+let program = require('commander');
+let $ = require('../lib/litoria.js');
+let Log = require('../lib/log');
 
-var log = new Log();
+let log = new Log();
 
 /*
  * Send Email command
