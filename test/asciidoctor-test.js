@@ -58,7 +58,7 @@ function removeFile (path) {
  * Convert files from a directory
  */
 test('1. Convert a Book to HTML using default stylesheet & Google Font', function (assert) {
-  var expectFilePath = path.join(__dirname, '/generated/book.html');
+  var expectFilePath = path.join(__dirname, 'generated/book.html');
   removeFile(expectFilePath);
   var attrs = opal.hash({
     nofooter: 'yes'
@@ -70,7 +70,7 @@ test('1. Convert a Book to HTML using default stylesheet & Google Font', functio
     to_file: 'book.html',
     attributes: attrs
   });
-  opal.Asciidoctor.$convert_file(path.join(__dirname, '/fixtures/book.adoc', options));
+  opal.Asciidoctor.$convert_file(path.join(__dirname, 'fixtures/book.adoc'), options);
   assert.ok(fileExists(expectFilePath));
   var content = fs.readFileSync(expectFilePath, 'utf8');
   assert.equal(content.includes('fonts.googleapis.com'), true);
@@ -84,8 +84,8 @@ test('1. Convert a Book to HTML using default stylesheet & Google Font', functio
  */
 test('2. Convert adoc string to HTML using doctype : inline', function (assert) {
   var content = 'http://asciidoctor.org[*Asciidoctor*] ' +
-    'running on http://opalrb.org[_Opal_] ' +
-    'brings AsciiDoc to the browser!';
+      'running on http://opalrb.org[_Opal_] ' +
+      'brings AsciiDoc to the browser!';
   var expected = '<a href="http://asciidoctor.org"><strong>Asciidoctor</strong></a> running on <a href="http://opalrb.org"><em>Opal</em></a> brings AsciiDoc to the browser!';
 
   var options = opal.hash({doctype: 'inline', attributes: ['showtitle']});
@@ -108,7 +108,7 @@ test('3. Convert adoc string to HTML using doctype: article, header_footer : tru
 
   var options = opal.hash({doctype: 'article',
     header_footer: 'true',
-  attributes: ['nofooter']});
+    attributes: ['nofooter']});
 
   var result = opal.Asciidoctor.$convert(content, options);
 
@@ -130,13 +130,13 @@ test('4. Convert adoc file to HTML using doctype: article, header_footer : true'
   var attrs = opal.hash({showtitle: '',
     stylesheet: 'asciidoctor-default.css',
     stylesdir: '../../test/css',
-  nofooter: ''});
+    nofooter: ''});
 
   var options = opal.hash({doctype: 'article',
     safe: 'unsafe',
     to_dir: 'test/generated',
     to_file: 'simple2.adoc.html',
-  attributes: attrs});
+    attributes: attrs});
 
   opal.Asciidoctor.$convert_file(f, options);
 
@@ -158,14 +158,14 @@ test('5. Convert adoc string to HTML using doctype: article, header_footer: true
   var attrs = opal.hash({showtitle: '',
     stylesheet: 'foundation.css',
     stylesdir: 'test/css',
-  nofooter: 'yes'});
+    nofooter: 'yes'});
 
   var options = opal.hash({doctype: 'article',
     safe: 'unsafe',
     header_footer: true,
     to_dir: 'test/generated',
     to_file: 'output.html',
-  attributes: attrs});
+    attributes: attrs});
 
   opal.Asciidoctor.$convert(content, options);
 
