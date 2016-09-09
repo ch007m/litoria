@@ -1,19 +1,24 @@
-var test = require('tape'),
-  asciidoctor = require('asciidoctor.js')(),
-  fs = require('fs'),
-  path = require('path'),
-  gutil = require('gulp-util');
+'use strict';
+
+const test = require('tape');
+const asciidoctor = require('asciidoctor.js')();
+const fs = require('fs');
+const path = require('path');
+const gutil = require('gulp-util');
+
 var opal;
-var test_dir = 'test/generated';
+
+var testDir = 'test/generated';
 
 function setup () {
   opal = asciidoctor.Opal;
   opal.load('nodejs');
-  processor = asciidoctor.Asciidoctor();
+  let processor = asciidoctor.Asciidoctor();
+  console.log(processor);
 
   // Create local Directory
-  if (!fs.existsSync(test_dir)) {
-    fs.mkdirSync(test_dir);
+  if (!fs.existsSync(testDir)) {
+    fs.mkdirSync(testDir);
   }
 }
 
@@ -35,7 +40,10 @@ function fileExists (path) {
   try {
     fs.statSync(path);
     return true;
-  } catch(err) {
+  } catch (err) {
+    if (err) {
+      console.error(err);
+    }
     return !(err && err.code === 'ENOENT');
   }
 }
@@ -132,7 +140,7 @@ test('4. Convert adoc file to HTML using doctype: article, header_footer : true'
 
   opal.Asciidoctor.$convert_file(f, options);
 
-  result = getFile(path.join('test', 'generated', 'simple2.adoc.html')).contents.toString('utf8');
+  let result = getFile(path.join('test', 'generated', 'simple2.adoc.html')).contents.toString('utf8');
   assert.equal(result, expected, 'Render to HTML');
   assert.end();
 });
@@ -161,7 +169,7 @@ test('5. Convert adoc string to HTML using doctype: article, header_footer: true
 
   opal.Asciidoctor.$convert(content, options);
 
-  result = getFile(path.join('test', 'generated', 'output.html')).contents.toString('utf8');
+  let result = getFile(path.join('test', 'generated', 'output.html')).contents.toString('utf8');
   assert.equal(result, expected, 'Render to HTML');
   assert.end();
 });
