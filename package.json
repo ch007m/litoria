@@ -47,6 +47,7 @@
   },
   "scripts": {
     "test": "tape test/*.js | tap-spec",
+    "lint": "eslint .",
     "coverage": "istanbul cover tape test/log-test.js tape test/render.js"
   },
   "bin": {
