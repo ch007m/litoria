@@ -24,6 +24,7 @@ install:
   - gem install --version '0.12.7' compass
   - gem install --version '4.3.2' zurb-foundation
 before_script:
+  - npm install -g coveralls 
   - echo "Git clone the Asciidoctor Stylesheet Factory project and compile the css files using ruby compass"
   - git clone $GIT_REPO_ASCIIDOCTOR_STYLESHEET $GIT_STYLES_DIR
   - cd $GIT_STYLES_DIR
@@ -45,5 +46,6 @@ after_success:
   - git add .
   - git commit -m "Deploy the release branch"
   - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:release > /dev/null 2>&1
+  - cat ./coverage/lcov.info | coveralls
 notifications:
   irc: "chat.freenode.net#brass-monkey"
