@@ -47,47 +47,43 @@ function convert (content, options) {
  */
 setup();
 
-// function fileExists (path) {
-//   try {
-//     fs.statSync(path)
-//     return true
-//   } catch (err) {
-//     if (err) {
-//       console.error(err)
-//     }
-//     return !(err && err.code === 'ENOENT')
-//   }
-// }
+function fileExists (path) {
+  try {
+    fs.statSync(path);
+    return true;
+  } catch (err) {
+    return !(err && err.code === 'ENOENT');
+  }
+}
 
-// function removeFile (path) {
-//   if (fileExists(path)) {
-//     fs.unlinkSync(path)
-//   }
-// }
+function removeFile (path) {
+  if (fileExists(path)) {
+    fs.unlinkSync(path);
+  }
+}
 
 /*
- * Convert files from a directory
+ * Convert file using default css style and check that Google font is added
  */
-// TODO - To be fixed when https://github.com/asciidoctor/asciidoctor.js/issues/221 is resolved
-// test('1. Convert a Book to HTML using default stylesheet & Google Font', function (assert) {
-//   var expectFilePath = path.join(__dirname, 'generated/book.html')
-//   removeFile(expectFilePath)
-//   var attrs = opal.hash({
-//     nofooter: 'yes'
-//   })
-//   var options = opal.hash({
-//     safe: 'unsafe',
-//     header_footer: true,
-//     to_dir: 'test/generated',
-//     to_file: 'book.html',
-//     attributes: attrs
-//   })
-//   processor.$convert_file(path.join(__dirname, 'fixtures/book.adoc'), options)
-//   var content = fs.readFileSync(expectFilePath, 'utf8')
-//   assert.ok(fileExists(expectFilePath))
-//   assert.equal(content.includes('fonts.googleapis.com'), true)
-//   assert.end()
-// })
+test('1. Convert a Book to HTML using default stylesheet & Google Font', function (assert) {
+  var expectFilePath = path.join(__dirname, 'generated/book.html');
+  removeFile(expectFilePath);
+  var attrs = opal.hash({
+    nofooter: 'yes'
+  });
+  var options = opal.hash({
+    safe: 'unsafe',
+    header_footer: true,
+    to_dir: 'test/generated',
+    to_file: 'book.html',
+    attributes: attrs
+  });
+  processor.$convert_file(path.join(__dirname, 'fixtures/book.adoc'), options);
+  var content = fs.readFileSync(expectFilePath, 'utf8');
+  assert.ok(fileExists(expectFilePath));
+  assert.equal(content.includes('fonts.googleapis.com'), true);
+  assert.end();
+});
 
 /*
  * Convert an asciidoctor String using html5 as backend
