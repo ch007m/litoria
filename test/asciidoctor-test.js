@@ -6,6 +6,7 @@ const fs = require('fs');
 const path = require('path');
 const gutil = require('gulp-util');
 const Fidelity = require('fidelity');
+const litoria = require('../lib/litoria');
 
 let opal;
 let processor;
@@ -42,11 +43,6 @@ function convert (content, options) {
   });
 }
 
-/*
- * Init
- */
-setup();
-
 function fileExists (path) {
   try {
     fs.statSync(path);
@@ -61,6 +57,25 @@ function removeFile (path) {
     fs.unlinkSync(path);
   }
 }
+
+var deleteFolderRecursive = function (path) {
+  if (fs.existsSync(path)) {
+    fs.readdirSync(path).forEach(function (file) {
+      var curPath = path + '/' + file;
+      if (fs.statSync(curPath).isDirectory()) { // recurse
+        deleteFolderRecursive(curPath);
+      } else { // delete file
+        fs.unlinkSync(curPath);
+      }
+    });
+    fs.rmdirSync(path);
+  }
+};
+
+/*
+ * Init
+ */
+setup();
 
 /*
  * Convert file using default css style and check that Google font is added
@@ -192,4 +207,15 @@ test('5. Convert adoc string to HTML using doctype: article, header_footer: true
       console.error(error);
       assert.fail();
     });
+});
+
+test('6. Create a simple litoria project. Command used litoria init', function (assert) {
+  let dir = path.join(__dirname, 'generated/simple');
+  let cfgExpected = path.join(__dirname, 'generated/simple/html-cfg.yaml');
+  let simpleDocExpected = path.join(__dirname, 'generated/simple/source/simple.adoc');
+  deleteFolderRecursive(dir);
+  litoria.initProject('simple', null, dir);
+  assert.ok(fileExists(cfgExpected));
+  assert.ok(fileExists(simpleDocExpected));
+  assert.end();
 });
