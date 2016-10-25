@@ -5,7 +5,6 @@ const asciidoctor = require('asciidoctor.js')();
 const fs = require('fs');
 const path = require('path');
 const Fidelity = require('fidelity');
-const litoria = require('../lib/litoria');
 const $ = require('./common');
 
 let opal;
@@ -162,17 +161,6 @@ test('5. Convert adoc string to HTML using doctype: article, header_footer: true
       console.error(error);
       assert.fail();
     });
-});
-
-test('6. Create a simple litoria project. Command used litoria init', function (assert) {
-  let dir = path.join(__dirname, 'generated/simple');
-  let cfgExpected = path.join(__dirname, 'generated/simple/html-cfg.yaml');
-  let simpleDocExpected = path.join(__dirname, 'generated/simple/source/simple.adoc');
-  $.deleteFolderRecursive(dir);
-  litoria.initProject('simple', null, dir);
-  assert.ok($.fileExists(cfgExpected));
-  assert.ok($.fileExists(simpleDocExpected));
-  assert.end();
 });
 
 /*
