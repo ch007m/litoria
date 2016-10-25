@@ -1,6 +1,7 @@
 'use strict';
 
 const test = require('tape');
+const fs = require('fs');
 const path = require('path');
 const litoria = require('../lib/litoria');
 const $ = require('./common');
@@ -30,9 +31,24 @@ test('1. Create a simple litoria project. Command used litoria init', function (
 });
 
 /*
- * After: Delte testing folder
+ * Generate the HTML content using litoria generate command & config file
  */
-test('teardown', function (t) {
-  $.deleteFolderRecursive('test/generated');
+test('2. Generate HTML content', function (t) {
+  let cfgPath = path.join(__dirname, 'generated/simple/html-cfg.yaml');
+
+  process.chdir(path.join(__dirname, 'generated/simple'));
+  console.log('Project dir: ' + process.cwd());
+  console.log('Cfg: ' + fs.readFileSync(path.join(__dirname, 'generated/simple/html-cfg.yaml'), 'utf8'));
+  litoria.convertToHtml(cfgPath);
+
+  t.ok($.fileExists(path.join(__dirname, 'generated/simple/generated/output.html')));
   t.end();
 });
+
+/*
+ * After: Delete testing folder
+ */
+// test('teardown', function (t) {
+//   $.deleteFolderRecursive('test/generated');
+//   t.end();
+// });
