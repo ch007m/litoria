@@ -121,7 +121,7 @@ then you can execute the `litoria` commands in a terminal and continue to develo
 
 Otherwise, you can run the different commands as such :
 
-Execute in a terminal theis command by example to create a new project :
+Execute in a terminal this command by example to create a new project :
 
     node bin/litoria.js init /path/to/project
 
