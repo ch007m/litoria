@@ -1,5 +1,4 @@
 :icons: font
-:data-uri:
 
 :author: Kismet Rainbow Chameleon
 :firstname: Kismet
