@@ -34,10 +34,9 @@ test('1. Create a simple litoria project. Command used litoria init', function (
  * Source directory will be scanned to find the *adoc files to be generated
  */
 test('2. Generate HTML content from a directory', function (t) {
-  let cfgPath = path.join(__dirname, 'temp/simple/html-cfg.yaml');
   process.chdir(path.join(__dirname, 'temp/simple'));
-  litoria.convertToHtml(cfgPath);
-  let genFile = $.getFile(path.join(__dirname, 'temp/simple/generated/simple.html')).contents.toString('utf8');
+  litoria.convertToHtml('html-cfg.yaml');
+  let genFile = $.getFile('generated/simple.html').contents.toString('utf8');
   t.ok(genFile.includes('<h2 id="_the_dangerous_and_thrilling_documentation_chronicles">', true));
   t.end();
 });
@@ -48,10 +47,9 @@ test('2. Generate HTML content from a directory', function (t) {
  */
 test('3. Generate HTML content for a file', function (t) {
   process.chdir(path.join(__dirname, 'temp/simple'));
-  let cfgPath = path.join(__dirname, 'temp/simple/html-cfg.yaml');
-  $.searchReplaceStringInFile(cfgPath, 'source: "./source"', 'source: "./source/simple.adoc"');
-  litoria.convertToHtml(cfgPath);
-  let genFile = $.getFile(path.join(__dirname, 'temp/simple/generated/simple.html')).contents.toString('utf8');
+  $.searchReplaceStringInFile('html-cfg.yaml', 'source: "./source"', 'source: "./source/simple.adoc"');
+  litoria.convertToHtml('html-cfg.yaml');
+  let genFile = $.getFile('generated/simple.html').contents.toString('utf8');
   t.ok(genFile.includes('<h2 id="_the_dangerous_and_thrilling_documentation_chronicles">', true));
   t.end();
 });
@@ -62,11 +60,10 @@ test('3. Generate HTML content for a file', function (t) {
  */
 test('4. Generate HTML content', function (t) {
   process.chdir(path.join(__dirname, 'temp/simple'));
-  let cfgPath = path.join(__dirname, 'temp/simple/html-cfg.yaml');
-  $.searchReplaceStringInFile(cfgPath, 'stylesheet: \'foundation.css\'', '');
-  $.searchReplaceStringInFile(cfgPath, 'stylesdir: \'css\'', '');
-  litoria.convertToHtml(cfgPath);
-  let genFile = $.getFile(path.join(__dirname, 'temp/simple/generated/simple.html')).contents.toString('utf8');
+  $.searchReplaceStringInFile('html-cfg.yaml', 'stylesheet: \'foundation.css\'', '');
+  $.searchReplaceStringInFile('html-cfg.yaml', 'stylesdir: \'css\'', '');
+  litoria.convertToHtml('html-cfg.yaml');
+  let genFile = $.getFile('generated/simple.html').contents.toString('utf8');
   t.ok(genFile.includes('<h2 id="_the_dangerous_and_thrilling_documentation_chronicles">', true));
   t.ok(genFile.includes('Asciidoctor default stylesheet', true));
   t.end();
@@ -76,6 +73,6 @@ test('4. Generate HTML content', function (t) {
  * After: Delete testing folder
  */
 test('teardown', function (t) {
-  $.deleteFolderRecursive('test/temp');
+  $.deleteFolderRecursive(path.join(__dirname, 'temp'));
   t.end();
 });

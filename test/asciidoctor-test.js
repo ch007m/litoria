@@ -202,6 +202,6 @@ test('6. Convert adoc file including an image to HTML using doctype: article, he
  * After : Delete testing folder
  */
 test('teardown', function (t) {
-  $.deleteFolderRecursive('test/temp');
+  $.deleteFolderRecursive(path.join(__dirname, 'temp'));
   t.end();
 });
