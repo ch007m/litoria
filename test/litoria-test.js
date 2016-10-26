@@ -46,8 +46,9 @@ test('2. Generate HTML content from a directory', function (t) {
  * The source location corresponds to source/simple.adoc file
  */
 test('3. Generate HTML content for a file', function (t) {
-  process.chdir(path.join(__dirname, 'temp/simple'));
-  $.searchReplaceStringInFile('html-cfg.yaml', 'source: "./source"', 'source: "./source/simple.adoc"');
+  let projectDirPath = path.join(__dirname, 'temp/simple');
+  process.chdir(projectDirPath);
+  $.searchReplaceStringInFile(projectDirPath + '/html-cfg.yaml', 'source: "./source"', 'source: "./source/simple.adoc"');
   litoria.convertToHtml('html-cfg.yaml');
   let genFile = $.getFile('generated/simple.html').contents.toString('utf8');
   t.ok(genFile.includes('<h2 id="_the_dangerous_and_thrilling_documentation_chronicles">', true));
@@ -59,9 +60,10 @@ test('3. Generate HTML content for a file', function (t) {
  * Use the default stylesheet
  */
 test('4. Generate HTML content', function (t) {
-  process.chdir(path.join(__dirname, 'temp/simple'));
-  $.searchReplaceStringInFile('html-cfg.yaml', 'stylesheet: \'foundation.css\'', '');
-  $.searchReplaceStringInFile('html-cfg.yaml', 'stylesdir: \'css\'', '');
+  let projectDirPath = path.join(__dirname, 'temp/simple');
+  process.chdir(projectDirPath);
+  $.searchReplaceStringInFile(projectDirPath + '/html-cfg.yaml', 'stylesheet: \'foundation.css\'', '');
+  $.searchReplaceStringInFile(projectDirPath + '/html-cfg.yaml', 'stylesdir: \'css\'', '');
   litoria.convertToHtml('html-cfg.yaml');
   let genFile = $.getFile('generated/simple.html').contents.toString('utf8');
   t.ok(genFile.includes('<h2 id="_the_dangerous_and_thrilling_documentation_chronicles">', true));
