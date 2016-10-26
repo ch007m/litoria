@@ -37,11 +37,10 @@ test('2. Generate HTML content', function (t) {
   let cfgPath = path.join(__dirname, 'generated/simple/html-cfg.yaml');
 
   process.chdir(path.join(__dirname, 'generated/simple'));
-  console.log('Project dir: ' + process.cwd());
   console.log('Cfg: ' + fs.readFileSync(path.join(__dirname, 'generated/simple/html-cfg.yaml'), 'utf8'));
   litoria.convertToHtml(cfgPath);
-
-  t.ok($.fileExists(path.join(__dirname, 'generated/simple/generated/output.html')));
+  console.log('Generated file : ' + path.join(__dirname, 'generated/simple/generated/simple.html'));
+  t.ok($.fileExists(path.join(__dirname, 'generated/simple/generated/simple.html')));
   t.end();
 });
 
