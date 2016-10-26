@@ -3,6 +3,7 @@
 const fs = require('fs');
 const gutil = require('gulp-util');
 const path = require('path');
+const log = require('../lib/log');
 
 var createTestDir = function (dir) {
   if (!fs.existsSync(dir)) {
@@ -48,11 +49,26 @@ var deleteFolderRecursive = function (path) {
   }
 };
 
+var searchReplaceStringInFile = function (file, stringToSearch, stringToBeReplaced) {
+  let rex = new RegExp(stringToSearch, 'g');
+  fs.readFile(file, 'utf8', function (err, data) {
+    if (err) {
+      return log.error(err);
+    }
+    var result = data.replace(rex, stringToBeReplaced);
+
+    fs.writeFile(file, result, 'utf8', function (err) {
+      if (err) return log.error(err);
+    });
+  });
+};
+
 module.exports = {
   createTestDir: createTestDir,
   getFile: getFile,
   fileExists: fileExists,
   removeFile: removeFile,
-  deleteFolderRecursive: deleteFolderRecursive
+  deleteFolderRecursive: deleteFolderRecursive,
+  searchReplaceStringInFile: searchReplaceStringInFile
 };
 
