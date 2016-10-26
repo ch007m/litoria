@@ -36,7 +36,7 @@ test('2. Generate HTML content', function (t) {
   let cfgPath = path.join(__dirname, 'generated/simple/html-cfg.yaml');
   process.chdir(path.join(__dirname, 'generated/simple'));
   litoria.convertToHtml(cfgPath);
-  let genFile = $.getFile(path.join(__dirname, 'generated/simple/generated/simple.html'));
+  let genFile = $.getFile(path.join(__dirname, 'generated/simple/generated/simple.html')).contents.toString('utf8');
   t.ok(genFile.includes('<h2 id="_the_dangerous_and_thrilling_documentation_chronicles">', true));
   t.end();
 });
@@ -44,7 +44,7 @@ test('2. Generate HTML content', function (t) {
 /*
  * After: Delete testing folder
  */
-// test('teardown', function (t) {
-//   $.deleteFolderRecursive('test/generated');
-//   t.end();
-// });
+test('teardown', function (t) {
+  $.deleteFolderRecursive('test/generated');
+  t.end();
+});
