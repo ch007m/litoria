@@ -31,13 +31,44 @@ test('1. Create a simple litoria project. Command used litoria init', function (
 
 /*
  * Generate the HTML content using litoria generate command & yaml config file
+ * Source directory will be scanned to find the *adoc files to be generated
  */
-test('2. Generate HTML content', function (t) {
+test('2. Generate HTML content from a directory', function (t) {
   let cfgPath = path.join(__dirname, 'temp/simple/html-cfg.yaml');
   process.chdir(path.join(__dirname, 'temp/simple'));
   litoria.convertToHtml(cfgPath);
   let genFile = $.getFile(path.join(__dirname, 'temp/simple/generated/simple.html')).contents.toString('utf8');
   t.ok(genFile.includes('<h2 id="_the_dangerous_and_thrilling_documentation_chronicles">', true));
+  t.end();
+});
+
+/*
+ * Generate the HTML content using litoria generate command & yaml config file
+ * The source location corresponds to source/simple.adoc file
+ */
+test('3. Generate HTML content for a file', function (t) {
+  process.chdir(path.join(__dirname, 'temp/simple'));
+  let cfgPath = path.join(__dirname, 'temp/simple/html-cfg.yaml');
+  $.searchReplaceStringInFile(cfgPath, 'source: "./source"', 'source: "./source/simple.adoc"');
+  litoria.convertToHtml(cfgPath);
+  let genFile = $.getFile(path.join(__dirname, 'temp/simple/generated/simple.html')).contents.toString('utf8');
+  t.ok(genFile.includes('<h2 id="_the_dangerous_and_thrilling_documentation_chronicles">', true));
+  t.end();
+});
+
+/*
+ * Generate the HTML content using litoria generate command & yaml config file
+ * Use the default stylesheet
+ */
+test('4. Generate HTML content', function (t) {
+  process.chdir(path.join(__dirname, 'temp/simple'));
+  let cfgPath = path.join(__dirname, 'temp/simple/html-cfg.yaml');
+  $.searchReplaceStringInFile(cfgPath, 'stylesheet: \'foundation.css\'', '');
+  $.searchReplaceStringInFile(cfgPath, 'stylesdir: \'css\'', '');
+  litoria.convertToHtml(cfgPath);
+  let genFile = $.getFile(path.join(__dirname, 'temp/simple/generated/simple.html')).contents.toString('utf8');
+  t.ok(genFile.includes('<h2 id="_the_dangerous_and_thrilling_documentation_chronicles">', true));
+  t.ok(genFile.includes('Asciidoctor default stylesheet', true));
   t.end();
 });
 
