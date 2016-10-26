@@ -27,7 +27,7 @@ test('setup', function (t) {
   opal = asciidoctor.Opal;
   opal.load('nodejs');
   processor = asciidoctor.Asciidoctor();
-  $.createTestDir('test/generated');
+  $.createTestDir('test/temp');
   t.end();
 });
 
@@ -35,7 +35,7 @@ test('setup', function (t) {
  * Convert file using default css style and check that Google font is added
  */
 test('1. Convert a Book to HTML using default stylesheet & Google Font', function (assert) {
-  var expectFilePath = path.join(__dirname, 'generated/book.html');
+  var expectFilePath = path.join(__dirname, 'temp/book.html');
   $.removeFile(expectFilePath);
   var attrs = opal.hash({
     nofooter: 'yes'
@@ -43,7 +43,7 @@ test('1. Convert a Book to HTML using default stylesheet & Google Font', functio
   var options = opal.hash({
     safe: 'unsafe',
     header_footer: true,
-    to_dir: 'test/generated',
+    to_dir: 'test/temp',
     to_file: 'book.html',
     attributes: attrs
   });
@@ -124,14 +124,14 @@ test('4. Convert adoc file to HTML using doctype: article, header_footer : true'
   let options = opal.hash({
     doctype: 'article',
     safe: 'unsafe',
-    to_dir: 'test/generated',
+    to_dir: 'test/temp',
     to_file: 'simple2.adoc.html',
     attributes: attrs
   });
 
   processor.$convert_file(f, options);
 
-  let result = $.getFile(path.join('test', 'generated', 'simple2.adoc.html')).contents.toString('utf8');
+  let result = $.getFile(path.join('test', 'temp', 'simple2.adoc.html')).contents.toString('utf8');
   assert.equal(result, expected, 'Render to HTML');
   assert.end();
 });
@@ -182,14 +182,14 @@ test('6. Convert adoc file including an image to HTML using doctype: article, he
     doctype: 'article',
     safe: 'unsafe',
     header_footer: true,
-    to_dir: 'test/generated',
+    to_dir: 'test/temp',
     to_file: 'output.html',
     attributes: attrs
   });
 
   convert(content, options)
     .then(result => {
-      let file = $.getFile(path.join('test', 'generated', 'output.html')).contents.toString('utf8');
+      let file = $.getFile(path.join('test', 'temp', 'output.html')).contents.toString('utf8');
       assert.ok(file.includes('src="image/litoria-chloris.jpg"', true));
       assert.end();
     }).catch(error => {
@@ -202,6 +202,6 @@ test('6. Convert adoc file including an image to HTML using doctype: article, he
  * After : Delete testing folder
  */
 test('teardown', function (t) {
-  $.deleteFolderRecursive('test/generated');
+  $.deleteFolderRecursive('test/temp');
   t.end();
 });
