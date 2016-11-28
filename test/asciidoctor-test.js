@@ -7,13 +7,12 @@ const path = require('path');
 const Fidelity = require('fidelity');
 const $ = require('./common');
 
-let opal;
 let processor;
 
 function convert (content, options) {
   return new Fidelity((resolve, reject) => {
     try {
-      resolve(processor.$convert(content, options));
+      resolve(processor.convert(content, options));
     } catch (error) {
       return reject(error);
     }
@@ -24,9 +23,7 @@ function convert (content, options) {
  * Before: Create testing folder, initialize Opal & Asciidoctor processor
  */
 test('setup', function (t) {
-  opal = asciidoctor.Opal;
-  opal.load('nodejs');
-  processor = asciidoctor.Asciidoctor();
+  processor = asciidoctor;
   $.createTestDir('test/temp');
   t.end();
 });
@@ -37,17 +34,14 @@ test('setup', function (t) {
 test('1. Convert a Book to HTML using default stylesheet & Google Font', function (assert) {
   var expectFilePath = path.join(__dirname, 'temp/book.html');
   $.removeFile(expectFilePath);
-  var attrs = opal.hash({
-    nofooter: 'yes'
-  });
-  var options = opal.hash({
+  var options = {
     safe: 'unsafe',
     header_footer: true,
     to_dir: 'test/temp',
     to_file: 'book.html',
-    attributes: attrs
-  });
-  processor.$convert_file(path.join(__dirname, 'fixtures/book.adoc'), options);
+    attributes: ['nofooter=yes']
+  };
+  processor.convertFile(path.join(__dirname, 'fixtures/book.adoc'), options);
   var content = fs.readFileSync(expectFilePath, 'utf8');
   assert.ok($.fileExists(expectFilePath));
   assert.equal(content.includes('fonts.googleapis.com'), true);
@@ -65,7 +59,7 @@ test('2. Convert adoc string to HTML using doctype : inline', function (assert) 
     'brings AsciiDoc to the browser!';
   let expected = '<a href="http://asciidoctor.org"><strong>Asciidoctor</strong></a> running on <a href="http://opalrb.org"><em>Opal</em></a> brings AsciiDoc to the browser!';
 
-  let options = opal.hash({doctype: 'inline', attributes: ['showtitle']});
+  let options = {doctype: 'inline', attributes: ['showtitle']};
 
   convert(content, options)
     .then(result => {
@@ -87,11 +81,11 @@ test('3. Convert adoc string to HTML using doctype: article, header_footer : tru
   let content = $.getFile(path.join('test', 'fixtures', 'simple.adoc')).contents.toString('utf8');
   let expected = $.getFile(path.join('test', 'fixtures', 'simple-links.html')).contents.toString('utf8');
 
-  let options = opal.hash({
+  let options = {
     doctype: 'article',
     header_footer: 'true',
     attributes: ['nofooter']
-  });
+  };
 
   convert(content, options)
     .then(result => {
@@ -114,22 +108,15 @@ test('4. Convert adoc file to HTML using doctype: article, header_footer : true'
   let f = path.join('test', 'fixtures', 'simple.adoc');
   let expected = $.getFile(path.join('test', 'fixtures', 'simple-css-embedded.html')).contents.toString('utf8');
 
-  let attrs = opal.hash({
-    showtitle: '',
-    stylesheet: 'asciidoctor-default.css',
-    stylesdir: '../../test/css',
-    nofooter: ''
-  });
-
-  let options = opal.hash({
+  let options = {
     doctype: 'article',
     safe: 'unsafe',
     to_dir: 'test/temp',
     to_file: 'simple.adoc.html',
-    attributes: attrs
-  });
+    attributes: ['showtitle', 'nofooter', 'stylesheet=asciidoctor-default.css', 'stylesdir=../../test/css']
+  };
 
-  processor.$convert_file(f, options);
+  processor.convertFile(f, options);
 
   let result = $.getFile(path.join('test', 'temp', 'simple.adoc.html')).contents.toString('utf8');
   assert.equal(result, expected, 'Render to HTML');
@@ -146,21 +133,14 @@ test('4. Convert adoc file to HTML using doctype: article, header_footer : true'
 test('5. Convert adoc file including an image to HTML using doctype: article, header_footer: true and Save file according to_dir and to_file options', function (assert) {
   let content = $.getFile(path.join('test', 'fixtures', 'simple-image.adoc')).contents.toString('utf8');
 
-  let attrs = opal.hash({
-    showtitle: '',
-    stylesheet: 'foundation.css',
-    stylesdir: 'test/css',
-    nofooter: 'yes'
-  });
-
-  let options = opal.hash({
+  let options = {
     doctype: 'article',
     safe: 'unsafe',
     header_footer: true,
     to_dir: 'test/temp',
     to_file: 'output.html',
-    attributes: attrs
-  });
+    attributes: ['showtitle', 'stylesheet=foundation.css', 'stylesdir=test/css', 'nofooter=yes']
+  };
 
   convert(content, options)
     .then(result => {
