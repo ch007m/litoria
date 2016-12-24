@@ -6,15 +6,12 @@ const fs = require('fs');
 const path = require('path');
 const $ = require('./common');
 
-let opal;
 let processor;
 /*
  * Before: Create testing folder, initialize Opal & Asciidoctor processor
  */
 test('setup', function (t) {
-  opal = asciidoctor.Opal;
-  opal.load('nodejs');
-  processor = asciidoctor.Asciidoctor();
+  processor = asciidoctor;
   require('asciidoctor-template.js');
   $.createTestDir('test/temp');
   t.end();
@@ -26,15 +23,12 @@ test('setup', function (t) {
 test('1. Convert a slides.adoc to HTML Slideshow using Revealjs', function (assert) {
   let expectFilePath = path.join(__dirname, 'temp/slides.html');
   let revealjsDir = path.join(__dirname, '../', 'node_modules/reveal.js');
-  let attributes = opal.hash({
-    revealjsdir: revealjsDir
-  });
-  let options = opal.hash({
+  let options = {
     safe: 'safe',
     backend: 'revealjs',
     to_dir: 'test/temp',
-    attributes: attributes});
-  processor.$convert_file(path.join(__dirname, 'fixtures/slides.adoc'), options);
+    attributes: ['revealjsdir=' + revealjsDir]};
+  processor.convertFile(path.join(__dirname, 'fixtures/slides.adoc'), options);
 
   let content = fs.readFileSync(expectFilePath, 'utf8');
   assert.ok($.fileExists(expectFilePath));
