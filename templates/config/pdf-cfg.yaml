@@ -1,0 +1,30 @@
+source: "./generated_content/my_file.html" # or could be a directory eg. ./generated_content
+destination: "./generated_pdf"
+
+#
+# PDF Options
+#
+pdf:
+  format: A4
+  orientation: portrait
+  zoomFactor: "0.55" # Doesn't work with phantomjs or phantomjs-prebuilt. Work around is to add to the css a new rule html{ zoom: 0.55;}
+  border:
+   top: 20px
+   right: 15px
+   bottom: 20px
+   left: 15px
+  header:
+   height: 5mm
+   contents:
+    default: "<div style='color: #444; font-size: 80%; text-align: center;'>Author: Litoria</div>"
+  footer:
+   height: 10mm
+   contents:
+    2: "Second page"
+    first: "Cover page"
+    default: "<div style='color: #444; font-size: 80%; text-align: center;'>{{page}}/{{pages}} - &copy; Litoria - 2016</div>"
+    last: "Last Page"
+  type: pdf
+  quality: 100
+  phantomPath: "/path/to/bin/of/phantomjs-prebuilt/bin/phantomjs"
+

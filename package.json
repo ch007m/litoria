@@ -1,0 +1,76 @@
+{
+  "name": "litoria",
+  "version": "0.0.30",
+  "description": "A Command Line Tool to manage asciidoctor projet; create, add content, watch content and convert it into html, pdf & epub3 files for documents, reports, revealjs slideshow, hands on lab & more",
+  "license": "Apache-2.0",
+  "author": "Charles Moulliard",
+  "maintainers": [
+    {
+      "name": "cmoulliard",
+      "email": "ch007m@gmail.com"
+    }
+  ],
+  "homepage": "https://github.com/bucharest-gold/litoria#README.md",
+  "bugs": "https://github.com/bucharest-gold/litoria/issues",
+  "keywords": [
+    "asciidoctor",
+    "render",
+    "pdf",
+    "html",
+    "revealjs"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bucharest-gold/litoria"
+  },
+  "engines": {
+    "node": ">=4.0.0"
+  },
+  "dependencies": {
+    "asciidoctor-reveal.js": "^1.0.1",
+    "asciidoctor-template.js": "^1.5.5-3",
+    "asciidoctor.js": "1.5.5-4",
+    "async": "^2.0.1",
+    "chalk": "^1.1.3",
+    "cheerio": "^0.22.0",
+    "commander": "^2.9.0",
+    "fs-extra": "^0.30.0",
+    "glob": "^7.0.6",
+    "hapi": "^15.0.3",
+    "html-pdf": "^2.1.0",
+    "inert": "^4.0.2",
+    "inline-css": "^2.2.2",
+    "nodemailer": "^2.5.0",
+    "opener": "^1.4.1",
+    "tar-fs": "^1.13.2",
+    "yamljs": "^0.2.8"
+  },
+  "scripts": {
+    "test": "tape test/*.js | tap-spec",
+    "lint": "eslint bin/*.js lib/*.js test/*.js",
+    "coverage": "istanbul cover tape test/log-test.js tape test/render.js"
+  },
+  "bin": {
+    "litoria": "bin/litoria.js"
+  },
+  "devDependencies": {
+    "eslint": "^3.3.1",
+    "eslint-config-semistandard": "^7.0.0-beta.0",
+    "eslint-config-standard": "^6.0.0",
+    "eslint-plugin-promise": "^3.3.0",
+    "eslint-plugin-react": "^6.1.2",
+    "eslint-plugin-standard": "^2.0.0",
+    "fidelity": "^4.0.0",
+    "gulp-util": "^3.0.7",
+    "istanbul": "^0.4.5",
+    "proxyquire": "^1.7.10",
+    "should": "^11.1.0",
+    "sinon": "^1.17.5",
+    "tap-spec": "^4.1.1",
+    "tape": "^4.6.0",
+    "test-console": "^1.0.0"
+  },
+  "peerDependencies": {
+    "phantomjs-prebuilt": "^2.1.12"
+  }
+}

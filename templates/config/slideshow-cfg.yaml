@@ -1,0 +1,20 @@
+source: "./source" # or could be a directory eg. ./examples
+destination: "./generated"
+
+#repos:
+#  revealjs: 'https://github.com/hakimel/reveal.js/archive/3.3.0.tar.gz'
+#  revealjs-backend: 'https://github.com/asciidoctor/asciidoctor-reveal.js/archive/master.zip'
+
+attributes:
+  backend: 'revealjs'
+  nofooter: 'yes'
+  icons: 'font'
+  source-highlighter: 'highlight.js' # Attribute required to avoid Revealjs js issue when the syntax higlighter plugin is loaded
+
+options:
+  doctype: 'article'
+  template_dir: '/path/to/revealjs/jade/templates' # /Users/chmoulli/Temp/asciidoctorjs-slide-templates-master
+  to_dir: 'generated'
+  to_file: 'output.html'
+  safe: 'unsafe' # Required to avoid that the file to process is not loaded
+
