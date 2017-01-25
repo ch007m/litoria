@@ -16,7 +16,7 @@ Command Line Tool to manage asciidoc projet (create, watch content), convert ado
 | Build:          | make  |
 | Documentation:  | N/A  |
 | Issue tracker:  | https://github.com/bucharest-gold/litoria/issues  |
-| Engines:        | Node.js 4.x, 5.x, 6.x
+| Engines:        | Node.js 4.x, 6.x, 7.x
 
 ## Installation
 
