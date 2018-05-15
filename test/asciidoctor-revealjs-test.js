@@ -12,7 +12,7 @@ let processor;
  */
 test('setup', function (t) {
   processor = asciidoctor;
-  require('asciidoctor-template.js');
+  require('asciidoctor-reveal.js');
   $.createTestDir('test/temp');
   t.end();
 });
@@ -32,8 +32,8 @@ test('1. Convert a slides.adoc to HTML Slideshow using Revealjs', function (asse
 
   let content = fs.readFileSync(expectFilePath, 'utf8');
   assert.ok($.fileExists(expectFilePath));
-  assert.equal(content.includes('<section id="_slide_one"'), true);
-  assert.equal(content.includes('<section id="_slide_two"'), true);
+  assert.equal(content.includes('<section id="slide_one"'), true);
+  assert.equal(content.includes('<section id="slide_two"'), true);
   assert.end();
 });
 
