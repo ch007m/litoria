@@ -89,8 +89,10 @@ Create a slideshow presentation using the template [slideshow](templates/slidesh
 Render the asciidoctor(s) file(s) part of the input directory **source** into a RevealJS Slideshow. The generated content is available within the **generated** folder.
     
     litoria generate slideshow-cfg.yaml
+ 
+then, start a local http server using the `serve` command.
     
-To configure revealjs [parameters](https://github.com/asciidoctor/asciidoctor-reveal.js#revealjs-options) such as theme, transition, css, .... simply add them under the section `attributes` of the cfg file
+**NOTE** : To configure revealjs [parameters](https://github.com/asciidoctor/asciidoctor-reveal.js#revealjs-options) such as theme, transition, css, .... simply add them under the section `attributes` of the cfg file
 
 
 ```bash
