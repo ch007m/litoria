@@ -90,7 +90,7 @@ Render the asciidoctor(s) file(s) part of the input directory **source** into a 
     
     litoria generate slideshow-cfg.yaml
  
-then, start a local http server using the `serve` command.
+**IMPORTANT** : Copy your own resources such as `image`, `css` folders under the **generated** folder and start a local http server using the `serve` command.
     
 **NOTE** : To configure revealjs [parameters](https://github.com/asciidoctor/asciidoctor-reveal.js#revealjs-options) such as theme, transition, css, .... simply add them under the section `attributes` of the cfg file
 
