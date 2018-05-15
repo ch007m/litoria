@@ -60,7 +60,7 @@ Many project type or category are supported as described here after :
 * Simple: project containing a simple adoc example
 * Management : project containing a **minute** and **report** adoc example
 * Lab : project containing a **Hands on Lab** adoc example
-* Slideshow: not yet implemented
+* Slideshow: RevealJS slideshow project
     
 To use such type, pass the option `-c` or `--category` with the keywords `simple`, `management`, `project` or `slideshow`. The default category is `simple`
     
@@ -78,7 +78,29 @@ or
     
     litoria generate config.yaml as the default rendering is `html`
     
-The source and destination folders can be changed within the yaml config file.    
+The source and destination folders can be changed within the yaml config file.   
+
+### slideshow 
+
+Create a slideshow presentation using the template [slideshow](templates/slideshow.adoc)
+
+    litoria init -c slideshow /path/to/project
+
+Render the asciidoctor(s) file(s) part of the input directory **source** into a RevealJS Slideshow. The generated content is available within the **generated** folder.
+    
+    litoria generate slideshow-cfg.yaml
+    
+To configure revealjs [parameters](https://github.com/asciidoctor/asciidoctor-reveal.js#revealjs-options) such as theme, transition, css, .... simply add them under the section `attributes` of the cfg file
+
+
+```bash
+E.g.
+
+attributes:
+  backend: 'revealjs'
+  icons: font
+  revealjs_theme: white 
+```
 
 ### inline
  

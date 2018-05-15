@@ -6,6 +6,13 @@ source: "./source" # or could be a directory eg. ./examples
 
 attributes:
   backend: 'revealjs'
+  icons: font
+  # customcss: css/custom.css
+  # imagesdir: image
+  revealjs_theme: white
+  revealjs_transition: none
+  revealjs_history: true
+  revealjs_center: false
 
 options:
   to_dir: './generated'
