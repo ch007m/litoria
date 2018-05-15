@@ -81,12 +81,14 @@ link:?#/transitions[Default]
 Reveal.js comes with a few themes built in:
 
 link:?#/themes[Default] -
+link:?theme=black#/themes[Black] -
+link:?theme=white#/themes[White] -
+link:?theme=league#/themes[League] -
 link:?theme=sky#/themes[Sky] -
 link:?theme=beige#/themes[Beige] -
 link:?theme=simple#/themes[Simple] -
 link:?theme=serif#/themes[Serif] -
 link:?theme=night#/themes[Night] +++<br>+++
-link:?theme=moon#/themes[Moon] -
 link:?theme=solarized#/themes[Solarized]
 
 +++<small>+++
