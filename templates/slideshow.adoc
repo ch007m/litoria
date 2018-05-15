@@ -3,7 +3,10 @@
 :description: RevealJS Template to create a beautiful HTML Slideshow
 :twitter: cmoulliard
 
+:source-highlighter: highlightjs
+:icons: font
 :revealjs_history: true
+:revealjs_theme: white
 
 = Getting Started with Reveal.js
 
