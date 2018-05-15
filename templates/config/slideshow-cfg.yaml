@@ -2,7 +2,7 @@ source: "./source" # or could be a directory eg. ./examples
 destination: "./generated"
 
 #repos:
-#  revealjs: 'https://github.com/hakimel/reveal.js/archive/3.3.0.tar.gz'
+#  revealjs: 'https://github.com/hakimel/reveal.js/archive/3.6.0.tar.gz'
 #  revealjs-backend: 'https://github.com/asciidoctor/asciidoctor-reveal.js/archive/master.zip'
 
 attributes:
@@ -13,7 +13,6 @@ attributes:
 
 options:
   doctype: 'article'
-  template_dir: '/path/to/revealjs/jade/templates' # /Users/chmoulli/Temp/asciidoctorjs-slide-templates-master
   to_dir: 'generated'
   to_file: 'output.html'
   safe: 'unsafe' # Required to avoid that the file to process is not loaded
