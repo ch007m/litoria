@@ -94,7 +94,6 @@ Render the asciidoctor(s) file(s) part of the input directory **source** into a 
     
 **NOTE** : To configure revealjs [parameters](https://github.com/asciidoctor/asciidoctor-reveal.js#revealjs-options) such as theme, transition, css, .... simply add them under the section `attributes` of the cfg file
 
-
 ```bash
 E.g.
 
