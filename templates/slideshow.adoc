@@ -3,6 +3,8 @@
 :description: RevealJS Template to create a beautiful HTML Slideshow
 :twitter: cmoulliard
 
+:revealjs_history: true
+
 = Getting Started with Reveal.js
 
 == Reveal.js
