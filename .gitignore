@@ -1,7 +1,11 @@
+.idea
 node_modules
 generated_content
 generated
+test/temp
+
 .vscode
+.DS_Store
 *.log
 build
 coverage
