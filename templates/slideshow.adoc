@@ -85,21 +85,19 @@ link:?#/transitions[Default]
 
 Reveal.js comes with a few themes built in:
 
-link:?#/themes[Default] -
-link:?theme=black#/themes[Black] -
-link:?theme=white#/themes[White] -
-link:?theme=league#/themes[League] -
-link:?theme=sky#/themes[Sky] -
-link:?theme=beige#/themes[Beige] -
-link:?theme=simple#/themes[Simple] -
-link:?theme=serif#/themes[Serif] -
-link:?theme=night#/themes[Night] +++<br>+++
-link:?theme=solarized#/themes[Solarized]
-
-+++<small>+++
-* Theme demos are loaded after the presentation which leads to flicker. +
-In production you should load your theme in the <code><head></code> using a <code><link></code>.
-+++</small>+++
++++
+<a href="#" onclick="document.getElementById('theme').setAttribute('href','reveal.js/css/theme/black.css'); return false;">Black (default)</a> -
+<a href="#" onclick="document.getElementById('theme').setAttribute('href','reveal.js/css/theme/white.css'); return false;">White</a> -
+<a href="#" onclick="document.getElementById('theme').setAttribute('href','reveal.js/css/theme/league.css'); return false;">League</a> -
+<a href="#" onclick="document.getElementById('theme').setAttribute('href','reveal.js/css/theme/sky.css'); return false;">Sky</a> -
+<a href="#" onclick="document.getElementById('theme').setAttribute('href','reveal.js/css/theme/beige.css'); return false;">Beige</a> -
+<a href="#" onclick="document.getElementById('theme').setAttribute('href','reveal.js/css/theme/simple.css'); return false;">Simple</a> <br>
+<a href="#" onclick="document.getElementById('theme').setAttribute('href','reveal.js/css/theme/serif.css'); return false;">Serif</a> -
+<a href="#" onclick="document.getElementById('theme').setAttribute('href','reveal.js/css/theme/blood.css'); return false;">Blood</a> -
+<a href="#" onclick="document.getElementById('theme').setAttribute('href','reveal.js/css/theme/night.css'); return false;">Night</a> -
+<a href="#" onclick="document.getElementById('theme').setAttribute('href','reveal.js/css/theme/moon.css'); return false;">Moon</a> -
+<a href="#" onclick="document.getElementById('theme').setAttribute('href','reveal.js/css/theme/solarized.css'); return false;">Solarized</a>
++++
 
 == Global State
 
