@@ -10,8 +10,8 @@
       "email": "ch007m@gmail.com"
     }
   ],
-  "homepage": "https://github.com/bucharest-gold/litoria#README.md",
-  "bugs": "https://github.com/bucharest-gold/litoria/issues",
+  "homepage": "https://github.com/cmoulliard/litoria#README.md",
+  "bugs": "https://github.com/cmoulliard/litoria/issues",
   "keywords": [
     "asciidoctor",
     "render",
@@ -21,7 +21,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/bucharest-gold/litoria"
+    "url": "https://github.com/cmoulliard/litoria"
   },
   "engines": {
     "node": ">=8.0.0"

@@ -4,7 +4,7 @@
 
 ### Did you find a bug ?
 
-Open a [new issue](https://github.com/bucharest-gold/litoria/issues/new)
+Open a [new issue](https://github.com/cmoulliard/litoria/issues/new)
 and be sure to include a title and clear description, as much relevant information
 as possible, and a code sample or a test case demonstrating the expected behavior
 that is not occurring.
@@ -15,13 +15,13 @@ Discussions can be done via github issues or IRC channel #bucharest-gold.
 
 ### Fork
 
-Fork the project [on GitHub](https://github.com/bucharest-gold/litoria)
+Fork the project [on GitHub](https://github.com/cmoulliard/litoria)
 and check out your copy locally.
 
 ```
 git clone git@github.com:username/litoria.git
 cd litoria
-git remote add upstream https://github.com/bucharest-gold/litoria.git
+git remote add upstream https://github.com/cmoulliard/litoria.git
 ```
 
 ### Branch

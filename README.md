@@ -1,9 +1,9 @@
-# <img src="https://raw.githubusercontent.com/bucharest-gold/litoria/master/templates/image/litoria-chloris.jpg"> litoria
+# <img src="https://raw.githubusercontent.com/cmoulliard/litoria/master/templates/image/litoria-chloris.jpg"> litoria
 
-[![Coverage Status](https://coveralls.io/repos/github/bucharest-gold/litoria/badge.svg?branch=master)](https://coveralls.io/github/bucharest-gold/litoria?branch=master)
-[![Build Status](https://travis-ci.org/bucharest-gold/litoria.svg?branch=master)](https://travis-ci.org/bucharest-gold/litoria) 
+[![Coverage Status](https://coveralls.io/repos/github/cmoulliard/litoria/badge.svg?branch=master)](https://coveralls.io/github/cmoulliard/litoria?branch=master)
+[![Build Status](https://travis-ci.org/cmoulliard/litoria.svg?branch=master)](https://travis-ci.org/cmoulliard/litoria) 
 [![Known Vulnerabilities](https://snyk.io/test/npm/litoria/badge.svg)](https://snyk.io/test/npm/litoria) 
-[![dependencies Status](https://david-dm.org/bucharest-gold/litoria/status.svg)](https://david-dm.org/bucharest-gold/litoria)
+[![dependencies Status](https://david-dm.org/cmoulliard/litoria/status.svg)](https://david-dm.org/cmoulliard/litoria)
 
 [![NPM](https://nodei.co/npm/litoria.png)](https://npmjs.org/package/litoria)
 
@@ -15,8 +15,8 @@ Command Line Tool to manage asciidoc projet (create, watch content), convert ado
 | License:        | Apache-2.0  |
 | Build:          | make  |
 | Documentation:  | N/A  |
-| Issue tracker:  | https://github.com/bucharest-gold/litoria/issues  |
-| Engines:        | Node.js 4.x, 6.x, 7.x
+| Issue tracker:  | https://github.com/cmoulliard/litoria/issues  |
+| Engines:        | Node.js 6.x, 7.x, 8.x
 
 ## Installation
 
