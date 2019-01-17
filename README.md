@@ -122,7 +122,9 @@ Send an email to a SMTP server & embed the HTML generated within the Mail create
     
     litoria send config.yaml        
     
-The parameters as the subject, sender, recipient, SMTP Server, port number, security mode are defined within the config.yaml file.   
+The parameters as the subject, sender, recipient, SMTP Server, port number, security mode are defined within the config.yaml file.  
+
+**Note** :  To generate your ClientId, Secret, Access and RefreshToken for Gmail's OAuth2, read the following [blog](http://masashi-k.blogspot.com/2013/06/sending-mail-with-gmail-using-xoauth2.html)
  
 ### server
 
