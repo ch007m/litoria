@@ -21,7 +21,7 @@ install:
   - gem install --version '0.12.7' compass
   - gem install --version '4.3.2' zurb-foundation
 before_script:
-  - npm install -g coveralls 
+  - npm install -g coveralls
   - echo "Git clone the Asciidoctor Stylesheet Factory project and compile the css files using ruby compass"
   - git clone $GIT_REPO_ASCIIDOCTOR_STYLESHEET $GIT_STYLES_DIR
   - cd $GIT_STYLES_DIR

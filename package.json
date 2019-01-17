@@ -1,6 +1,6 @@
 {
   "name": "litoria",
-  "version": "0.0.32",
+  "version": "0.0.31",
   "description": "A Command Line Tool to manage asciidoctor projet; create, add content, watch content and convert it into html, pdf & epub3 files for documents, reports, revealjs slideshow, hands on lab & more",
   "license": "Apache-2.0",
   "author": "Charles Moulliard",
@@ -35,6 +35,7 @@
     "commander": "^2.9.0",
     "fs-extra": "^0.30.0",
     "glob": "^7.0.6",
+    "grunt": "^1.0.3",
     "hapi": "^17.0.0",
     "html-pdf": "^2.1.0",
     "inert": "^4.0.2",
@@ -47,7 +48,8 @@
   "scripts": {
     "test": "tape test/*.js | tap-spec",
     "lint": "eslint bin/*.js lib/*.js test/*.js",
-    "coverage": "istanbul cover tape test/log-test.js tape test/render.js"
+    "coverage": "istanbul cover tape test/log-test.js tape test/render.js",
+    "release": "release-it"
   },
   "bin": {
     "litoria": "bin/litoria.js"
@@ -60,10 +62,10 @@
     "eslint-plugin-react": "^6.1.2",
     "eslint-plugin-standard": "^2.0.0",
     "fidelity": "^4.0.0",
-    "grunt-push-release": "^0.1.9",
     "gulp-util": "^3.0.7",
     "istanbul": "^0.4.5",
     "proxyquire": "^1.7.10",
+    "release-it": "^10.0.0",
     "should": "^11.1.0",
     "sinon": "^1.17.5",
     "tap-spec": "^5.0.0",
