@@ -24,7 +24,7 @@
     "url": "https://github.com/bucharest-gold/litoria"
   },
   "engines": {
-    "node": ">=4.0.0"
+    "node": ">=8.0.0"
   },
   "dependencies": {
     "asciidoctor-reveal.js": "^1.1.3",
