@@ -3,6 +3,7 @@ node_modules
 generated_content
 generated
 test/temp
+mysendmail.js
 
 .vscode
 .DS_Store
