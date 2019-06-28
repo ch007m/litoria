@@ -7,17 +7,17 @@ let $ = require('../lib/litoria');
  * Common features
  */
 program
-    .version($.data.version)
-    .description($.data.description)
-    .usage('<command> [options]');
+  .version($.data.version)
+  .description($.data.description)
+  .usage('<command> [options]');
 
 /*
  * Exit the process if no command and options are passed
  */
 if (!process.argv.slice(2).length) {
   program
-        .usage('litoria <command> [options]')
-        .outputHelp(chalk.bold.red);
+    .usage('litoria <command> [options]')
+    .outputHelp(chalk.bold.red);
   process.exit(1);
 }
 
@@ -28,9 +28,9 @@ if (!process.argv.slice(2).length) {
  * where $prefix corresponds to the name of the executable defined within the package.json file
  */
 program
-    .command('init', 'Create a new litoria asciidoctor project')
-    .command('generate <rendering>', 'Generate HTML, PDF content')
-    .command('inline', 'Inline css of a HTML file')
-    .command('send', 'Send html content to a sender')
-    .command('serve', 'Start a local HTTP Server hosting the content')
-    .parse(process.argv);
+  .command('init', 'Create a new litoria asciidoctor project')
+  .command('generate <rendering>', 'Generate HTML, PDF content')
+  .command('inline', 'Inline css of a HTML file')
+  .command('send', 'Send html content to a sender')
+  .command('serve', 'Start a local HTTP Server hosting the content')
+  .parse(process.argv);

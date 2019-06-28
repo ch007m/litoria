@@ -9,10 +9,10 @@ let log = new Log();
  * Generate command
  */
 program
-    .description('generate html from the asciidoc file using html5 as backend')
-    .usage('litoria <generate> [options]')
-    .option('-r, --rendering [type]', 'rendering type - could be [html], pdf', 'html')
-    .parse(process.argv);
+  .description('generate html from the asciidoc file using html5 as backend')
+  .usage('litoria <generate> [options]')
+  .option('-r, --rendering [type]', 'rendering type - could be [html], pdf', 'html')
+  .parse(process.argv);
 
 /*
  * Call function responsible to convert the Asciidoc file(s) to HTML
