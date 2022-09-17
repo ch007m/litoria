@@ -24,7 +24,7 @@
     "url": "https://github.com/cmoulliard/litoria"
   },
   "engines": {
-    "node": ">=8.0.0"
+    "node": ">=18"
   },
   "dependencies": {
     "@hapi/hapi": "^20.2.2",
@@ -55,12 +55,7 @@
     "litoria": "bin/litoria.js"
   },
   "devDependencies": {
-    "eslint": "^6.0.1",
-    "eslint-config-semistandard": "^7.0.0-beta.0",
-    "eslint-config-standard": "^6.2.1",
-    "eslint-plugin-promise": "^3.3.0",
-    "eslint-plugin-react": "^6.10.3",
-    "eslint-plugin-standard": "^2.3.1",
+    "eslint": "^8.22.0",
     "fidelity": "^4.0.0",
     "gulp-util": "^3.0.7",
     "istanbul": "^0.4.5",

@@ -1,3 +1,12 @@
 {
-  "extends": "semistandard"
+  "env": {
+    "es6": true,
+    "node": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2022
+  },
+  "rules": {
+    "semi": ["error", "always"]
+  }
 }
