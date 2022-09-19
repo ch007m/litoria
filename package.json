@@ -37,7 +37,7 @@
     "fs-extra": "^0.30.0",
     "glob": "^7.0.6",
     "grunt": "^1.0.4",
-    "html-pdf": "^2.1.0",
+    "html-pdf": "^3.0.1",
     "inert": "^4.0.2",
     "inline-css": "^2.2.2",
     "nodemailer": "^5.1.1",
