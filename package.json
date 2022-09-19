@@ -42,7 +42,7 @@
     "inline-css": "^2.2.2",
     "nodemailer": "^5.1.1",
     "opener": "^1.4.1",
-    "tar-fs": "^1.13.2",
+    "tar-fs": "^2.1.1",
     "yamljs": "^0.2.8"
   },
   "scripts": {
