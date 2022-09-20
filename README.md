@@ -1,26 +1,13 @@
 # <img src="https://raw.githubusercontent.com/cmoulliard/litoria/master/templates/image/litoria-chloris.jpg"> litoria
 
-[![Coverage Status](https://coveralls.io/repos/github/cmoulliard/litoria/badge.svg?branch=master)](https://coveralls.io/github/cmoulliard/litoria?branch=master)
-[![Build Status](https://travis-ci.org/cmoulliard/litoria.svg?branch=master)](https://travis-ci.org/cmoulliard/litoria) 
+![CI](https://github.com/ch007/litoria/workflows/ci/badge.svg)
 [![Known Vulnerabilities](https://snyk.io/test/npm/litoria/badge.svg)](https://snyk.io/test/npm/litoria) 
-[![dependencies Status](https://david-dm.org/cmoulliard/litoria/status.svg)](https://david-dm.org/cmoulliard/litoria)
-
-[![NPM](https://nodei.co/npm/litoria.png)](https://npmjs.org/package/litoria)
-
 
 Command Line Tool to manage asciidoc projet (create, watch content), convert adoc into html, pdf & epub3 for doc, reports, revealjs slideshow, hands on lab & more
 
-|                 | Project Info  |
-| --------------- | ------------- |
-| License:        | Apache-2.0  |
-| Build:          | make  |
-| Documentation:  | N/A  |
-| Issue tracker:  | https://github.com/cmoulliard/litoria/issues  |
-| Engines:        | Node.js 6.x, 7.x, 8.x
-
-## Installation
-
-    $ npm install litoria -g
+```
+npm install litoria -g
+```
 
 ## Usage
 

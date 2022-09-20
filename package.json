@@ -46,8 +46,8 @@
     "yamljs": "^0.2.8"
   },
   "scripts": {
+    "pretest": "eslint bin/*.js lib/*.js test/*.js",
     "test": "tape test/*.js | tap-spec",
-    "lint": "eslint bin/*.js lib/*.js test/*.js",
     "coverage": "istanbul cover tape test/log-test.js tape test/render.js",
     "release": "release-it"
   },
