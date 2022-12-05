@@ -65,7 +65,7 @@
     "sinon": "^1.17.5",
     "tap-spec": "^5.0.0",
     "tape": "^4.6.0",
-    "test-console": "^1.0.0"
+    "test-console": "^2.0.0"
   },
   "peerDependencies": {
     "phantomjs-prebuilt": "^2.1.12"
