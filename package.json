@@ -62,7 +62,7 @@
     "proxyquire": "^1.7.10",
     "release-it": "^12.3.0",
     "should": "^11.1.0",
-    "sinon": "^1.17.5",
+    "sinon": "^15.0.1",
     "tap-spec": "^5.0.0",
     "tape": "^4.6.0",
     "test-console": "^1.0.0"
