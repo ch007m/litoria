@@ -64,7 +64,7 @@
     "should": "^11.1.0",
     "sinon": "^1.17.5",
     "tap-spec": "^5.0.0",
-    "tape": "^4.6.0",
+    "tape": "^5.6.3",
     "test-console": "^1.0.0"
   },
   "peerDependencies": {
