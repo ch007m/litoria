@@ -60,7 +60,7 @@
     "gulp-util": "^3.0.7",
     "istanbul": "^0.4.5",
     "proxyquire": "^1.7.10",
-    "release-it": "^12.3.0",
+    "release-it": "^15.7.0",
     "should": "^11.1.0",
     "sinon": "^1.17.5",
     "tap-spec": "^5.0.0",
