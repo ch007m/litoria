@@ -61,7 +61,7 @@
     "istanbul": "^0.4.5",
     "proxyquire": "^1.7.10",
     "release-it": "^12.3.0",
-    "should": "^11.1.0",
+    "should": "^13.2.3",
     "sinon": "^1.17.5",
     "tap-spec": "^5.0.0",
     "tape": "^4.6.0",
