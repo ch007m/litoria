@@ -55,7 +55,7 @@
     "litoria": "bin/litoria.js"
   },
   "devDependencies": {
-    "eslint": "^8.22.0",
+    "eslint": "^9.39.2",
     "fidelity": "^4.0.0",
     "gulp-util": "^3.0.7",
     "istanbul": "^0.4.5",
