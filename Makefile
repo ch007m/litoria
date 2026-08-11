@@ -1,4 +1,9 @@
-.PHONY: install lint test coverage ci clean
+.PHONY: ci clean install lint test coverage
+
+ci: clean test coverage
+
+clean:
+	rm -rf node_modules
 
 install: node_modules
 
@@ -13,8 +18,3 @@ test: lint
 
 coverage: install
 	npm run coverage
-
-ci: test coverage
-
-clean:
-	rm -rf node_modules
