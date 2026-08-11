@@ -10,13 +10,13 @@
 
 Command Line Tool to manage AsciiDoc projet (create, watch content), convert adoc into HTML, PDF & epub3 for doc, reports, revealjs slideshow, hands on lab & more
 
-|                 | Project Info  |
-| --------------- | ------------- |
-| License:        | Apache-2.0  |
-| Build:          | make  |
-| Documentation:  | N/A  |
-| Issue tracker:  | https://github.com/cmoulliard/litoria/issues  |
-| Engines:        | Node.js >= 18.x
+|                 | Project Info                             |
+| --------------- |------------------------------------------|
+| License:        | Apache-2.0                               |
+| Build:          | make                                     |
+| Documentation:  | N/A                                      |
+| Issue tracker:  | https://github.com/ch007m/litoria/issues |
+| Engines:        | Node.js >= 18.x                          
 
 ## Installation
 
@@ -26,9 +26,9 @@ Command Line Tool to manage AsciiDoc projet (create, watch content), convert ado
 
     $ litoria <cmd> <option> <yaml_config_file>
 
-where `<cmd>` corresponds to one of the command available: init, generate, inline, pdf and the options to the rendering required; html, pdf, ... 
+where `<cmd>` corresponds to one of the command available: init, generate, inline, pdf and the options to the rendering required; HTML, PDF, ... 
 
-The asciidoctor attributes and the options like the source and destination folders can be defined using a yaml config file
+The Asciidoctor attributes and the options like the source and destination folders can be defined using a yaml config file
 
     source: "./source" # or could be a directory eg. ./examples
     file_to_inline: "./generated/output.html"
@@ -59,7 +59,7 @@ Many project type or category are supported as described here after :
     
 * Simple: project containing a simple adoc example
 * Management : project containing a **minute** and **report** adoc example
-* Lab : project containing a **Hands on Lab** adoc example
+* Lab : project containing a **Hands-on Lab** adoc example
 * Slideshow: RevealJS slideshow project
     
 To use such type, pass the option `-c` or `--category` with the keywords `simple`, `management`, `project` or `slideshow`. The default category is `simple`
@@ -70,7 +70,7 @@ To use such type, pass the option `-c` or `--category` with the keywords `simple
         
 ### generate
 
-Render the asciidoctor(s) file(s) part of the input directory **source** into a HTML file. The generated content is available within the **generated** folder.
+Render the Asciidoctor(s) file(s) part of the input directory **source** into an HTML file. The generated content is available within the **generated** folder.
     
     litoria generate -r html config.yaml
     
@@ -86,7 +86,7 @@ Create a slideshow presentation using the template [slideshow](templates/slidesh
 
     litoria init -c slideshow /path/to/project
 
-Render the asciidoctor(s) file(s) part of the input directory **source** into a RevealJS Slideshow. The generated content is available within the **generated** folder.
+Render the Asciidoctor(s) file(s) part of the input directory **source** into a RevealJS Slideshow. The generated content is available within the **generated** folder.
     
     litoria generate slideshow-cfg.yaml
  
@@ -105,8 +105,7 @@ attributes:
 
 ### inline
  
- The purpose of this command is to move the css styles from the css files or style tag and to inline them within the HTML tag of the document. This is required when you would like to send
- an email to by example the Gmail client as Google will escape the styles & css file before to display your mail and its HTML content within the browser.
+ The purpose of this command is to move the CSS styles from the CSS files or style tag and to inline them within the HTML tag of the document. This is required when you would like to email by example the Gmail client as Google will escape the styles & CSS file before to display your mail and its HTML content within the browser.
 
     litoria inline config.yaml
     
@@ -118,7 +117,7 @@ Convert a HTML file into a PDF file
        
 ### send
 
-Send an email to a SMTP server & embed the HTML generated within the Mail created
+Send email to an SMTP server & embed the HTML generated within the Mail created
     
     litoria send config.yaml        
     
