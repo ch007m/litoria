@@ -45,3 +45,16 @@ test('Should title with underline.', t => {
   t.deepEqual(underline[1], ['\x1b[4munderline\x1b[24m\n'][0]);
   t.end();
 });
+
+test('Static cyan should return cyan-colored string.', t => {
+  const result = Log.cyan('test');
+  t.equal(result, '\x1b[36mtest\x1b[39m');
+  t.end();
+});
+
+test('Should transform with cyan-colored source and destination.', t => {
+  const log = new Log();
+  const output = stdout.inspectSync(() => log.transform('copy', 'src', 'dest'));
+  t.equal(output[0], "copy' '\x1b[36msrc\x1b[39m' to '\x1b[36mdest\x1b[39m\n");
+  t.end();
+});

@@ -11,7 +11,7 @@ Command Line Tool to manage AsciiDoc projects (create, watch content), convert a
 | Build:          | make                                     |
 | Documentation:  | N/A                                      |
 | Issue tracker:  | https://github.com/ch007m/litoria/issues |
-| Engines:        | Node.js >= 18.x                          |
+| Engines:        | Node.js >= 20.x                          |
 
 ## Installation
 
@@ -106,7 +106,7 @@ attributes:
     
 ### pdf
  
-Convert a HTML file into a PDF file
+Convert an HTML file into a PDF file
     
     litoria generate -r pdf config.yaml 
        
