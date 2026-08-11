@@ -3,6 +3,7 @@ name: Release
 on:
   push:
     branches: [main]
+  workflow_dispatch:
 
 jobs:
   check-version:
@@ -15,18 +16,29 @@ jobs:
         with:
           fetch-depth: 2
 
-      - name: Check if version changed and is not SNAPSHOT
+      - name: Check version
         id: version
         run: |
           CURRENT=$(node -p "require('./package.json').version")
-          PREVIOUS=$(git show HEAD~1:package.json 2>/dev/null | node -p "JSON.parse(require('fs').readFileSync('/dev/stdin','utf8')).version" 2>/dev/null || echo "")
           echo "Current version: $CURRENT"
-          echo "Previous version: $PREVIOUS"
-          if [ "$CURRENT" != "$PREVIOUS" ] && [ -n "$PREVIOUS" ] && ! echo "$CURRENT" | grep -qi "snapshot"; then
-            echo "should_release=true" >> "$GITHUB_OUTPUT"
-            echo "version=$CURRENT" >> "$GITHUB_OUTPUT"
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            if echo "$CURRENT" | grep -qi "snapshot"; then
+              echo "Version is SNAPSHOT, skipping release"
+              echo "should_release=false" >> "$GITHUB_OUTPUT"
+            else
+              echo "Manual trigger: releasing $CURRENT"
+              echo "should_release=true" >> "$GITHUB_OUTPUT"
+              echo "version=$CURRENT" >> "$GITHUB_OUTPUT"
+            fi
           else
-            echo "should_release=false" >> "$GITHUB_OUTPUT"
+            PREVIOUS=$(git show HEAD~1:package.json 2>/dev/null | node -p "JSON.parse(require('fs').readFileSync('/dev/stdin','utf8')).version" 2>/dev/null || echo "")
+            echo "Previous version: $PREVIOUS"
+            if [ "$CURRENT" != "$PREVIOUS" ] && [ -n "$PREVIOUS" ] && ! echo "$CURRENT" | grep -qi "snapshot"; then
+              echo "should_release=true" >> "$GITHUB_OUTPUT"
+              echo "version=$CURRENT" >> "$GITHUB_OUTPUT"
+            else
+              echo "should_release=false" >> "$GITHUB_OUTPUT"
+            fi
           fi
 
   release:
@@ -50,6 +62,14 @@ jobs:
 
       - name: Publish to npm
         run: npm publish --provenance --access public
+
+      - name: Upload npm debug log on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: npm-debug-log
+          path: /home/runner/.npm/_logs/
+          retention-days: 7
 
       - name: Tag and create GitHub release
         env:
