@@ -50,18 +50,18 @@ Create a project containing a default config file and a **simple** adoc file
     
     litoria init /path/to/project
     
-Many project type or category are supported as described here after :
+Many project's types are supported as described hereafter :
     
 * Simple: project containing a simple adoc example
 * Management : project containing a **minute** and **report** adoc example
 * Lab : project containing a **Hands-on Lab** adoc example
 * Slideshow: RevealJS slideshow project
     
-To use such type, pass the option `-c` or `--category` with the keywords `simple`, `management`, `lab` or `slideshow`. The default category is `simple`
+To use such type, pass the option `-t` or `--type` with the keywords `simple`, `management`, `lab` or `slideshow`. The default type is `simple`
     
     litoria init /path/to/project
-    litoria init -c management /path/to/project
-    litoria init -c lab /path/to/project
+    litoria init -t management /path/to/project
+    litoria init -t lab /path/to/project
         
 ### generate
 
@@ -93,7 +93,7 @@ The source and destination folders can be changed within the yaml config file.
 
 Create a slideshow presentation using the template [slideshow](templates/slideshow.adoc)
 
-    litoria init -c slideshow /path/to/project
+    litoria init -t slideshow /path/to/project
 
 Render the Asciidoctor(s) file(s) part of the input directory **source** into a RevealJS Slideshow. The generated content is available within the **generated** folder.
     
