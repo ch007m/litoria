@@ -1,7 +1,7 @@
 'use strict';
 
 const test = require('tape');
-const asciidoctor = require('@asciidoctor/core')();
+const asciidoctor = require('asciidoctor');
 const fs = require('fs');
 const path = require('path');
 const $ = require('./common');
@@ -29,13 +29,17 @@ test('1. Convert a slides.adoc to HTML Slideshow using Revealjs', function (asse
     backend: 'revealjs',
     to_dir: 'test/temp',
     attributes: ['revealjsdir=' + revealjsDir]};
-  processor.convertFile(path.join(__dirname, 'fixtures/slides.adoc'), options);
 
-  let content = fs.readFileSync(expectFilePath, 'utf8');
-  assert.ok($.fileExists(expectFilePath));
-  assert.equal(content.includes('<section id="_slide_one"'), true);
-  assert.equal(content.includes('<section id="_slide_two"'), true);
-  assert.end();
+  processor.convertFile(path.join(__dirname, 'fixtures/slides.adoc'), options).then(function () {
+    let content = fs.readFileSync(expectFilePath, 'utf8');
+    assert.ok($.fileExists(expectFilePath));
+    assert.equal(content.includes('<section id="_slide_one"'), true);
+    assert.equal(content.includes('<section id="_slide_two"'), true);
+    assert.end();
+  }).catch(function (err) {
+    assert.fail(err);
+    assert.end();
+  });
 });
 
 /*

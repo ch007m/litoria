@@ -9,7 +9,6 @@ const $ = require('./common');
  * Before:  Create testing folder
  */
 test('setup', function (t) {
-  // setup goes here, call t.end() when finished
   $.createTestDir('test/temp');
   t.end();
 });
@@ -35,10 +34,14 @@ test('1. Create a simple litoria project. Command used litoria init', function (
  */
 test('2. Generate HTML content from a directory', function (t) {
   process.chdir(path.join(__dirname, 'temp/simple'));
-  litoria.convertToHtml('html-cfg.yaml');
-  let genFile = $.getFile('generated/simple.html').contents.toString('utf8');
-  t.ok(genFile.includes('<h2 id="_the_dangerous_and_thrilling_documentation_chronicles">', true));
-  t.end();
+  litoria.convertToHtml('html-cfg.yaml').then(function () {
+    let genFile = $.getFile('generated/simple.html').contents.toString('utf8');
+    t.ok(genFile.includes('<h2 id="_the_dangerous_and_thrilling_documentation_chronicles">', true));
+    t.end();
+  }).catch(function (err) {
+    t.fail(err);
+    t.end();
+  });
 });
 
 /*
@@ -49,10 +52,14 @@ test('3. Generate HTML content for a file', function (t) {
   let projectDirPath = path.join(__dirname, 'temp/simple');
   process.chdir(projectDirPath);
   $.searchReplaceStringInFile(projectDirPath + '/html-cfg.yaml', 'source: "./source"', 'source: "./source/simple.adoc"');
-  litoria.convertToHtml('html-cfg.yaml');
-  let genFile = $.getFile('generated/simple.html').contents.toString('utf8');
-  t.ok(genFile.includes('<h2 id="_the_dangerous_and_thrilling_documentation_chronicles">', true));
-  t.end();
+  litoria.convertToHtml('html-cfg.yaml').then(function () {
+    let genFile = $.getFile('generated/simple.html').contents.toString('utf8');
+    t.ok(genFile.includes('<h2 id="_the_dangerous_and_thrilling_documentation_chronicles">', true));
+    t.end();
+  }).catch(function (err) {
+    t.fail(err);
+    t.end();
+  });
 });
 
 /*
@@ -64,11 +71,15 @@ test('4. Generate HTML content', function (t) {
   process.chdir(projectDirPath);
   $.searchReplaceStringInFile(projectDirPath + '/html-cfg.yaml', 'stylesheet: \'foundation.css\'', '');
   $.searchReplaceStringInFile(projectDirPath + '/html-cfg.yaml', 'stylesdir: \'css\'', '');
-  litoria.convertToHtml('html-cfg.yaml');
-  let genFile = $.getFile('generated/simple.html').contents.toString('utf8');
-  t.ok(genFile.includes('<h2 id="_the_dangerous_and_thrilling_documentation_chronicles">', true));
-  t.ok(genFile.includes('Asciidoctor default stylesheet', true));
-  t.end();
+  litoria.convertToHtml('html-cfg.yaml').then(function () {
+    let genFile = $.getFile('generated/simple.html').contents.toString('utf8');
+    t.ok(genFile.includes('<h2 id="_the_dangerous_and_thrilling_documentation_chronicles">', true));
+    t.ok(genFile.includes('Asciidoctor default stylesheet', true));
+    t.end();
+  }).catch(function (err) {
+    t.fail(err);
+    t.end();
+  });
 });
 
 /*
