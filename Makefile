@@ -1,16 +1,20 @@
-ci: test
-	npm run coverage
+.PHONY: install lint test coverage ci clean
+
+install: node_modules
+
+node_modules: package.json package-lock.json
+	npm ci
+
+lint: install
+	npm run lint
 
 test: lint
 	npm test
 
-lint: node_modules
-	npm run lint
+coverage: install
+	npm run coverage
+
+ci: test coverage
 
 clean:
 	rm -rf node_modules
-
-node_modules: package.json
-	npm install
-
-.PHONY: node_modules
