@@ -19,11 +19,11 @@ Command Line Tool to manage AsciiDoc projects (create, watch content), convert a
 
 ## Usage
 
-    $ litoria <cmd> <option> <yaml_config_file>
+    $ litoria <cmd> [options]
 
-where `<cmd>` corresponds to one of the command available: init, generate, inline, pdf and the options to the rendering required; HTML, PDF, ... 
+where `<cmd>` corresponds to one of the commands available: `init`, `generate`, `inline`, `pdf`, `send`, `serve`.
 
-The Asciidoctor attributes and the options like the source and destination folders can be defined using a yaml config file
+The Asciidoctor attributes and the options like the source and destination folders can be defined using a YAML config file
 
     source: "./source" # or could be a directory eg. ./examples
     file_to_inline: "./generated/output.html"
@@ -97,7 +97,7 @@ Create a slideshow presentation using the template [slideshow](templates/slidesh
 
 Render the Asciidoctor(s) file(s) part of the input directory **source** into a RevealJS Slideshow. The generated content is available within the **generated** folder.
     
-    litoria generate slideshow-cfg.yaml
+    litoria generate -c slideshow-cfg.yaml
  
 **IMPORTANT** : Copy your own resources such as `image`, `css` folders under the **generated** folder and start a local http server using the `serve` command.
     
@@ -122,7 +122,7 @@ attributes:
  
 Convert an HTML file into a PDF file
     
-    litoria generate -r pdf config.yaml 
+    litoria generate -r pdf -c config.yaml
        
 ### send
 
