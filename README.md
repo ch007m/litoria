@@ -66,18 +66,27 @@ To use such type, pass the option `-c` or `--category` with the keywords `simple
 ### generate
 
 Render the Asciidoctor(s) file(s) part of the input directory **source** into an HTML file. The generated content is available within the **generated** folder.
+
+If no config file is specified, litoria looks for `config.yaml` or `config.yml` in the current (or project) directory:
     
-    litoria generate config.yaml
+    litoria generate
+
+To use a specific config file, pass it with `-c` or as a positional argument:
+    
+    litoria generate -c html-cfg.yaml
+    litoria generate html-cfg.yaml
     
 By default, the rendering is `html`. To specify a different rendering type, use the `-r` option:
     
-    litoria generate -r html config.yaml
-    litoria generate -r pdf config.yaml
+    litoria generate -r html -c config.yaml
+    litoria generate -r pdf -c config.yaml
 
 To run the generate command against a project located in a different directory, use the `-p` or `--path` option. The config file paths (source, destination) will be resolved relative to the specified project path:
     
-    litoria generate -p /path/to/project config.yaml
-    litoria generate --path ./report/quarkus html-cfg.yaml
+    litoria generate -p /path/to/project
+    litoria generate --path ./report/quarkus -c html-cfg.yaml
+
+A warning is displayed if the config file does not exist.
 
 The source and destination folders can be changed within the yaml config file.
 

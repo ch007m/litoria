@@ -138,6 +138,42 @@ test('generate: HTML using --path option', function (t) {
 });
 
 /*
+ * Generate HTML using default config.yaml (simulates -c default resolution)
+ */
+test('generate: HTML using default config.yaml', function (t) {
+  let projectPath = path.join(__dirname, 'temp/simple');
+  process.chdir(projectPath);
+  fs.copyFileSync('html-cfg.yaml', 'config.yaml');
+  litoria.convertToHtml('config.yaml').then(function () {
+    let genFile = $.getFile('generated/simple.html').contents.toString('utf8');
+    t.ok(genFile.includes('<h2 id="_the_dangerous_and_thrilling_documentation_chronicles">', true));
+    fs.unlinkSync('config.yaml');
+    t.end();
+  }).catch(function (err) {
+    t.fail(err);
+    t.end();
+  });
+});
+
+/*
+ * Generate HTML using config.yml extension
+ */
+test('generate: HTML using config.yml extension', function (t) {
+  let projectPath = path.join(__dirname, 'temp/simple');
+  process.chdir(projectPath);
+  fs.copyFileSync('html-cfg.yaml', 'config.yml');
+  litoria.convertToHtml('config.yml').then(function () {
+    let genFile = $.getFile('generated/simple.html').contents.toString('utf8');
+    t.ok(genFile.includes('<h2 id="_the_dangerous_and_thrilling_documentation_chronicles">', true));
+    fs.unlinkSync('config.yml');
+    t.end();
+  }).catch(function (err) {
+    t.fail(err);
+    t.end();
+  });
+});
+
+/*
  * Generate HTML content with default stylesheet
  */
 test('generate: HTML with default stylesheet', function (t) {
