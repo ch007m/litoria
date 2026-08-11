@@ -118,6 +118,26 @@ test('generate: HTML for a single file', function (t) {
 });
 
 /*
+ * Generate HTML from an external path (simulates --path option)
+ */
+test('generate: HTML using --path option', function (t) {
+  process.chdir(savedCwd);
+  let projectPath = path.join(__dirname, 'temp/simple');
+  $.searchReplaceStringInFile(projectPath + '/html-cfg.yaml', 'source: "./source/simple.adoc"', 'source: "./source"');
+  process.chdir(projectPath);
+  litoria.convertToHtml('html-cfg.yaml').then(function () {
+    let genFile = $.getFile('generated/simple.html').contents.toString('utf8');
+    t.ok(genFile.includes('<h2 id="_the_dangerous_and_thrilling_documentation_chronicles">', true));
+    process.chdir(savedCwd);
+    t.end();
+  }).catch(function (err) {
+    process.chdir(savedCwd);
+    t.fail(err);
+    t.end();
+  });
+});
+
+/*
  * Generate HTML content with default stylesheet
  */
 test('generate: HTML with default stylesheet', function (t) {

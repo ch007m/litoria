@@ -11,7 +11,7 @@ Command Line Tool to manage AsciiDoc projects (create, watch content), convert a
 | Build:          | make                                     |
 | Documentation:  | N/A                                      |
 | Issue tracker:  | https://github.com/ch007m/litoria/issues |
-| Engines:        | Node.js >= 20.x                          |
+| Engines:        | Node.js >= 22.x                          |
 
 ## Installation
 
@@ -67,13 +67,19 @@ To use such type, pass the option `-c` or `--category` with the keywords `simple
 
 Render the Asciidoctor(s) file(s) part of the input directory **source** into an HTML file. The generated content is available within the **generated** folder.
     
+    litoria generate config.yaml
+    
+By default, the rendering is `html`. To specify a different rendering type, use the `-r` option:
+    
     litoria generate -r html config.yaml
+    litoria generate -r pdf config.yaml
+
+To run the generate command against a project located in a different directory, use the `-p` or `--path` option. The config file paths (source, destination) will be resolved relative to the specified project path:
     
-or 
-    
-    litoria generate config.yaml as the default rendering is `html`
-    
-The source and destination folders can be changed within the yaml config file.   
+    litoria generate -p /path/to/project config.yaml
+    litoria generate --path ./report/quarkus html-cfg.yaml
+
+The source and destination folders can be changed within the yaml config file.
 
 ### slideshow 
 
