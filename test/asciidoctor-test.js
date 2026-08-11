@@ -1,23 +1,12 @@
 'use strict';
 
 const test = require('tape');
-const asciidoctor = require('asciidoctor.js')();
+const asciidoctor = require('asciidoctor');
 const fs = require('fs');
 const path = require('path');
-const Fidelity = require('fidelity');
 const $ = require('./common');
 
 let processor;
-
-function convert (content, options) {
-  return new Fidelity((resolve, reject) => {
-    try {
-      resolve(processor.convert(content, options));
-    } catch (error) {
-      return reject(error);
-    }
-  });
-}
 
 /*
  * Before: Create testing folder, initialize Opal & Asciidoctor processor
@@ -41,11 +30,15 @@ test('1. Convert a Book to HTML using default stylesheet & Google Font', functio
     to_file: 'book.html',
     attributes: ['nofooter=yes']
   };
-  processor.convertFile(path.join(__dirname, 'fixtures/book.adoc'), options);
-  var content = fs.readFileSync(expectFilePath, 'utf8');
-  assert.ok($.fileExists(expectFilePath));
-  assert.equal(content.includes('fonts.googleapis.com'), true);
-  assert.end();
+  processor.convertFile(path.join(__dirname, 'fixtures/book.adoc'), options).then(function () {
+    var content = fs.readFileSync(expectFilePath, 'utf8');
+    assert.ok($.fileExists(expectFilePath));
+    assert.equal(content.includes('fonts.googleapis.com'), true);
+    assert.end();
+  }).catch(function (err) {
+    assert.fail(err);
+    assert.end();
+  });
 });
 
 /*
@@ -61,20 +54,21 @@ test('2. Convert adoc string to HTML using doctype : inline', function (assert) 
 
   let options = {doctype: 'inline', attributes: ['showtitle']};
 
-  convert(content, options)
+  processor.convert(content, options)
     .then(result => {
       assert.equal(result, expected, 'Render to HTML');
       assert.end();
     }).catch(error => {
       console.error(error);
       assert.fail();
+      assert.end();
     });
 });
 
 /*
  * Convert an asciidoctor doc using html5 as backend
  * The doctype : article
- * header_footer: true # Asciidoctor will include to the HTML generated the header section containing the link to the style and font to be used
+ * header_footer: true
  * The content is structured with a body, header, content & paragraph
  */
 test('3. Convert adoc string to HTML using doctype: article, header_footer : true', function (assert) {
@@ -87,13 +81,14 @@ test('3. Convert adoc string to HTML using doctype: article, header_footer : tru
     attributes: ['nofooter']
   };
 
-  convert(content, options)
+  processor.convert(content, options)
     .then(result => {
       assert.equal(result, expected, 'Render to HTML');
       assert.end();
     }).catch(error => {
       console.error(error);
       assert.fail();
+      assert.end();
     });
 });
 
@@ -101,7 +96,7 @@ test('3. Convert adoc string to HTML using doctype: article, header_footer : tru
  * Convert an asciidoctor file using html5 as backend
  * where the doctype is : article
  * stylesheet : asciidoctor-default.css
- * header_footer: true # Asciidoctor will include to the HTML generated the header section containing the link to the style and font to be used
+ * header_footer: true
  * The content is structured with a body, header, content & paragraph
  */
 test('4. Convert adoc file to HTML using doctype: article, header_footer : true', function (assert) {
@@ -116,17 +111,20 @@ test('4. Convert adoc file to HTML using doctype: article, header_footer : true'
     attributes: ['showtitle', 'nofooter', 'stylesheet=asciidoctor-default.css', 'stylesdir=../../test/css']
   };
 
-  processor.convertFile(f, options);
-
-  let result = $.getFile(path.join('test', 'temp', 'simple.adoc.html')).contents.toString('utf8');
-  assert.equal(result, expected, 'Render to HTML');
-  assert.end();
+  processor.convertFile(f, options).then(function () {
+    let result = $.getFile(path.join('test', 'temp', 'simple.adoc.html')).contents.toString('utf8');
+    assert.equal(result, expected, 'Render to HTML');
+    assert.end();
+  }).catch(function (err) {
+    assert.fail(err);
+    assert.end();
+  });
 });
 
 /*
  * Convert an asciidoctor doc including an image using html5 as backend
  * The doctype : article
- * header_footer: true # Asciidoctor will include to the HTML generated the header section containing the link to the style and font to be used
+ * header_footer: true
  * stylesheet: foundation
  * The content is structured with a body, header, content & paragraph
  */
@@ -142,14 +140,15 @@ test('5. Convert adoc file including an image to HTML using doctype: article, he
     attributes: ['showtitle', 'stylesheet=foundation.css', 'stylesdir=test/css', 'nofooter=yes']
   };
 
-  convert(content, options)
-    .then(result => {
+  processor.convert(content, options)
+    .then(function () {
       let file = $.getFile(path.join('test', 'temp', 'output.html')).contents.toString('utf8');
       assert.ok(file.includes('src="image/litoria-chloris.jpg"', true));
       assert.end();
     }).catch(error => {
       console.error(error);
       assert.fail();
+      assert.end();
     });
 });
 

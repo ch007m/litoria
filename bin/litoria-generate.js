@@ -24,10 +24,10 @@ if ($.isEmpty(program.args)) {
   log.debug('Rendering : ' + program.rendering);
   switch (program.rendering) {
     case 'html':
-      $.convertToHtml(program.args);
+      $.convertToHtml(program.args).catch(function (err) { console.error(err); process.exit(1); });
       break;
     case 'pdf':
-      $.convertToPdf(program.args);
+      $.convertToPdf(program.args).catch(function (err) { console.error(err); process.exit(1); });
       break;
     default:
       console.error('Unknow rendering option : %s', program.rendering);

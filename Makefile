@@ -1,16 +1,25 @@
-ci: test
-	npm run coverage
+.PHONY: ci clean install lint test coverage
 
-test: lint
-	npm test
-
-lint: node_modules
-	npm run lint
+ci: clean lint test coverage
 
 clean:
+	@echo "== Cleaning node_modules =="
 	rm -rf node_modules
 
-node_modules: package.json
-	npm install
+install: node_modules
 
-.PHONY: node_modules
+node_modules: package.json package-lock.json
+	@echo "== Installing dependencies =="
+	npm ci
+
+lint: install
+	@echo "== Linting =="
+	npm run lint
+
+test: install
+	@echo "== Running tests =="
+	npm test
+
+coverage: install
+	@echo "== Running coverage =="
+	npm run coverage
