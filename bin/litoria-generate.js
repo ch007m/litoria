@@ -27,7 +27,7 @@ if ($.isEmpty(program.args)) {
       $.convertToHtml(program.args);
       break;
     case 'pdf':
-      $.convertToPdf(program.args);
+      $.convertToPdf(program.args).catch(function (err) { console.error(err); process.exit(1); });
       break;
     default:
       console.error('Unknow rendering option : %s', program.rendering);

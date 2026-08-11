@@ -1,14 +1,9 @@
-# <img src="https://raw.githubusercontent.com/cmoulliard/litoria/master/templates/image/litoria-chloris.jpg"> litoria
+# <img src="https://raw.githubusercontent.com/ch007m/litoria/master/templates/image/litoria-chloris.jpg"> litoria
 
-[![Coverage Status](https://coveralls.io/repos/github/cmoulliard/litoria/badge.svg?branch=master)](https://coveralls.io/github/cmoulliard/litoria?branch=master)
-[![Build Status](https://travis-ci.org/cmoulliard/litoria.svg?branch=master)](https://travis-ci.org/cmoulliard/litoria) 
-[![Known Vulnerabilities](https://snyk.io/test/npm/litoria/badge.svg)](https://snyk.io/test/npm/litoria) 
-[![dependencies Status](https://david-dm.org/cmoulliard/litoria/status.svg)](https://david-dm.org/cmoulliard/litoria)
-
+[![Known Vulnerabilities](https://snyk.io/test/npm/litoria/badge.svg)](https://snyk.io/test/npm/litoria)
 [![NPM](https://nodei.co/npm/litoria.png)](https://npmjs.org/package/litoria)
 
-
-Command Line Tool to manage AsciiDoc projet (create, watch content), convert adoc into HTML, PDF & epub3 for doc, reports, revealjs slideshow, hands on lab & more
+Command Line Tool to manage AsciiDoc projects (create, watch content), convert adoc into HTML, PDF & epub3 for documents, reports, RevealJS slideshows, hands-on labs & more
 
 |                 | Project Info                             |
 | --------------- |------------------------------------------|
@@ -16,7 +11,7 @@ Command Line Tool to manage AsciiDoc projet (create, watch content), convert ado
 | Build:          | make                                     |
 | Documentation:  | N/A                                      |
 | Issue tracker:  | https://github.com/ch007m/litoria/issues |
-| Engines:        | Node.js >= 18.x                          
+| Engines:        | Node.js >= 18.x                          |
 
 ## Installation
 
@@ -62,7 +57,7 @@ Many project type or category are supported as described here after :
 * Lab : project containing a **Hands-on Lab** adoc example
 * Slideshow: RevealJS slideshow project
     
-To use such type, pass the option `-c` or `--category` with the keywords `simple`, `management`, `project` or `slideshow`. The default category is `simple`
+To use such type, pass the option `-c` or `--category` with the keywords `simple`, `management`, `lab` or `slideshow`. The default category is `simple`
     
     litoria init /path/to/project
     litoria init -c management /path/to/project
@@ -92,7 +87,7 @@ Render the Asciidoctor(s) file(s) part of the input directory **source** into a 
  
 **IMPORTANT** : Copy your own resources such as `image`, `css` folders under the **generated** folder and start a local http server using the `serve` command.
     
-**NOTE** : To configure revealjs [parameters](https://github.com/asciidoctor/asciidoctor-reveal.js#revealjs-options) such as theme, transition, css, .... simply add them under the section `attributes` of the cfg file
+**NOTE** : To configure RevealJS [parameters](https://docs.asciidoctor.org/reveal.js-converter/latest/converter/revealjs-options/) such as theme, transition, css, etc. simply add them under the section `attributes` of the cfg file
 
 ```bash
 E.g.
@@ -163,21 +158,23 @@ To debug the project and the different commands, use the following information t
 ## Extra information
 
 > This project enhances what is not included within the asciidoctor command line tool. 
-> It is a refactoring of the ruby [hyla tool](https://github.com/cmoulliard/hyla) which is currently used
+> It is a refactoring of the ruby [hyla tool](https://github.com/ch007m/hyla) which is currently used
 > to create a project, add asciidoctor templates, generate courses, hands on lab content, slideshows for RevealJS presentations, ...
 
-The project name corresponds to the frog genus name **Litoria** which contain many species like the Red Eye Tree Frog **Litoria Chloris** which is very valuable for the 
-human due to his [medical capacities](http://www.kaieteurnewsonline.com/2012/06/03/the-red-eyed-tree-frog-litoria-chloris-2/)
+The project name corresponds to the frog genus name **Litoria** which contains many species like the Red Eye Tree Frog **Litoria Chloris** which is very valuable for 
+humans due to its [medical capacities](http://www.kaieteurnewsonline.com/2012/06/03/the-red-eyed-tree-frog-litoria-chloris-2/)
 
 ## References of interesting projects used
 
 Links to the projects
  
-* Inline Css                  : https://github.com/zurb/inline-css
-* Send Email                  : https://github.com/nodemailer/nodemailer
-* Generate pdf                : https://github.com/marcbachmann/node-html-pdf
-* Headless webkit with JS API : https://github.com/Medium/phantomjs
-* Command Line Tool           : https://github.com/tj/commander.js
+* AsciiDoc processor          : https://github.com/asciidoctor/asciidoctor.js
+* RevealJS converter          : https://github.com/asciidoctor/asciidoctor-reveal.js
+* HTTP server                 : https://github.com/hapijs/hapi
+* Inline CSS                  : https://github.com/jonkemp/inline-css
+* Send email                  : https://github.com/nodemailer/nodemailer
+* Generate PDF                : https://github.com/puppeteer/puppeteer
+* Command line tool           : https://github.com/tj/commander.js
 
 ## Contributing
 

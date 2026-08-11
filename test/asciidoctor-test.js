@@ -1,7 +1,7 @@
 'use strict';
 
 const test = require('tape');
-const asciidoctor = require('asciidoctor.js')();
+const asciidoctor = require('@asciidoctor/core')();
 const fs = require('fs');
 const path = require('path');
 const Fidelity = require('fidelity');

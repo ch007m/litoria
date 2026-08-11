@@ -1,7 +1,7 @@
 'use strict';
 
 const test = require('tape');
-const asciidoctor = require('asciidoctor.js')();
+const asciidoctor = require('@asciidoctor/core')();
 const fs = require('fs');
 const path = require('path');
 const $ = require('./common');
@@ -12,7 +12,8 @@ let processor;
  */
 test('setup', function (t) {
   processor = asciidoctor;
-  require('asciidoctor-reveal.js');
+  const asciidoctorRevealjs = require('@asciidoctor/reveal.js');
+  asciidoctorRevealjs.register();
   $.createTestDir('test/temp');
   t.end();
 });

@@ -1,7 +1,6 @@
 'use strict';
 
 const fs = require('fs');
-const gutil = require('gulp-util');
 const path = require('path');
 
 var createTestDir = function (dir) {
@@ -11,12 +10,12 @@ var createTestDir = function (dir) {
 };
 
 var getFile = function (filePath) {
-  return new gutil.File({
+  return {
     path: path.resolve(filePath),
     cwd: './test/',
     base: path.dirname(filePath),
-    contents: new Buffer(String(fs.readFileSync(filePath)))
-  });
+    contents: Buffer.from(String(fs.readFileSync(filePath)))
+  };
 };
 
 var fileExists = function (path) {
