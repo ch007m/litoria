@@ -53,7 +53,7 @@ Create a project containing a default config file and a **simple** adoc file
 Many project's types are supported as described hereafter :
     
 * Simple: simple adoc example
-* Management : folder containing a **minute** and **report** adoc example
+* Management : a **minute** and **report** adoc example
 * Lab : **Hands-on Lab** example
 * Slideshow: RevealJS slideshow project
     
@@ -62,7 +62,20 @@ To use such type, pass the option `-t` or `--type` with the keywords `simple`, `
     litoria init /path/to/project
     litoria init -t management /path/to/project
     litoria init -t lab /path/to/project
-        
+
+Each type generates a single `config.yaml` file with different sections:
+
+| Section     | [simple](templates/config/simple.yaml) | [management](templates/config/management.yaml) | [lab](templates/config/lab.yaml) | [slideshow](templates/config/slideshow.yaml) |
+|-------------|:------:|:----------:|:---:|:---------:|
+| source      |   x    |     x      |  x  |     x     |
+| destination |   x    |     x      |  x  |     x     |
+| attributes  |   x    |     x      |  x  |     x     |
+| options     |   x    |     x      |  x  |     x     |
+| http        |   x    |     x      |  x  |     x     |
+| pdf         |   x    |     x      |  x  |           |
+| smtp        |        |     x      |     |           |
+| mail        |        |     x      |     |           |
+
 ### generate
 
 Render the Asciidoctor(s) file(s) part of the input directory **source** into an HTML file. The generated content is available within the **generated** folder.
@@ -73,17 +86,17 @@ If no config file is specified, litoria looks for `config.yaml` or `config.yml` 
 
 To use a specific config file, pass it with `-c`:
     
-    litoria generate -c html-cfg.yaml
+    litoria generate -c my-config.yaml
     
 By default, the rendering is `html`. To specify a different rendering type, use the `-r` option:
     
     litoria generate -r html -c config.yaml
     litoria generate -r pdf -c config.yaml
 
-To run the generate command against a project located in a different directory, use the `-p` or `--path` option. The config file paths (source, destination) will be resolved relative to the specified project path:
+To run the generate command against a project located in a different directory, pass the project path as an argument:
     
-    litoria generate -p /path/to/project
-    litoria generate --path ./report/quarkus -c html-cfg.yaml
+    litoria generate ./report/quarkus
+    litoria generate ./report/quarkus -c custom.yaml
 
 A warning is displayed if the config file does not exist.
 
@@ -97,7 +110,7 @@ Create a slideshow presentation using the template [slideshow](templates/slidesh
 
 Render the Asciidoctor(s) file(s) part of the input directory **source** into a RevealJS Slideshow. The generated content is available within the **generated** folder.
     
-    litoria generate -c slideshow-cfg.yaml
+    litoria generate -c config.yaml
  
 **IMPORTANT** : Copy your own resources such as `image`, `css` folders under the **generated** folder and start a local http server using the `serve` command.
     
@@ -116,21 +129,21 @@ attributes:
  
  The purpose of this command is to move the CSS styles from the CSS files or style tag and to inline them within the HTML tag of the document. This is required when you would like to email by example the Gmail client as Google will escape the styles & CSS file before to display your mail and its HTML content within the browser.
 
-    litoria inline config.yaml
+    litoria inline ./report/quarkus
     
 ### pdf
  
 Convert an HTML file into a PDF file
     
-    litoria generate -r pdf -c config.yaml
+    litoria generate -r pdf
        
 ### send
 
 Send email to an SMTP server & embed the HTML generated within the Mail created
     
-    litoria send config.yaml        
+    litoria send ./report/quarkus
     
-The parameters as the subject, sender, recipient, SMTP Server, port number, security mode are defined within the config.yaml file.  
+The parameters as the subject, sender, recipient, SMTP Server, port number, security mode are defined within the `config.yaml` file.  
 
 **Note** :  To generate your ClientId, Secret, Access and RefreshToken for Gmail's OAuth2, read the following [blog](http://masashi-k.blogspot.com/2013/06/sending-mail-with-gmail-using-xoauth2.html)
  
@@ -138,8 +151,8 @@ The parameters as the subject, sender, recipient, SMTP Server, port number, secu
 
 Start a local HTTP Server hosting the content generated & passed as parameter within the yaml config file. The default port of the server is `3000`
     
-    litoria serve config.yaml  
-    litoria serve -o config.yaml  # to open the browser window using the Server URI http://localhost:port/
+    litoria serve ./report/quarkus
+    litoria serve -o ./report/quarkus  # to open the browser window
     
 ## For the developer only
     

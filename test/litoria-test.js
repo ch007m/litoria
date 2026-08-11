@@ -35,9 +35,11 @@ test('init: create a simple project', function (t) {
   let dir = path.join(__dirname, 'temp/simple');
   $.deleteFolderRecursive(dir);
   litoria.initProject('simple', null, dir);
-  t.ok($.fileExists(path.join(dir, 'html-cfg.yaml')));
-  t.ok($.fileExists(path.join(dir, 'pdf-cfg.yaml')));
-  t.ok($.fileExists(path.join(dir, 'httpserver-cfg.yaml')));
+  t.ok($.fileExists(path.join(dir, 'config.yaml')));
+  t.notOk($.fileExists(path.join(dir, 'html-cfg.yaml')), 'old html-cfg.yaml should not exist');
+  t.notOk($.fileExists(path.join(dir, 'pdf-cfg.yaml')), 'old pdf-cfg.yaml should not exist');
+  t.notOk($.fileExists(path.join(dir, 'smtp-cfg.yaml')), 'old smtp-cfg.yaml should not exist');
+  t.notOk($.fileExists(path.join(dir, 'httpserver-cfg.yaml')), 'old httpserver-cfg.yaml should not exist');
   t.ok($.fileExists(path.join(dir, 'source/simple.adoc')));
   t.ok($.fileExists(path.join(dir, 'source/css')));
   t.ok($.fileExists(path.join(dir, 'source/image')));
@@ -52,9 +54,7 @@ test('init: create a management project', function (t) {
   let dir = path.join(__dirname, 'temp/management');
   $.deleteFolderRecursive(dir);
   litoria.initProject('management', null, dir);
-  t.ok($.fileExists(path.join(dir, 'html-cfg.yaml')));
-  t.ok($.fileExists(path.join(dir, 'pdf-cfg.yaml')));
-  t.ok($.fileExists(path.join(dir, 'smtp-cfg.yaml')));
+  t.ok($.fileExists(path.join(dir, 'config.yaml')));
   t.ok($.fileExists(path.join(dir, 'source/minute.adoc')));
   t.ok($.fileExists(path.join(dir, 'source/report.adoc')));
   t.end();
@@ -67,8 +67,7 @@ test('init: create a lab project', function (t) {
   let dir = path.join(__dirname, 'temp/lab');
   $.deleteFolderRecursive(dir);
   litoria.initProject('lab', null, dir);
-  t.ok($.fileExists(path.join(dir, 'html-cfg.yaml')));
-  t.ok($.fileExists(path.join(dir, 'pdf-cfg.yaml')));
+  t.ok($.fileExists(path.join(dir, 'config.yaml')));
   t.ok($.fileExists(path.join(dir, 'source/lab.adoc')));
   t.end();
 });
@@ -76,11 +75,11 @@ test('init: create a lab project', function (t) {
 /*
  * Create a project with unknown category falls back to simple
  */
-test('init: unknown category falls back to simple', function (t) {
+test('init: unknown type falls back to simple', function (t) {
   let dir = path.join(__dirname, 'temp/unknown');
   $.deleteFolderRecursive(dir);
   litoria.initProject('nonexistent', null, dir);
-  t.ok($.fileExists(path.join(dir, 'html-cfg.yaml')));
+  t.ok($.fileExists(path.join(dir, 'config.yaml')));
   t.ok($.fileExists(path.join(dir, 'source/simple.adoc')));
   t.end();
 });
@@ -90,7 +89,7 @@ test('init: unknown category falls back to simple', function (t) {
  */
 test('generate: HTML from a directory', function (t) {
   process.chdir(path.join(__dirname, 'temp/simple'));
-  litoria.convertToHtml('html-cfg.yaml').then(function () {
+  litoria.convertToHtml('config.yaml').then(function () {
     let genFile = $.getFile('generated/simple.html').contents.toString('utf8');
     t.ok(genFile.includes('<h2 id="_the_dangerous_and_thrilling_documentation_chronicles">', true));
     t.end();
@@ -106,8 +105,8 @@ test('generate: HTML from a directory', function (t) {
 test('generate: HTML for a single file', function (t) {
   let projectDirPath = path.join(__dirname, 'temp/simple');
   process.chdir(projectDirPath);
-  $.searchReplaceStringInFile(projectDirPath + '/html-cfg.yaml', 'source: "./source"', 'source: "./source/simple.adoc"');
-  litoria.convertToHtml('html-cfg.yaml').then(function () {
+  $.searchReplaceStringInFile(projectDirPath + '/config.yaml', 'source: "./source"', 'source: "./source/simple.adoc"');
+  litoria.convertToHtml('config.yaml').then(function () {
     let genFile = $.getFile('generated/simple.html').contents.toString('utf8');
     t.ok(genFile.includes('<h2 id="_the_dangerous_and_thrilling_documentation_chronicles">', true));
     t.end();
@@ -118,14 +117,14 @@ test('generate: HTML for a single file', function (t) {
 });
 
 /*
- * Generate HTML from an external path (simulates --path option)
+ * Generate HTML from an external project path (simulates positional path argument)
  */
-test('generate: HTML using --path option', function (t) {
+test('generate: HTML using project path argument', function (t) {
   process.chdir(savedCwd);
   let projectPath = path.join(__dirname, 'temp/simple');
-  $.searchReplaceStringInFile(projectPath + '/html-cfg.yaml', 'source: "./source/simple.adoc"', 'source: "./source"');
+  $.searchReplaceStringInFile(projectPath + '/config.yaml', 'source: "./source/simple.adoc"', 'source: "./source"');
   process.chdir(projectPath);
-  litoria.convertToHtml('html-cfg.yaml').then(function () {
+  litoria.convertToHtml('config.yaml').then(function () {
     let genFile = $.getFile('generated/simple.html').contents.toString('utf8');
     t.ok(genFile.includes('<h2 id="_the_dangerous_and_thrilling_documentation_chronicles">', true));
     process.chdir(savedCwd);
@@ -143,11 +142,10 @@ test('generate: HTML using --path option', function (t) {
 test('generate: HTML using default config.yaml', function (t) {
   let projectPath = path.join(__dirname, 'temp/simple');
   process.chdir(projectPath);
-  fs.copyFileSync('html-cfg.yaml', 'config.yaml');
+  t.ok(fs.existsSync('config.yaml'), 'config.yaml exists in project dir');
   litoria.convertToHtml('config.yaml').then(function () {
     let genFile = $.getFile('generated/simple.html').contents.toString('utf8');
     t.ok(genFile.includes('<h2 id="_the_dangerous_and_thrilling_documentation_chronicles">', true));
-    fs.unlinkSync('config.yaml');
     t.end();
   }).catch(function (err) {
     t.fail(err);
@@ -161,7 +159,7 @@ test('generate: HTML using default config.yaml', function (t) {
 test('generate: HTML using config.yml extension', function (t) {
   let projectPath = path.join(__dirname, 'temp/simple');
   process.chdir(projectPath);
-  fs.copyFileSync('html-cfg.yaml', 'config.yml');
+  fs.copyFileSync('config.yaml', 'config.yml');
   litoria.convertToHtml('config.yml').then(function () {
     let genFile = $.getFile('generated/simple.html').contents.toString('utf8');
     t.ok(genFile.includes('<h2 id="_the_dangerous_and_thrilling_documentation_chronicles">', true));
@@ -179,9 +177,9 @@ test('generate: HTML using config.yml extension', function (t) {
 test('generate: HTML with default stylesheet', function (t) {
   let projectDirPath = path.join(__dirname, 'temp/simple');
   process.chdir(projectDirPath);
-  $.searchReplaceStringInFile(projectDirPath + '/html-cfg.yaml', 'stylesheet: \'foundation.css\'', '');
-  $.searchReplaceStringInFile(projectDirPath + '/html-cfg.yaml', 'stylesdir: \'css\'', '');
-  litoria.convertToHtml('html-cfg.yaml').then(function () {
+  $.searchReplaceStringInFile(projectDirPath + '/config.yaml', 'stylesheet: \'foundation.css\'', '');
+  $.searchReplaceStringInFile(projectDirPath + '/config.yaml', 'stylesdir: \'css\'', '');
+  litoria.convertToHtml('config.yaml').then(function () {
     let genFile = $.getFile('generated/simple.html').contents.toString('utf8');
     t.ok(genFile.includes('<h2 id="_the_dangerous_and_thrilling_documentation_chronicles">', true));
     t.ok(genFile.includes('Asciidoctor default stylesheet', true));

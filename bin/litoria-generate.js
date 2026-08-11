@@ -12,19 +12,18 @@ let log = new Log();
  */
 program
   .description('generate html from the asciidoc file using html5 as backend')
-  .usage('litoria <generate> [options]')
+  .usage('litoria <generate> [project-path] [options]')
   .option('-r, --rendering [type]', 'rendering type - could be [html], pdf', 'html')
-  .option('-p, --path <dir>', 'project path where the config file is located')
   .option('-c, --config <file>', 'config file to use')
   .parse(process.argv);
 
-if (program.path) {
-  let projectPath = path.resolve(program.path);
+let cfgFile = program.config ? path.resolve(program.config) : null;
+
+if (program.args[0]) {
+  let projectPath = path.resolve(program.args[0]);
   log.debug('Changing to project path : ' + projectPath);
   process.chdir(projectPath);
 }
-
-let cfgFile = program.config;
 
 if (!cfgFile) {
   if (fs.existsSync('config.yaml')) {
