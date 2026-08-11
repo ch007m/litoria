@@ -52,6 +52,7 @@ mail:
   from: "user@domain"
   to: "user@domain"
   subject: "{author}'s weekly report : {date}"
+  signature: "Cheers{break}----{break}{author}{break}Sr Pr. Software Engineer"
   # body: "Hi,{break}{break}Please find the report attached.{break}{break}Regards,{break}{author}"
   variables:
     author: "First & Last Name"

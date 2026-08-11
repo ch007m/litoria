@@ -193,6 +193,7 @@ mail:
 | to        | Recipient email address(es)                                     |    x     |
 | subject   | Email subject (supports `{variable}` placeholders)              |    x     |
 | body      | Email body as inline HTML (supports `{variable}` and `{break}`) |          |
+| signature | Appended after the body (supports `{variable}` and `{break}`)  |          |
 | variables | Key-value pairs for template placeholders                       |          |
 
 If `body` is not set, the content of `file_inlined` is used as the email body.
