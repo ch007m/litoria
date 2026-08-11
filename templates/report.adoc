@@ -1,18 +1,18 @@
 [cols="10,90",weight="80%"]
 |===
 |image:image/quarkus-logo.png["Quarkus",200]
-<s|{author}'s weekly report : {date} {break} {email}
+<|{author}'s weekly report : {date} {break} {email}
 |===
 
-== Report
+== What was done last week
+.Quarkus & AI
 
-.What was done last week
-* Blabla.
 ** Blabla.
 * Blabla.
 ** Blabla.
 
 .Another Topic
+
 * Blabla
 ** Blabla.
 

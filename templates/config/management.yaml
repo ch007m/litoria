@@ -49,12 +49,13 @@ smtp:
   # refreshToken: "your-refresh-token"
 
 mail:
-  from: "user@domain"
-  to: "user@domain"
-  subject: "{author}'s weekly report : {date}"
-  signature: "Cheers{break}----{break}{author}{break}Sr Pr. Software Engineer"
-  # body: "Hi,{break}{break}Please find the report attached.{break}{break}Regards,{break}{author}"
   variables:
     author: "First & Last Name"
     email: "user@domain"
     # date is auto-filled with today's date if not set
+  from: "user@domain"
+  to: "user@domain"
+  subject: "{author}'s weekly report : {date}"
+  signature: "Cheers{break}----{break}{author}{break}YOUR_TITLE"
+  # body: "Hi,{break}{break}Please find the report attached.{break}{break}Regards,{break}{author}"
+
