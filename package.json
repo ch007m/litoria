@@ -27,7 +27,7 @@
     "node": ">=18"
   },
   "dependencies": {
-    "@asciidoctor/core": "^4.0.8",
+    "@asciidoctor/core": "^3.0.4",
     "@asciidoctor/reveal.js": "^5.2.0",
     "@hapi/hapi": "^21.4.8",
     "@hapi/inert": "^7.1.2",
@@ -67,10 +67,7 @@
   },
   "overrides": {
     "parse-url": "11.1.0",
-    "encoding-sniffer": "1.0.2",
-    "@asciidoctor/opal-runtime": {
-      "glob": "13.0.6"
-    }
+    "encoding-sniffer": "1.0.2"
   },
   "allowScripts": {
     "puppeteer": true
