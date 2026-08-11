@@ -52,9 +52,9 @@ Create a project containing a default config file and a **simple** adoc file
     
 Many project's types are supported as described hereafter :
     
-* Simple: project containing a simple adoc example
-* Management : project containing a **minute** and **report** adoc example
-* Lab : project containing a **Hands-on Lab** adoc example
+* Simple: simple adoc example
+* Management : folder containing a **minute** and **report** adoc example
+* Lab : **Hands-on Lab** example
 * Slideshow: RevealJS slideshow project
     
 To use such type, pass the option `-t` or `--type` with the keywords `simple`, `management`, `lab` or `slideshow`. The default type is `simple`
