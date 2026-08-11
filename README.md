@@ -8,7 +8,7 @@
 [![NPM](https://nodei.co/npm/litoria.png)](https://npmjs.org/package/litoria)
 
 
-Command Line Tool to manage asciidoc projet (create, watch content), convert adoc into html, pdf & epub3 for doc, reports, revealjs slideshow, hands on lab & more
+Command Line Tool to manage AsciiDoc projet (create, watch content), convert adoc into HTML, PDF & epub3 for doc, reports, revealjs slideshow, hands on lab & more
 
 |                 | Project Info  |
 | --------------- | ------------- |
@@ -16,7 +16,7 @@ Command Line Tool to manage asciidoc projet (create, watch content), convert ado
 | Build:          | make  |
 | Documentation:  | N/A  |
 | Issue tracker:  | https://github.com/cmoulliard/litoria/issues  |
-| Engines:        | Node.js 6.x, 7.x, 8.x
+| Engines:        | Node.js >= 18.x
 
 ## Installation
 
