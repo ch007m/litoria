@@ -1,6 +1,6 @@
 {
   "name": "litoria",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A Command Line Tool to manage asciidoctor projet; create, add content, watch content and convert it into html, pdf & epub3 files for documents, reports, revealjs slideshow, hands on lab & more",
   "license": "Apache-2.0",
   "author": "Charles Moulliard",
@@ -21,10 +21,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/ch007m/litoria"
+    "url": "git+https://github.com/ch007m/litoria.git"
   },
   "engines": {
-    "node": ">=20"
+    "node": ">=22"
   },
   "dependencies": {
     "@asciidoctor/reveal.js": "6.0.0-beta.2",
@@ -56,7 +56,7 @@
   },
   "devDependencies": {
     "eslint": "^8.22.0",
-"nyc": "^18.0.0",
+    "nyc": "^18.0.0",
     "proxyquire": "^1.7.10",
     "release-it": "^21.0.2",
     "should": "^11.1.0",
