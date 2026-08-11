@@ -1,4 +1,4 @@
-# <img src="https://raw.githubusercontent.com/ch007m/litoria/master/templates/image/litoria-chloris.jpg"> litoria
+# <img src="https://raw.githubusercontent.com/ch007m/litoria/main/templates/image/litoria-chloris.jpg"> litoria
 
 [![Known Vulnerabilities](https://snyk.io/test/npm/litoria/badge.svg)](https://snyk.io/test/npm/litoria)
 [![NPM](https://nodei.co/npm/litoria.png)](https://npmjs.org/package/litoria)
