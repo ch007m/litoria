@@ -135,7 +135,7 @@ test('sendEmail: sends mail via nodemailer', function (t) {
   litoria.send('config.yaml');
   setTimeout(function () {
     t.ok(sentOptions, 'Mail was sent');
-    t.equal(sentOptions.subject, 'Title of the Subject');
+    t.ok(sentOptions.subject.includes('weekly report'), 'Subject contains template text');
     t.end();
   }, 100);
 });

@@ -20,6 +20,10 @@ let cfgFile = program.config ? path.resolve(program.config) : null;
 
 if (program.args[0]) {
   let projectPath = path.resolve(program.args[0]);
+  if (!fs.existsSync(projectPath)) {
+    log.warn('Project path not found: ' + projectPath);
+    process.exit(1);
+  }
   log.debug('Changing to project path : ' + projectPath);
   process.chdir(projectPath);
 }

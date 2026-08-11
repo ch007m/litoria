@@ -1,0 +1,59 @@
+source: "./source" # directory path or name of the file to be processed
+destination: "./generated"
+
+file_to_inline: "./generated/report.html" # HTML file to inline CSS into
+file_inlined: "./generated/report-inlined.html" # output file with inlined CSS
+
+attributes:
+  showtitle: ''
+  stylesheet: 'foundation.css'
+  stylesdir: 'css'
+  nofooter: 'yes'
+  icons: 'font'
+
+options:
+  doctype: 'article'
+  to_dir: 'generated'
+  safe: 'unsafe'
+
+http:
+  port: 3000
+  address: 0.0.0.0
+
+pdf:
+  format: A4
+  orientation: portrait
+  zoomFactor: "0.55"
+  border:
+    top: 20px
+    right: 15px
+    bottom: 20px
+    left: 15px
+
+smtp:
+  host: "smtp.gmail.com"
+  port: 587
+  secure: false
+  requireTLS: true
+  tls:
+    rejectUnauthorized: false
+  logger: true
+  debug: false
+  # Option 1: App Password (simpler - enable 2FA, then generate at https://myaccount.google.com/apppasswords)
+  user: "your-email@gmail.com"
+  pass: "your-app-password"
+  # Option 2: OAuth2 (recommended - remove user/pass above and uncomment below)
+  # user: "your-email@gmail.com"
+  # clientId: "your-client-id"
+  # clientSecret: "your-client-secret"
+  # refreshToken: "your-refresh-token"
+
+mail:
+  from: "user@domain"
+  to: "user@domain"
+  subject: "{author}'s weekly report : {date}"
+  # body: "Hi,{break}{break}Please find the report attached.{break}{break}Regards,{break}{author}"
+  variables:
+    author: "First & Last Name"
+    email: "user@domain"
+    # date is auto-filled with today's date if not set

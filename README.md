@@ -143,9 +143,66 @@ Send email to an SMTP server & embed the HTML generated within the Mail created
     
     litoria send ./report/quarkus
     
-The parameters as the subject, sender, recipient, SMTP Server, port number, security mode are defined within the `config.yaml` file.  
+Configure the `smtp` and `mail` sections in your `config.yaml`:
 
-**Note** :  To generate your ClientId, Secret, Access and RefreshToken for Gmail's OAuth2, read the following [blog](http://masashi-k.blogspot.com/2013/06/sending-mail-with-gmail-using-xoauth2.html)
+```yaml
+smtp:
+  host: "smtp.gmail.com"
+  port: 587
+  secure: false
+  requireTLS: true
+  user: "your-email@gmail.com"
+  # For App Password auth:
+  pass: "your-app-password"
+  # For OAuth2 auth (remove pass and use these instead):
+  # clientId: "your-client-id"
+  # clientSecret: "your-client-secret"
+  # refreshToken: "your-refresh-token"
+
+mail:
+  from: "your-email@gmail.com"
+  to: "recipient@domain.com"
+  subject: "{author}'s weekly report : {date}"
+  variables:
+    author: "First & Last Name"
+    email: "your-email@gmail.com"
+```
+
+**smtp fields:**
+
+| Field         | Description                                       | Required |
+|---------------|---------------------------------------------------|:--------:|
+| host          | SMTP server hostname                              |    x     |
+| port          | SMTP port (587 for TLS, 465 for SSL)              |    x     |
+| secure        | `true` for port 465, `false` for 587              |    x     |
+| requireTLS    | Force STARTTLS upgrade                            |          |
+| tls           | TLS options (e.g., `rejectUnauthorized: false`)   |          |
+| user          | Email account username                            |    x     |
+| pass          | App Password (for App Password auth)              |          |
+| clientId      | OAuth2 Client ID (for OAuth2 auth)                |          |
+| clientSecret  | OAuth2 Client Secret (for OAuth2 auth)            |          |
+| refreshToken  | OAuth2 Refresh Token (for OAuth2 auth)            |          |
+| logger        | Enable SMTP logging (`true`/`false`)              |          |
+| debug         | Enable debug output (`true`/`false`)              |          |
+
+**mail fields:**
+
+| Field     | Description                                                     | Required |
+|-----------|-----------------------------------------------------------------|:--------:|
+| from      | Sender email address                                            |    x     |
+| to        | Recipient email address(es)                                     |    x     |
+| subject   | Email subject (supports `{variable}` placeholders)              |    x     |
+| body      | Email body as inline HTML (supports `{variable}` and `{break}`) |          |
+| variables | Key-value pairs for template placeholders                       |          |
+
+If `body` is not set, the content of `file_inlined` is used as the email body.
+
+The `{date}` variable is auto-filled with today's date if not explicitly defined. Use `{break}` for line breaks in the subject or body.
+
+**Gmail authentication** (see [nodemailer Gmail guide](https://nodemailer.com/guides/using-gmail)):
+
+* **App Password** (simpler): Enable 2-Step Verification, then generate an app password at https://myaccount.google.com/apppasswords. Set `user` and `pass`.
+* **OAuth2** (recommended): Set `user`, `clientId`, `clientSecret`, and `refreshToken`.
  
 ### server
 
