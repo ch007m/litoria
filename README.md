@@ -11,7 +11,7 @@ Command Line Tool to manage AsciiDoc projects (create, watch content), convert a
 | Build:          | make                                     |
 | Documentation:  | N/A                                      |
 | Issue tracker:  | https://github.com/ch007m/litoria/issues |
-| Engines:        | Node.js >= 20.x                          |
+| Engines:        | Node.js >= 22.x                          |
 
 ## Installation
 
@@ -19,11 +19,11 @@ Command Line Tool to manage AsciiDoc projects (create, watch content), convert a
 
 ## Usage
 
-    $ litoria <cmd> <option> <yaml_config_file>
+    $ litoria <cmd> [options]
 
-where `<cmd>` corresponds to one of the command available: init, generate, inline, pdf and the options to the rendering required; HTML, PDF, ... 
+where `<cmd>` corresponds to one of the commands available: `init`, `generate`, `inline`, `pdf`, `send`, `serve`.
 
-The Asciidoctor attributes and the options like the source and destination folders can be defined using a yaml config file
+The Asciidoctor attributes and the options like the source and destination folders can be defined using a YAML config file
 
     source: "./source" # or could be a directory eg. ./examples
     file_to_inline: "./generated/output.html"
@@ -50,40 +50,67 @@ Create a project containing a default config file and a **simple** adoc file
     
     litoria init /path/to/project
     
-Many project type or category are supported as described here after :
+Many project's types are supported as described hereafter :
     
-* Simple: project containing a simple adoc example
-* Management : project containing a **minute** and **report** adoc example
-* Lab : project containing a **Hands-on Lab** adoc example
+* Simple: simple adoc example
+* Management : a **minute** and **report** adoc example
+* Lab : **Hands-on Lab** example
 * Slideshow: RevealJS slideshow project
     
-To use such type, pass the option `-c` or `--category` with the keywords `simple`, `management`, `lab` or `slideshow`. The default category is `simple`
+To use such type, pass the option `-t` or `--type` with the keywords `simple`, `management`, `lab` or `slideshow`. The default type is `simple`
     
     litoria init /path/to/project
-    litoria init -c management /path/to/project
-    litoria init -c lab /path/to/project
-        
+    litoria init -t management /path/to/project
+    litoria init -t lab /path/to/project
+
+Each type generates a single `config.yaml` file with different sections:
+
+| Section     | [simple](templates/config/simple.yaml) | [management](templates/config/management.yaml) | [lab](templates/config/lab.yaml) | [slideshow](templates/config/slideshow.yaml) |
+|-------------|:------:|:----------:|:---:|:---------:|
+| source      |   x    |     x      |  x  |     x     |
+| destination |   x    |     x      |  x  |     x     |
+| attributes  |   x    |     x      |  x  |     x     |
+| options     |   x    |     x      |  x  |     x     |
+| http        |   x    |     x      |  x  |     x     |
+| pdf         |   x    |     x      |  x  |           |
+| smtp        |        |     x      |     |           |
+| mail        |        |     x      |     |           |
+
 ### generate
 
 Render the Asciidoctor(s) file(s) part of the input directory **source** into an HTML file. The generated content is available within the **generated** folder.
+
+If no config file is specified, litoria looks for `config.yaml` or `config.yml` in the current (or project) directory:
     
-    litoria generate -r html config.yaml
+    litoria generate
+
+To use a specific config file, pass it with `-c`:
     
-or 
+    litoria generate -c my-config.yaml
     
-    litoria generate config.yaml as the default rendering is `html`
+By default, the rendering is `html`. To specify a different rendering type, use the `-r` option:
     
-The source and destination folders can be changed within the yaml config file.   
+    litoria generate -r html -c config.yaml
+    litoria generate -r pdf -c config.yaml
+
+To run the generate command against a project located in a different directory, pass the project path as an argument:
+    
+    litoria generate ./report/quarkus
+    litoria generate ./report/quarkus -c custom.yaml
+
+A warning is displayed if the config file does not exist.
+
+The source and destination folders can be changed within the yaml config file.
 
 ### slideshow 
 
 Create a slideshow presentation using the template [slideshow](templates/slideshow.adoc)
 
-    litoria init -c slideshow /path/to/project
+    litoria init -t slideshow /path/to/project
 
 Render the Asciidoctor(s) file(s) part of the input directory **source** into a RevealJS Slideshow. The generated content is available within the **generated** folder.
     
-    litoria generate slideshow-cfg.yaml
+    litoria generate -c config.yaml
  
 **IMPORTANT** : Copy your own resources such as `image`, `css` folders under the **generated** folder and start a local http server using the `serve` command.
     
@@ -102,30 +129,88 @@ attributes:
  
  The purpose of this command is to move the CSS styles from the CSS files or style tag and to inline them within the HTML tag of the document. This is required when you would like to email by example the Gmail client as Google will escape the styles & CSS file before to display your mail and its HTML content within the browser.
 
-    litoria inline config.yaml
+    litoria inline ./report/quarkus
     
 ### pdf
  
 Convert an HTML file into a PDF file
     
-    litoria generate -r pdf config.yaml 
+    litoria generate -r pdf
        
 ### send
 
 Send email to an SMTP server & embed the HTML generated within the Mail created
     
-    litoria send config.yaml        
+    litoria send ./report/quarkus
     
-The parameters as the subject, sender, recipient, SMTP Server, port number, security mode are defined within the config.yaml file.  
+Configure the `smtp` and `mail` sections in your `config.yaml`:
 
-**Note** :  To generate your ClientId, Secret, Access and RefreshToken for Gmail's OAuth2, read the following [blog](http://masashi-k.blogspot.com/2013/06/sending-mail-with-gmail-using-xoauth2.html)
+```yaml
+smtp:
+  host: "smtp.gmail.com"
+  port: 587
+  secure: false
+  requireTLS: true
+  user: "your-email@gmail.com"
+  # For App Password auth:
+  pass: "your-app-password"
+  # For OAuth2 auth (remove pass and use these instead):
+  # clientId: "your-client-id"
+  # clientSecret: "your-client-secret"
+  # refreshToken: "your-refresh-token"
+
+mail:
+  from: "your-email@gmail.com"
+  to: "recipient@domain.com"
+  subject: "{author}'s weekly report : {date}"
+  variables:
+    author: "First & Last Name"
+    email: "your-email@gmail.com"
+```
+
+**smtp fields:**
+
+| Field         | Description                                       | Required |
+|---------------|---------------------------------------------------|:--------:|
+| host          | SMTP server hostname                              |    x     |
+| port          | SMTP port (587 for TLS, 465 for SSL)              |    x     |
+| secure        | `true` for port 465, `false` for 587              |    x     |
+| requireTLS    | Force STARTTLS upgrade                            |          |
+| tls           | TLS options (e.g., `rejectUnauthorized: false`)   |          |
+| user          | Email account username                            |    x     |
+| pass          | App Password (for App Password auth)              |          |
+| clientId      | OAuth2 Client ID (for OAuth2 auth)                |          |
+| clientSecret  | OAuth2 Client Secret (for OAuth2 auth)            |          |
+| refreshToken  | OAuth2 Refresh Token (for OAuth2 auth)            |          |
+| logger        | Enable SMTP logging (`true`/`false`)              |          |
+| debug         | Enable debug output (`true`/`false`)              |          |
+
+**mail fields:**
+
+| Field     | Description                                                     | Required |
+|-----------|-----------------------------------------------------------------|:--------:|
+| from      | Sender email address                                            |    x     |
+| to        | Recipient email address(es)                                     |    x     |
+| subject   | Email subject (supports `{variable}` placeholders)              |    x     |
+| body      | Email body as inline HTML (supports `{variable}` and `{break}`) |          |
+| signature | Appended after the body (supports `{variable}` and `{break}`)  |          |
+| variables | Key-value pairs for template placeholders                       |          |
+
+If `body` is not set, the content of `file_inlined` is used as the email body.
+
+The `{date}` variable is auto-filled with today's date if not explicitly defined. Use `{break}` for line breaks in the subject or body.
+
+**Gmail authentication** (see [nodemailer Gmail guide](https://nodemailer.com/guides/using-gmail)):
+
+* **App Password** (simpler): Enable 2-Step Verification, then generate an app password at https://myaccount.google.com/apppasswords. Set `user` and `pass`.
+* **OAuth2** (recommended): Set `user`, `clientId`, `clientSecret`, and `refreshToken`.
  
 ### server
 
 Start a local HTTP Server hosting the content generated & passed as parameter within the yaml config file. The default port of the server is `3000`
     
-    litoria serve config.yaml  
-    litoria serve -o config.yaml  # to open the browser window using the Server URI http://localhost:port/
+    litoria serve ./report/quarkus
+    litoria serve -o ./report/quarkus  # to open the browser window
     
 ## For the developer only
     

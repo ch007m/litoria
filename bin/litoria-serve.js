@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 let program = require('commander');
+let fs = require('fs');
+let path = require('path');
 let $ = require('../lib/litoria.js');
 let Log = require('../lib/log');
 
@@ -10,19 +12,37 @@ let log = new Log();
  */
 program
   .description('Start a local HTTP Server hosting the content')
-  .usage('litoria serve')
+  .usage('litoria serve [project-path] [options]')
   .option('-o, --open', 'open browser window after starting the server')
-  .on('--help', function () {
-    log.info('  Examples:');
-    log.info();
-    log.info('    $ litoria serve server-cfg.yaml');
-    log.info();
-  })
+  .option('-c, --config <file>', 'config file to use')
   .parse(process.argv);
 
-if ($.isEmpty(program.args)) {
-  log.error('No arguments have been passed to the command.');
-  process.exit(0);
-} else {
-  $.serve(program.args, program.open !== undefined);
+let cfgFile = program.config ? path.resolve(program.config) : null;
+
+if (program.args[0]) {
+  let projectPath = path.resolve(program.args[0]);
+  if (!fs.existsSync(projectPath)) {
+    log.warn('Project path not found: ' + projectPath);
+    process.exit(1);
+  }
+  log.debug('Changing to project path : ' + projectPath);
+  process.chdir(projectPath);
 }
+
+if (!cfgFile) {
+  if (fs.existsSync('config.yaml')) {
+    cfgFile = 'config.yaml';
+  } else if (fs.existsSync('config.yml')) {
+    cfgFile = 'config.yml';
+  } else {
+    log.warn('No config file found. Pass one with -c <file> or create a config.yaml in the project directory.');
+    process.exit(1);
+  }
+}
+
+if (!fs.existsSync(cfgFile)) {
+  log.warn('Config file not found: ' + cfgFile);
+  process.exit(1);
+}
+
+$.serve(cfgFile, program.open !== undefined);

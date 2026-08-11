@@ -80,7 +80,7 @@ test('startServer: starts Hapi server with config', function (t) {
   $.deleteFolderRecursive(cfgDir);
   litoria.initProject('simple', null, cfgDir);
   process.chdir(cfgDir);
-  litoria.serve('httpserver-cfg.yaml').then(function () {
+  litoria.serve('config.yaml').then(function () {
     t.ok(registered, 'Inert plugin registered');
     t.ok(started, 'Server started');
     t.ok(routeSet, 'Route configured');
@@ -100,7 +100,7 @@ test('startServer: opens browser when option is true', function (t) {
   $.deleteFolderRecursive(cfgDir);
   litoria.initProject('simple', null, cfgDir);
   process.chdir(cfgDir);
-  litoria.serve('httpserver-cfg.yaml', true).then(function () {
+  litoria.serve('config.yaml', true).then(function () {
     t.ok(opened, 'Browser opened');
     t.end();
   }).catch(function (err) {
@@ -130,12 +130,12 @@ test('sendEmail: sends mail via nodemailer', function (t) {
   process.chdir(cfgDir);
 
   fs.mkdirSync(path.join(cfgDir, 'generated'), {recursive: true});
-  fs.writeFileSync(path.join(cfgDir, 'generated/output-inlined.html'), '<html><body>Test</body></html>');
+  fs.writeFileSync(path.join(cfgDir, 'generated/report-inlined.html'), '<html><body>Test</body></html>');
 
-  litoria.send('smtp-cfg.yaml');
+  litoria.send('config.yaml');
   setTimeout(function () {
     t.ok(sentOptions, 'Mail was sent');
-    t.equal(sentOptions.subject, 'Title of the Subject');
+    t.ok(sentOptions.subject.includes('weekly report'), 'Subject contains template text');
     t.end();
   }, 100);
 });
@@ -157,9 +157,9 @@ test('sendEmail: handles error from transporter', function (t) {
   process.chdir(cfgDir);
 
   fs.mkdirSync(path.join(cfgDir, 'generated'), {recursive: true});
-  fs.writeFileSync(path.join(cfgDir, 'generated/output-inlined.html'), '<html>Test</html>');
+  fs.writeFileSync(path.join(cfgDir, 'generated/report-inlined.html'), '<html>Test</html>');
 
-  litoria.send('smtp-cfg.yaml');
+  litoria.send('config.yaml');
   setTimeout(function () {
     t.pass('Error handled without crash');
     t.end();
@@ -196,6 +196,16 @@ test('convertToPdf: converts a single HTML file', function (t) {
   fs.mkdirSync(path.join(cfgDir, 'generated_pdf'), {recursive: true});
   fs.writeFileSync(path.join(cfgDir, 'generated_content/my_file.html'),
     '<html><body><img src="image/logo.png"/>Hello</body></html>');
+
+  var cfgContent = [
+    'source: "./source"',
+    'destination: "./generated_content"',
+    'pdf_source: "./generated_content/my_file.html"',
+    'pdf:',
+    '  format: A4',
+    '  zoomFactor: "0.55"'
+  ].join('\n');
+  fs.writeFileSync(path.join(cfgDir, 'pdf-cfg.yaml'), cfgContent);
 
   litoria.convertToPdf('pdf-cfg.yaml').then(function () {
     t.ok(pdfGenerated, 'PDF was generated');
@@ -241,8 +251,8 @@ test('convertToPdf: converts a directory of HTML files with images', function (t
     '<html><body><p>Page 2</p></body></html>');
 
   var cfgContent = [
-    'source: "./generated_content"',
-    'destination: "./generated_pdf"',
+    'source: "./source"',
+    'destination: "./generated_content"',
     'pdf:',
     '  format: A4',
     '  zoomFactor: "0.55"'
@@ -271,14 +281,14 @@ test('inline: inlines CSS into HTML file', function (t) {
   });
   var cfgDir = path.join(__dirname, 'temp/inline-test');
   $.deleteFolderRecursive(cfgDir);
-  litoria.initProject('simple', null, cfgDir);
+  litoria.initProject('management', null, cfgDir);
   process.chdir(cfgDir);
 
   fs.mkdirSync(path.join(cfgDir, 'generated'), {recursive: true});
-  fs.writeFileSync(path.join(cfgDir, 'generated/output.html'),
+  fs.writeFileSync(path.join(cfgDir, 'generated/report.html'),
     '<html><head><style>body{color:red}</style></head><body>Test</body></html>');
 
-  litoria.inline(['html-cfg.yaml']);
+  litoria.inline(['config.yaml']);
   setTimeout(function () {
     t.ok(inlinedHtml, 'inline-css was called');
     t.end();
@@ -317,8 +327,9 @@ test('convertToPdf: defaults to A4 when no pdf config', function (t) {
     '<html><body>Test</body></html>');
 
   var cfgContent = [
-    'source: "./generated_content/my_file.html"',
-    'destination: "./generated_pdf"'
+    'source: "./source"',
+    'destination: "./generated_content"',
+    'pdf_source: "./generated_content/my_file.html"'
   ].join('\n');
   fs.writeFileSync(path.join(cfgDir, 'no-pdf-cfg.yaml'), cfgContent);
 
@@ -339,7 +350,7 @@ test('initProject: creates deeply nested directory path', function (t) {
   var dir = path.join(__dirname, 'temp/deep/nested/path/project');
   $.deleteFolderRecursive(path.join(__dirname, 'temp/deep'));
   litoria.initProject('simple', null, dir);
-  t.ok($.fileExists(path.join(dir, 'html-cfg.yaml')));
+  t.ok($.fileExists(path.join(dir, 'config.yaml')));
   t.ok($.fileExists(path.join(dir, 'source/simple.adoc')));
   t.end();
 });
