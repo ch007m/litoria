@@ -71,10 +71,9 @@ If no config file is specified, litoria looks for `config.yaml` or `config.yml` 
     
     litoria generate
 
-To use a specific config file, pass it with `-c` or as a positional argument:
+To use a specific config file, pass it with `-c`:
     
     litoria generate -c html-cfg.yaml
-    litoria generate html-cfg.yaml
     
 By default, the rendering is `html`. To specify a different rendering type, use the `-r` option:
     

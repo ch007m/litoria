@@ -24,7 +24,7 @@ if (program.path) {
   process.chdir(projectPath);
 }
 
-let cfgFile = program.config || program.args[0];
+let cfgFile = program.config;
 
 if (!cfgFile) {
   if (fs.existsSync('config.yaml')) {
