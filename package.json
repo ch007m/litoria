@@ -62,7 +62,7 @@
     "should": "^11.1.0",
     "tap-min": "^3.0.0",
     "tape": "^4.6.0",
-    "test-console": "^1.0.0"
+    "test-console": "^2.0.0"
   },
   "overrides": {
     "parse-url": "11.1.0",
